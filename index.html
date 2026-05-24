@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishva Gandhi | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #0A0E1A;
+            --secondary-bg: #0F1629;
+            --accent-1: #6C63FF;
+            --accent-2: #00D4FF;
+            --highlight: #B347EA;
+            --text-color: #E8EAF6;
+            --card-bg: rgba(108, 99, 255, 0.08);
+            --gradient: linear-gradient(135deg, #6C63FF, #00D4FF, #B347EA);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        #grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(108, 99, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            max-width: 100%;
+            padding: 0 20px;
+            opacity: 1;
+            transform: none;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 10px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent-1);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(108, 99, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* Glass-morphism Card */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent-1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-chip {
+            background: rgba(108, 99, 255, 0.15);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            display: inline-block;
+            margin: 5px;
+            transition: 0.3s;
+            color: var(--text-color);
+        }
+
+        .skill-chip:hover {
+            border-color: var(--accent-2);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--accent-1);
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--gradient);
+            box-shadow: 0 0 10px var(--accent-1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 22, 41, 0.8);
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-2);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #050810;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .typewriter-cursor {
+            border-right: 3px solid var(--accent-2);
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-2) }
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="grid-overlay"></div>
+
+    <section class="hero" id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <h1 class="gradient-text">Vishva Gandhi</h1>
+        <h2 style="font-size: 1.5rem; height: 1.5em; font-weight: 400; color: #A0AEC0;">
+            <span id="typewriter"></span><span class="typewriter-cursor"></span>
+        </h2>
+        <div style="margin-top: 40px;">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="gradient-text">About Me</h2>
+        <p style="margin-top: 20px; font-size: 1.1rem; max-width: 800px;">
+            Software Engineering Master's Student at Hochschule Heilbronn with a passion for AI/ML, Python, and Data Analytics.
+            Currently based in Stuttgart, Germany and work-authorised.
+        </p>
+        <div style="margin-top: 30px;">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">AI/ML</span>
+            <span class="skill-chip">Data Analytics</span>
+            <span class="skill-chip">Machine Learning</span>
+            <span class="skill-chip">Web Scraping</span>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="gradient-text">Projects</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+            <div class="card">
+                <h3>AI Web Scrapper</h3>
+                <p>Python-based AI-powered web scraping tool.</p>
+                <div style="margin-top: 15px;">
+                    <span class="skill-chip">Python</span>
+                    <span class="skill-chip">AI</span>
+                </div>
+                <a href="https://github.com/Vicky-HHN/-Ai-Webscrapper" style="color: var(--accent-2); margin-top: 15px; display: inline-block;"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+            <div class="card">
+                <h3>AI Video Upscaling Desktop App</h3>
+                <p>Python desktop app for AI video upscaling.</p>
+                <div style="margin-top: 15px;">
+                    <span class="skill-chip">Python</span>
+                    <span class="skill-chip">AI</span>
+                    <span class="skill-chip">GUI</span>
+                </div>
+                <a href="https://github.com/Vicky-HHN/AI-Video-Upscaling-Desktop-App" style="color: var(--accent-2); margin-top: 15px; display: inline-block;"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+            <div class="card">
+                <h3>Strategic Sales Performance Dashboard</h3>
+                <p>Python analytics dashboard for sales performance tracking.</p>
+                <div style="margin-top: 15px;">
+                    <span class="skill-chip">Python</span>
+                    <span class="skill-chip">Data Analytics</span>
+                </div>
+                <a href="https://github.com/Vicky-HHN/Strategic-Sales-Performance-Dashboard" style="color: var(--accent-2); margin-top: 15px; display: inline-block;"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="gradient-text">Skills</h2>
+        <div class="skills-grid" style="margin-top: 40px;">
+            <!-- Will be populated or styled further -->
+            <div class="card" style="text-align: center;">
+                <i class="fab fa-python" style="font-size: 2rem; color: var(--accent-2);"></i>
+                <p>Python</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-brain" style="font-size: 2rem; color: var(--accent-2);"></i>
+                <p>AI/ML</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-chart-bar" style="font-size: 2rem; color: var(--accent-2);"></i>
+                <p>Data Analytics</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-code" style="font-size: 2rem; color: var(--accent-2);"></i>
+                <p>Web Scraping</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="gradient-text" style="margin-bottom: 50px;">Education</h2>
+        <div class="timeline-item">
+            <h3>Master of Science in Software Engineering</h3>
+            <p style="font-size: 1.1rem; color: #A0AEC0;">Hochschule Heilbronn</p>
+            <p style="color: var(--accent-2); font-weight: 600;">Current</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="gradient-text" style="margin-bottom: 50px;">Contact Me</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px;">
+            <div>
+                <p style="font-size: 1.1rem; margin-bottom: 30px;">Let's build something amazing together. Reach out via the form or follow me on GitHub.</p>
+                <a href="https://github.com/Vicky-HHN" target="_blank" style="color: var(--text-color); text-decoration: none; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                    <i class="fab fa-github" style="font-size: 2rem; color: var(--accent-1);"></i> github.com/Vicky-HHN
+                </a>
+            </div>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary" style="border: none; width: 100%; margin: 0; cursor: pointer;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Vishva Gandhi</p>
+    </footer>
+
+    <script>
+        // Typewriter Effect
+        const typewriterElement = document.getElementById('typewriter');
+        const phrases = ["AI/ML Engineer", "Data Analyst", "Python Developer", "Master's Student"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Particle Background
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = Math.random() > 0.5 ? '#6C63FF' : '#00D4FF';
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            particles = [];
+            const numberOfParticles = (canvas.width * canvas.height) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        // Reveal on Scroll
+        function reveal() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const windowHeight = window.innerHeight;
+                const elementTop = section.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    section.classList.add('reveal');
+                }
+            });
+        }
+
+        // Event Listeners
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('resize', () => {
+            initCanvas();
+            createParticles();
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+            initCanvas();
+            createParticles();
+            animateParticles();
+            reveal(); // Initial check
+        });
+
+        // Simple Form Submission UI
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message, Vishva will get back to you soon!');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
