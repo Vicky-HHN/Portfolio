@@ -6,17 +6,19 @@
     <title>Vishva Gandhi | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg: #ffffff;
-            --bg-alt: #f9fafb;
-            --text: #111827;
-            --text-muted: #6b7280;
-            --accent: #3b82f6;
-            --border: #e5e7eb;
-            --radius: 12px;
+            --primary-bg: #0A0E1A;
+            --secondary-bg: #0F1629;
+            --accent-1: #6C63FF;
+            --accent-2: #00D4FF;
+            --highlight: #B347EA;
+            --text: #E8EAF6;
+            --card-bg: rgba(108, 99, 255, 0.08);
+            --gradient: linear-gradient(135deg, #6C63FF, #00D4FF);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -32,16 +34,78 @@
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg);
+            background-color: var(--primary-bg);
             color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Animated Gradient Background */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background:
+                radial-gradient(at 0% 0%, hsla(253,100%,69%,0.15) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(189,100%,50%,0.15) 0, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(280,80%,60%,0.15) 0, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(253,100%,69%,0.15) 0, transparent 50%);
+            animation: bg-pulse 15s ease infinite alternate;
+        }
+
+        @keyframes bg-pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Grid Overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--accent-1);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, 20vh) scale(1.2); }
+            66% { transform: translate(-10vw, 10vh) scale(0.8); }
+            100% { transform: translate(0, 0) scale(1); }
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 40px;
             width: 100%;
         }
 
@@ -52,156 +116,303 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-bottom: 1px solid var(--border);
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        section:last-of-type {
-            border-bottom: none;
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Hero / Header section specific */
-        #hero {
-            text-align: left;
+        h1, h2, .project-title {
+            font-family: 'JetBrains Mono', monospace;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.04em;
+            font-size: clamp(3rem, 12vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
             line-height: 1.1;
+            background: linear-gradient(135deg, #FFF, #6C63FF, #00D4FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
         }
 
-        .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-bottom: 32px;
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .subtitle-container {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            color: var(--accent-2);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 40px;
+            font-weight: 500;
+            height: 1.5em;
         }
 
         h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 32px;
-            letter-spacing: -0.02em;
-            color: var(--text);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
         }
 
-        p {
-            margin-bottom: 20px;
-            color: var(--text-muted);
-            font-size: 1.1rem;
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            background: rgba(108, 99, 255, 0.12);
+            border-color: rgba(108, 99, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-right: 20px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #000;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--accent-2);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--accent-1);
         }
 
         .project-grid {
             display: grid;
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .project-card {
-            padding: 24px;
-            background: var(--bg-alt);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-        }
-
-        .project-header {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 12px;
-            gap: 16px;
+            flex-direction: column;
+            height: 100%;
         }
 
         .project-title {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent-2);
             text-decoration: none;
-            color: var(--text);
-        }
-
-        .project-tech {
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-family: monospace;
-            font-weight: 600;
-            text-transform: uppercase;
         }
 
         .project-desc {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: rgba(232, 234, 246, 0.8);
+            margin-bottom: 25px;
+            flex-grow: 1;
         }
 
-        .tech-list {
+        .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .tech-tag {
-            background: var(--bg);
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
             padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 0.9rem;
-            border: 1px solid var(--border);
-            font-weight: 500;
-        }
-
-        .education-item {
-            margin-bottom: 32px;
-        }
-
-        .edu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-
-        .school {
-            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: var(--accent-1);
             font-weight: 600;
         }
 
-        .date {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .degree {
-            font-size: 1rem;
-            color: var(--text-muted);
-        }
-
-        .contact-links {
+        .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
-            margin-top: 8px;
+            gap: 12px;
+            margin-top: 30px;
         }
 
-        .contact-link {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
+        .skill-chip {
+            padding: 8px 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-chip:hover {
+            border-color: var(--accent-2);
+            color: var(--accent-2);
+            background: rgba(0, 212, 255, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .form-group {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 8px;
-            transition: color 0.2s;
         }
 
-        .contact-link:hover {
-            color: var(--accent);
+        .form-group.full-width {
+            grid-column: span 2;
         }
 
-        /* Sidebar Navigation */
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 15px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-1);
+        }
+
+        label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .edu-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .edu-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .edu-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: -49px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-bg);
+            border: 4px solid var(--accent-1);
+        }
+
+        .edu-date {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-2);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .edu-school {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .edu-degree {
+            color: rgba(232, 234, 246, 0.6);
+        }
+
+        /* Navigation Dots */
         .side-nav {
             position: fixed;
             right: 40px;
@@ -214,53 +425,70 @@
         }
 
         .nav-dot {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: var(--border);
-            text-decoration: none;
-            transition: background 0.3s, transform 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .nav-dot.active {
-            background: var(--accent);
-            transform: scale(1.3);
-        }
-
-        footer {
-            height: 10vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            scroll-snap-align: end;
+            background: var(--accent-2);
+            border-color: var(--accent-2);
+            transform: scale(1.4);
+            box-shadow: 0 0 15px var(--accent-2);
         }
 
         @media (max-width: 768px) {
-            html {
-                scroll-snap-type: none;
-            }
+            html { scroll-snap-type: none; }
             section {
                 height: auto;
                 min-height: 100vh;
                 padding: 80px 0;
             }
-            .side-nav {
-                display: none;
+            .container { padding: 0 20px; }
+            .side-nav { display: none; }
+            .btn { margin-bottom: 15px; width: 100%; justify-content: center; }
+            h1 { font-size: 2.8rem; }
+            .contact-form {
+                grid-template-columns: 1fr;
             }
-            .project-header {
-                flex-direction: column;
-                gap: 4px;
+            .form-group.full-width {
+                grid-column: span 1;
             }
-            .edu-header {
-                flex-direction: column;
-            }
+        }
+
+        #typewriter::after {
+            content: '_';
+            animation: blink 1s infinite;
+            color: var(--accent-2);
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: rgba(232, 234, 246, 0.4);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
         }
 
     </style>
 </head>
 <body>
+
+    <div class="bg-mesh"></div>
+    <div class="grid-overlay"></div>
+    <div class="particles">
+        <div class="particle" style="width: 300px; height: 300px; top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 400px; height: 400px; bottom: 10%; right: 10%; animation-delay: -5s; background: var(--accent-2);"></div>
+        <div class="particle" style="width: 250px; height: 250px; top: 50%; left: 40%; animation-delay: -10s; background: var(--highlight);"></div>
+    </div>
 
     <nav class="side-nav">
         <a href="#hero" class="nav-dot active" title="Home"></a>
@@ -274,23 +502,40 @@
     <main>
         <section id="hero">
             <div class="container">
+                <p style="font-family: 'JetBrains Mono'; color: var(--accent-1); margin-bottom: 10px; font-weight: 700;">GUTEN TAG, I AM</p>
                 <h1>Vishva Gandhi</h1>
-                <p class="subtitle">Software Engineering Master's Student | Stuttgart, DE</p>
-                <div class="contact-links">
-                    <a href="https://github.com/Vicky-HHN" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="mailto:contact@vishvagandhi.dev" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="#" class="contact-link"><i class="fas fa-location-dot"></i> Stuttgart, Germany</a>
+                <div class="subtitle-container">
+                    <span id="typewriter"></span>
+                </div>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
         </section>
 
         <section id="about">
             <div class="container">
-                <h2>About</h2>
-                <p>
-                    I am a Software Engineering Master's Student at Hochschule Heilbronn with a focus on AI/ML, Python, and Data Analytics.
-                    I specialize in building intelligent, data-driven applications that solve real-world problems through advanced engineering and machine learning techniques.
-                </p>
+                <h2>About Me</h2>
+                <div class="glass-card">
+                    <p style="font-size: 1.1rem; margin-bottom: 25px;">
+                        I am a <span style="color: var(--accent-2); font-weight: 600;">Software Engineering Master's Student</span> at Hochschule Heilbronn with a deep passion for AI, Machine Learning, and Data Analytics.
+                    </p>
+                    <p style="color: rgba(232, 234, 246, 0.7);">
+                        Based in <span style="color: #fff; font-weight: 500;">Stuttgart, Germany</span>, I focus on building scalable, intelligent solutions that bridge the gap between complex data and actionable insights. I specialize in developing Python-driven AI tools and high-performance data architectures.
+                    </p>
+                    <p style="margin-top: 25px; font-weight: 600; color: var(--highlight);">
+                        <i class="fas fa-check-circle"></i> Work-authorised in Germany
+                    </p>
+
+                    <div class="skills-container">
+                        <span class="skill-chip">Python</span>
+                        <span class="skill-chip">AI/ML</span>
+                        <span class="skill-chip">Data Analytics</span>
+                        <span class="skill-chip">Machine Learning</span>
+                        <span class="skill-chip">Web Scraping</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -298,35 +543,35 @@
             <div class="container">
                 <h2>Featured Projects</h2>
                 <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <a href="https://github.com/Vicky-HHN/-Ai-Webscrapper" class="project-title">SmartScraper: AI Web Scraper</a>
-                            <span class="project-tech">Python · NLP · Ollama</span>
+                    <div class="glass-card project-card">
+                        <a href="https://github.com/Vicky-HHN/-Ai-Webscrapper" class="project-title" target="_blank">AI Web Scraper</a>
+                        <p class="project-desc">Python-based AI-powered web scraping tool. Uses NLP to parse unstructured web content into clean datasets. Integrated with Ollama for local LLM processing.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Ollama</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">Web Scraping</span>
                         </div>
-                        <p class="project-desc">
-                            Intelligent web scraping utilizing Natural Language Processing to extract structured data.
-                            Integrates Ollama for local LLM processing and supports multi-engine fetching.
-                        </p>
                     </div>
 
-                    <div class="project-card">
-                        <div class="project-header">
-                            <a href="https://github.com/Vicky-HHN/AI-Video-Upscaling-Desktop-App" class="project-title">Helix Ultimate: AI Video Upscaling</a>
-                            <span class="project-tech">Python · PyTorch · CUDA</span>
+                    <div class="glass-card project-card">
+                        <a href="https://github.com/Vicky-HHN/AI-Video-Upscaling-Desktop-App" class="project-title" target="_blank">AI Video Upscaling</a>
+                        <p class="project-desc">Professional Python desktop application for AI video upscaling. Implements SwinIR and ESRGAN models with PyTorch/CUDA acceleration.</p>
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">GUI</span>
+                            <span class="tag">CV</span>
                         </div>
-                        <p class="project-desc">
-                            High-performance desktop app for AI video enhancement. Implements 5 state-of-the-art models (EDSR, SwinIR, ESRGAN) with hardware optimization.
-                        </p>
                     </div>
 
-                    <div class="project-card">
-                        <div class="project-header">
-                            <a href="https://github.com/Vicky-HHN/Strategic-Sales-Performance-Dashboard" class="project-title">Strategic Sales Analytics</a>
-                            <span class="project-tech">SQL · ETL · Python</span>
+                    <div class="glass-card project-card">
+                        <a href="https://github.com/Vicky-HHN/Strategic-Sales-Performance-Dashboard" class="project-title" target="_blank">Sales Dashboard</a>
+                        <p class="project-desc">Enterprise-grade analytics dashboard for sales performance. Features a PostgreSQL Star Schema and automated ETL pipelines.</p>
+                        <div class="project-tags">
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">ETL</span>
+                            <span class="tag">Python</span>
                         </div>
-                        <p class="project-desc">
-                            Enterprise analytics platform featuring a PostgreSQL Star Schema and full ETL pipeline for actionable executive KPIs.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -334,17 +579,32 @@
 
         <section id="skills">
             <div class="container">
-                <h2>Tech Stack</h2>
-                <div class="tech-list">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Machine Learning</span>
-                    <span class="tech-tag">PyTorch</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">ETL Pipelines</span>
-                    <span class="tech-tag">Data Engineering</span>
-                    <span class="tech-tag">NLP</span>
-                    <span class="tech-tag">Web Scraping</span>
-                    <span class="tech-tag">Git</span>
+                <h2>Technical Skills</h2>
+                <div class="skill-grid">
+                    <div class="glass-card skill-item">
+                        <i class="fab fa-python skill-icon"></i>
+                        <div class="skill-name">Python</div>
+                    </div>
+                    <div class="glass-card skill-item">
+                        <i class="fas fa-brain skill-icon"></i>
+                        <div class="skill-name">AI / ML</div>
+                    </div>
+                    <div class="glass-card skill-item">
+                        <i class="fas fa-chart-line skill-icon"></i>
+                        <div class="skill-name">Data Analytics</div>
+                    </div>
+                    <div class="glass-card skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <div class="skill-name">PostgreSQL</div>
+                    </div>
+                    <div class="glass-card skill-item">
+                        <i class="fas fa-spider skill-icon"></i>
+                        <div class="skill-name">Web Scraping</div>
+                    </div>
+                    <div class="glass-card skill-item">
+                        <i class="fab fa-git-alt skill-icon"></i>
+                        <div class="skill-name">Git</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -352,49 +612,115 @@
         <section id="education">
             <div class="container">
                 <h2>Education</h2>
-                <div class="education-item">
-                    <div class="edu-header">
-                        <span class="school">Hochschule Heilbronn</span>
-                        <span class="date">Present</span>
+                <div class="edu-timeline">
+                    <div class="edu-item">
+                        <div class="edu-date">2023 - PRESENT</div>
+                        <div class="edu-school">Hochschule Heilbronn</div>
+                        <div class="edu-degree">Master of Science in Software Engineering</div>
                     </div>
-                    <div class="degree">Master of Science in Software Engineering</div>
-                </div>
-                <div class="education-item">
-                    <div class="edu-header">
-                        <span class="school">Bachelor of Engineering</span>
-                        <span class="date">Completed</span>
+                    <div class="edu-item">
+                        <div class="edu-date">2018 - 2022</div>
+                        <div class="edu-school">Information Technology</div>
+                        <div class="edu-degree">Bachelor of Engineering</div>
                     </div>
-                    <div class="degree">Information Technology</div>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>Currently open to work-student positions, internships, or full-time roles in Software Engineering and AI/ML across Germany.</p>
-                <a href="mailto:contact@vishvagandhi.dev" class="contact-link" style="font-size: 1.2rem;">contact@vishvagandhi.dev</a>
+            <div class="container" style="text-align: center;">
+                <h2>Get In Touch</h2>
+                <div class="glass-card" style="max-width: 800px; margin: 0 auto;">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-input" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-input" placeholder="Your Email">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Message</label>
+                            <textarea class="form-input" rows="4" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="form-group full-width" style="margin-top: 10px;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-right: 0;">Send Message</button>
+                        </div>
+                    </form>
+
+                    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border); display: flex; justify-content: center; gap: 30px;">
+                        <a href="https://github.com/Vicky-HHN" target="_blank" style="color: var(--text); font-size: 1.5rem; transition: color 0.3s;"><i class="fab fa-github"></i></a>
+                        <a href="mailto:contact@vishvagandhi.dev" style="color: var(--text); font-size: 1.5rem; transition: color 0.3s;"><i class="fas fa-envelope"></i></a>
+                        <a href="#" style="color: var(--text); font-size: 1.5rem; transition: color 0.3s;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            &copy; 2026 Vishva Gandhi. Simple by design.
+            <p>&copy; 2026 Vishva Gandhi</p>
         </div>
     </footer>
 
     <script>
+        // Typewriter Effect
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["AI/ML Engineer", "Data Analyst", "Python Developer", "Master's Student"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Parallax Effect for Hero
+        const hero = document.getElementById('hero');
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            const mesh = document.querySelector('.bg-mesh');
+            mesh.style.transform = `translate(${x * 20}px, ${y * 20}px) scale(1.1)`;
+        });
+
+        // Intersection Observer for Animations
         const sections = document.querySelectorAll('section');
         const navDots = document.querySelectorAll('.nav-dot');
 
         const observerOptions = {
-            threshold: 0.5
+            threshold: 0.2
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                     navDots.forEach(dot => {
                         dot.classList.toggle('active', dot.getAttribute('href') === `#${entry.target.id}`);
                     });
@@ -403,6 +729,8 @@
         }, observerOptions);
 
         sections.forEach(section => observer.observe(section));
+
+        document.addEventListener('DOMContentLoaded', type);
     </script>
 
 </body>
