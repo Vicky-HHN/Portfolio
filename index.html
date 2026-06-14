@@ -5,52 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishva Gandhi | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Bold Tech Palette */
             --primary-bg: #0A0E1A;
             --secondary-bg: #0F1629;
-            --accent-1: #6C63FF;
-            --accent-2: #00D4FF;
-            --highlight: #B347EA;
-            --text-color: #E8EAF6;
+            --accent-1: #6C63FF; /* Electric Violet */
+            --accent-2: #00D4FF; /* Electric Cyan */
+            --highlight: #B347EA; /* Neon Purple */
+            --text-primary: #E8EAF6;
+            --text-secondary: #A0AEC0;
             --card-bg: rgba(108, 99, 255, 0.08);
-            --gradient: linear-gradient(135deg, #6C63FF, #00D4FF, #B347EA);
+            --gradient: linear-gradient(135deg, #6C63FF, #00D4FF);
+            --glass-border: rgba(255, 255, 255, 0.08);
+
+            /* Samsung One UI Specifics */
+            --radius-xl: 32px;
+            --radius-l: 24px;
+            --container-padding: 24px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--primary-bg);
-            color: var(--text-color);
-            line-height: 1.6;
+            color: var(--text-primary);
+            line-height: 1.5;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        #grid-overlay {
+        /* Subtle Grid Pattern overlay */
+        body::before {
+            content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(rgba(108, 99, 255, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
             pointer-events: none;
-            z-index: -1;
         }
 
-        section {
-            padding: 100px 20px;
+        /* Animated Background Gradient */
+        #bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(108, 99, 255, 0.15), transparent 50%);
+            z-index: -1;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        /* Reachability Container */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* HERO SECTION - One UI Style */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            padding-bottom: 100px;
+        }
+
+        .name-massive {
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -3px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+            animation: slideUpFade 1s ease-out;
+        }
+
+        .typewriter-container {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 48px;
+            height: 1.5em;
+        }
+
+        /* BUTTONS - One UI Squircle */
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 40px; /* One UI pill style */
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 8px 24px rgba(108, 99, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(108, 99, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+        }
+
+        /* SECTIONS - One UI Card Style */
+        section {
+            padding: 80px 0;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         section.reveal {
@@ -58,416 +158,450 @@
             transform: translateY(0);
         }
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            max-width: 100%;
-            padding: 0 20px;
-            opacity: 1;
-            transform: none;
+        .section-header {
+            margin-bottom: 40px;
         }
 
-        .gradient-text {
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-header .divider {
+            width: 60px;
+            height: 4px;
             background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
+            border-radius: 2px;
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 10vw, 6rem);
-            margin-bottom: 10px;
-            letter-spacing: -2px;
-        }
-
-        .btn {
-            padding: 14px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin: 10px;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.6);
-            transform: scale(1.05);
-        }
-
-        .btn-secondary {
-            border: 2px solid var(--accent-1);
-            color: var(--text-color);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(108, 99, 255, 0.1);
-            transform: scale(1.05);
-        }
-
-        /* Glass-morphism Card */
+        /* CARDS - One UI Squircle/Glass */
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-l);
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-12px);
-            border-color: var(--accent-1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1.02);
+            background: rgba(108, 99, 255, 0.12);
+            border-color: rgba(108, 99, 255, 0.4);
         }
 
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--accent-2);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* SKILLS - Icon Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
         }
 
-        .skill-chip {
-            background: rgba(108, 99, 255, 0.15);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(108, 99, 255, 0.3);
-            display: inline-block;
-            margin: 5px;
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px;
+            background: var(--secondary-bg);
+            border-radius: var(--radius-l);
+            border: 1px solid var(--glass-border);
             transition: 0.3s;
-            color: var(--text-color);
         }
 
-        .skill-chip:hover {
-            border-color: var(--accent-2);
-            background: rgba(0, 212, 255, 0.1);
+        .skill-item:hover {
+            background: var(--card-bg);
+            border-color: var(--accent-1);
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* TIMELINE - One UI Style */
+        .timeline {
+            border-left: 2px solid var(--glass-border);
+            margin-left: 20px;
+            padding-left: 32px;
+            position: relative;
         }
 
         .timeline-item {
             position: relative;
-            padding-left: 30px;
-            border-left: 2px solid var(--accent-1);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .timeline-item::before {
-            content: '';
+            content: "";
             position: absolute;
-            left: -9px;
+            left: -41px;
             top: 0;
             width: 16px;
             height: 16px;
-            border-radius: 50%;
             background: var(--gradient);
-            box-shadow: 0 0 10px var(--accent-1);
+            border-radius: 50%;
+            border: 4px solid var(--primary-bg);
+        }
+
+        /* CONTACT FORM */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .name-massive { font-size: 3rem; }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
         }
 
         input, textarea {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(15, 22, 41, 0.8);
+            padding: 18px;
+            background: var(--secondary-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
             color: white;
+            font-size: 1rem;
             outline: none;
             transition: 0.3s;
         }
 
         input:focus, textarea:focus {
             border-color: var(--accent-2);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         footer {
+            padding: 60px 0;
             text-align: center;
-            padding: 60px 20px;
-            background: #050810;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border-top: 1px solid var(--glass-border);
         }
 
-        .typewriter-cursor {
-            border-right: 3px solid var(--accent-2);
-            animation: blink 0.75s step-end infinite;
+        /* Animations */
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--accent-2);
+            margin-left: 5px;
+            animation: blink 0.8s infinite;
         }
 
         @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: var(--accent-2) }
-        }
-
-        #hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            50% { opacity: 0; }
         }
 
     </style>
 </head>
 <body>
 
-    <div id="grid-overlay"></div>
+    <div id="bg-glow"></div>
 
-    <section class="hero" id="hero">
-        <canvas id="hero-canvas"></canvas>
-        <h1 class="gradient-text">Vishva Gandhi</h1>
-        <h2 style="font-size: 1.5rem; height: 1.5em; font-weight: 400; color: #A0AEC0;">
-            <span id="typewriter"></span><span class="typewriter-cursor"></span>
-        </h2>
-        <div style="margin-top: 40px;">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-secondary">Contact Me</a>
-        </div>
-    </section>
+    <main class="container">
 
-    <section id="about">
-        <h2 class="gradient-text">About Me</h2>
-        <p style="margin-top: 20px; font-size: 1.1rem; max-width: 800px;">
-            Software Engineering Master's Student at Hochschule Heilbronn with a passion for AI/ML, Python, and Data Analytics.
-            Currently based in Stuttgart, Germany and work-authorised.
-        </p>
-        <div style="margin-top: 30px;">
-            <span class="skill-chip">Python</span>
-            <span class="skill-chip">AI/ML</span>
-            <span class="skill-chip">Data Analytics</span>
-            <span class="skill-chip">Machine Learning</span>
-            <span class="skill-chip">Web Scraping</span>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2 class="gradient-text">Projects</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
-            <div class="card">
-                <h3>AI Web Scrapper</h3>
-                <p>Python-based AI-powered web scraping tool.</p>
-                <div style="margin-top: 15px;">
-                    <span class="skill-chip">Python</span>
-                    <span class="skill-chip">AI</span>
+        <section class="hero reveal" id="home">
+            <div class="hero-content">
+                <h1 class="name-massive">Vishva Gandhi</h1>
+                <div class="typewriter-container">
+                    <span id="typewriter"></span><span class="cursor"></span>
                 </div>
-                <a href="https://github.com/Vicky-HHN/-Ai-Webscrapper" style="color: var(--accent-2); margin-top: 15px; display: inline-block;"><i class="fab fa-github"></i> View on GitHub</a>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <a href="https://github.com/Vicky-HHN" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github" style="margin-right: 8px;"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="divider"></div>
             </div>
             <div class="card">
-                <h3>AI Video Upscaling Desktop App</h3>
-                <p>Python desktop app for AI video upscaling.</p>
-                <div style="margin-top: 15px;">
-                    <span class="skill-chip">Python</span>
-                    <span class="skill-chip">AI</span>
-                    <span class="skill-chip">GUI</span>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary);">
+                    I am a <strong style="color: var(--accent-1);">Software Engineering Master's Student</strong> at Hochschule Heilbronn, based in Stuttgart, Germany.
+                    Specializing in <strong style="color: var(--accent-2);">AI/ML, Python, and Data Analytics</strong>, I focus on building intelligent applications that solve real-world problems.
+                    With a background in deep learning and data engineering, I'm currently looking for opportunities to apply my skills in Germany's vibrant tech landscape.
+                </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="project-grid">
+                <!-- SmartScraper -->
+                <div class="card project-card">
+                    <h3>SmartScraper: AI Web Scraper</h3>
+                    <p>An intelligent tool using Natural Language Processing (NLP) to extract structured data from any website. Features multi-engine fetching (ScraperAPI, ScrapingBee, Playwright) and local LLM processing via Ollama.</p>
+                    <div class="tag-group">
+                        <span class="tag">Python</span>
+                        <span class="tag">Ollama LLM</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Multi-Engine Fetching</span>
+                        <span class="tag">NLP</span>
+                    </div>
+                    <a href="https://github.com/Vicky-HHN/-Ai-Webscrapper" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">View Repository</a>
                 </div>
-                <a href="https://github.com/Vicky-HHN/AI-Video-Upscaling-Desktop-App" style="color: var(--accent-2); margin-top: 15px; display: inline-block;"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Strategic Sales Performance Dashboard</h3>
-                <p>Python analytics dashboard for sales performance tracking.</p>
-                <div style="margin-top: 15px;">
-                    <span class="skill-chip">Python</span>
-                    <span class="skill-chip">Data Analytics</span>
+
+                <!-- Helix Ultimate -->
+                <div class="card project-card">
+                    <h3>Helix Ultimate: AI Video Upscaling</h3>
+                    <p>High-performance desktop app for video enhancement. Integrates 5 AI models (EDSR, SwinIR, ESRGAN, Waifu2x, SR3) with automated local hardware detection for optimized CUDA and ROCm acceleration.</p>
+                    <div class="tag-group">
+                        <span class="tag">Python</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">SwinIR/ESRGAN</span>
+                        <span class="tag">CUDA/ROCm</span>
+                        <span class="tag">Benchmarking</span>
+                    </div>
+                    <a href="https://github.com/Vicky-HHN/AI-Video-Upscaling-Desktop-App" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">View Repository</a>
                 </div>
-                <a href="https://github.com/Vicky-HHN/Strategic-Sales-Performance-Dashboard" style="color: var(--accent-2); margin-top: 15px; display: inline-block;"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-    </section>
 
-    <section id="skills">
-        <h2 class="gradient-text">Skills</h2>
-        <div class="skills-grid" style="margin-top: 40px;">
-            <!-- Will be populated or styled further -->
-            <div class="card" style="text-align: center;">
-                <i class="fab fa-python" style="font-size: 2rem; color: var(--accent-2);"></i>
-                <p>Python</p>
+                <!-- Sales Dashboard -->
+                <div class="card project-card">
+                    <h3>Strategic Sales Performance Dashboard</h3>
+                    <p>Enterprise-grade analytics solution featuring a complete ETL pipeline. Utilizes a PostgreSQL Star Schema architecture to process raw sales data into actionable KPIs via an executive-style dashboard.</p>
+                    <div class="tag-group">
+                        <span class="tag">Data Analytics</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">ETL</span>
+                        <span class="tag">Star Schema</span>
+                        <span class="tag">Power BI</span>
+                    </div>
+                    <a href="https://github.com/Vicky-HHN/Strategic-Sales-Performance-Dashboard" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">View Repository</a>
+                </div>
             </div>
-            <div class="card" style="text-align: center;">
-                <i class="fas fa-brain" style="font-size: 2rem; color: var(--accent-2);"></i>
-                <p>AI/ML</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <i class="fas fa-chart-bar" style="font-size: 2rem; color: var(--accent-2);"></i>
-                <p>Data Analytics</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <i class="fas fa-code" style="font-size: 2rem; color: var(--accent-2);"></i>
-                <p>Web Scraping</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="education">
-        <h2 class="gradient-text" style="margin-bottom: 50px;">Education</h2>
-        <div class="timeline-item">
-            <h3>Master of Science in Software Engineering</h3>
-            <p style="font-size: 1.1rem; color: #A0AEC0;">Hochschule Heilbronn</p>
-            <p style="color: var(--accent-2); font-weight: 600;">Current</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="gradient-text" style="margin-bottom: 50px;">Contact Me</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px;">
-            <div>
-                <p style="font-size: 1.1rem; margin-bottom: 30px;">Let's build something amazing together. Reach out via the form or follow me on GitHub.</p>
-                <a href="https://github.com/Vicky-HHN" target="_blank" style="color: var(--text-color); text-decoration: none; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;">
-                    <i class="fab fa-github" style="font-size: 2rem; color: var(--accent-1);"></i> github.com/Vicky-HHN
-                </a>
+        <section id="skills">
+            <div class="section-header">
+                <h2>Tech Stack</h2>
+                <div class="divider"></div>
             </div>
-            <form id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn btn-primary" style="border: none; width: 100%; margin: 0; cursor: pointer;">Send Message</button>
-            </form>
-        </div>
-    </section>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
+                <div class="skill-item"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
+                <div class="skill-item"><i class="fas fa-database"></i><span>SQL/PostgreSQL</span></div>
+                <div class="skill-item"><i class="fas fa-chart-line"></i><span>Data Analytics</span></div>
+                <div class="skill-item"><i class="fas fa-code-branch"></i><span>Git/GitHub</span></div>
+                <div class="skill-item"><i class="fas fa-microchip"></i><span>PyTorch/AI</span></div>
+                <div class="skill-item"><i class="fas fa-laptop-code"></i><span>Web Scraping</span></div>
+                <div class="skill-item"><i class="fas fa-project-diagram"></i><span>ETL Pipelines</span></div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 Vishva Gandhi</p>
-    </footer>
+        <section id="education">
+            <div class="section-header">
+                <h2>Education</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 style="color: var(--accent-1);">Master of Science in Software Engineering</h3>
+                    <p style="font-weight: 600;">Hochschule Heilbronn</p>
+                    <p style="color: var(--text-secondary);">Currently Pursuing | Stuttgart, Germany</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 style="color: var(--text-primary);">Bachelor of Engineering</h3>
+                    <p style="font-weight: 600;">Information Technology</p>
+                    <p style="color: var(--text-secondary);">Focus on Software Development & Systems</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-header">
+                <h2>Let's Connect</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-wrapper">
+                <div>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 32px;">
+                        I am currently open to work-student positions, internships, or full-time roles in Software Engineering and AI/ML across Germany.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <a href="mailto:contact@vishvagandhi.dev" style="color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-envelope" style="color: var(--accent-2);"></i> contact@vishvagandhi.dev
+                        </a>
+                        <a href="#" style="color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-location-dot" style="color: var(--accent-2);"></i> Stuttgart, Germany
+                        </a>
+                    </div>
+                </div>
+                <form id="contact-form">
+                    <div class="input-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Vishva Gandhi. Built with ❤️ for the future of tech.</p>
+        </footer>
+
+    </main>
 
     <script>
         // Typewriter Effect
-        const typewriterElement = document.getElementById('typewriter');
-        const phrases = ["AI/ML Engineer", "Data Analyst", "Python Developer", "Master's Student"];
-        let phraseIndex = 0;
-        let charIndex = 0;
+        const typewriter = document.getElementById('typewriter');
+        const phrases = [
+            "AI/ML Engineer",
+            "Data Analyst",
+            "Python Developer",
+            "Master's Student",
+            "Problem Solver"
+        ];
+
+        let i = 0;
+        let j = 0;
+        let currentPhrase = [];
         let isDeleting = false;
-        let typeSpeed = 100;
+        let isEnd = false;
 
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
+        function loop() {
+            isEnd = false;
+            typewriter.innerHTML = currentPhrase.join('');
 
-            if (isDeleting) {
-                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 50;
-            } else {
-                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 100;
+            if (i < phrases.length) {
+                if (!isDeleting && j <= phrases[i].length) {
+                    currentPhrase.push(phrases[i][j]);
+                    j++;
+                }
+
+                if (isDeleting && j <= phrases[i].length) {
+                    currentPhrase.pop();
+                    j--;
+                }
+
+                if (j == phrases[i].length) {
+                    isEnd = true;
+                    isDeleting = true;
+                }
+
+                if (isDeleting && j == 0) {
+                    currentPhrase = [];
+                    isDeleting = false;
+                    i++;
+                    if (i == phrases.length) i = 0;
+                }
             }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typeSpeed = 2000; // Pause at end
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        // Particle Background
-        const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function initCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-                this.color = Math.random() > 0.5 ? '#6C63FF' : '#00D4FF';
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width) this.x = 0;
-                else if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                else if (this.y < 0) this.y = canvas.height;
-            }
-
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function createParticles() {
-            particles = [];
-            const numberOfParticles = (canvas.width * canvas.height) / 15000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateParticles);
+            const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
+            setTimeout(loop, speed);
         }
 
         // Reveal on Scroll
-        function reveal() {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const windowHeight = window.innerHeight;
-                const elementTop = section.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    section.classList.add('reveal');
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
                 }
             });
+        }, observerOptions);
+
+        // BG Glow Interaction
+        const glow = document.getElementById('bg-glow');
+        let mouseX = 0, mouseY = 0;
+        let glowX = 0, glowY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function updateGlow() {
+            // Smooth lerp for glow position
+            glowX += (mouseX - glowX) * 0.05;
+            glowY += (mouseY - glowY) * 0.05;
+            glow.style.background = `radial-gradient(circle at ${glowX}px ${glowY}px, rgba(108, 99, 255, 0.15), transparent 50%)`;
+            requestAnimationFrame(updateGlow);
         }
+        updateGlow();
 
-        // Event Listeners
-        window.addEventListener('scroll', reveal);
-        window.addEventListener('resize', () => {
-            initCanvas();
-            createParticles();
-        });
-
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            type();
-            initCanvas();
-            createParticles();
-            animateParticles();
-            reveal(); // Initial check
+            loop();
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
         });
 
-        // Simple Form Submission UI
+        // Form Handling
         document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your message, Vishva will get back to you soon!');
+            alert('Message sent successfully! Vishva will contact you soon.');
             e.target.reset();
         });
     </script>
