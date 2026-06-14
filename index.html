@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-bg: #0A0E1A;
-            --secondary-bg: #0F1629;
-            --accent-1: #6C63FF;
-            --accent-2: #00D4FF;
+            --primary-bg: #FFFFFF;
+            --secondary-bg: #F8FAFC;
+            --accent-1: #1110A4;
+            --accent-2: #4B49FF;
+            --accent-light: #EBEBFF;
             --highlight: #B347EA;
-            --text: #E8EAF6;
-            --card-bg: rgba(108, 99, 255, 0.08);
-            --gradient: linear-gradient(135deg, #6C63FF, #00D4FF);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --text: #0F172A;
+            --text-muted: #64748B;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --gradient: linear-gradient(135deg, #1110A4, #4B49FF);
+            --glass-border: rgba(17, 16, 164, 0.1);
+            --shadow: 0 10px 30px -10px rgba(17, 16, 164, 0.1);
         }
 
         * {
@@ -50,10 +53,10 @@
             height: 100%;
             z-index: -2;
             background:
-                radial-gradient(at 0% 0%, hsla(253,100%,69%,0.15) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(189,100%,50%,0.15) 0, transparent 50%),
-                radial-gradient(at 100% 100%, hsla(280,80%,60%,0.15) 0, transparent 50%),
-                radial-gradient(at 0% 100%, hsla(253,100%,69%,0.15) 0, transparent 50%);
+                radial-gradient(at 0% 0%, hsla(240, 82%, 35%, 0.05) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(240, 82%, 35%, 0.03) 0, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(280, 80%, 60%, 0.05) 0, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(240, 82%, 35%, 0.05) 0, transparent 50%);
             animation: bg-pulse 15s ease infinite alternate;
         }
 
@@ -70,7 +73,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(17, 16, 164, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
         }
@@ -90,8 +93,8 @@
             position: absolute;
             background: var(--accent-1);
             border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.15;
+            filter: blur(80px);
+            opacity: 0.05;
             animation: float 20s infinite linear;
         }
 
@@ -137,7 +140,7 @@
             margin-bottom: 20px;
             letter-spacing: -0.02em;
             line-height: 1.1;
-            background: linear-gradient(135deg, #FFF, #6C63FF, #00D4FF);
+            background: linear-gradient(135deg, #0F172A, #1110A4, #4B49FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-size: 200% auto;
@@ -150,7 +153,7 @@
 
         .subtitle-container {
             font-size: clamp(1.2rem, 4vw, 2rem);
-            color: var(--accent-2);
+            color: var(--accent-1);
             font-family: 'JetBrains Mono', monospace;
             margin-bottom: 40px;
             font-weight: 500;
@@ -162,6 +165,8 @@
             margin-bottom: 50px;
             position: relative;
             display: inline-block;
+            font-weight: 800;
+            letter-spacing: -0.01em;
         }
 
         h2::after {
@@ -169,10 +174,10 @@
             position: absolute;
             bottom: -10px;
             left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
+            width: 40px;
+            height: 6px;
+            background: var(--accent-1);
+            border-radius: 10px;
         }
 
         .glass-card {
@@ -182,13 +187,15 @@
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             padding: 40px;
+            box-shadow: var(--shadow);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .glass-card:hover {
-            background: rgba(108, 99, 255, 0.12);
-            border-color: rgba(108, 99, 255, 0.3);
+            background: #fff;
+            border-color: var(--accent-1);
             transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(17, 16, 164, 0.15);
         }
 
         .btn {
@@ -207,25 +214,26 @@
         }
 
         .btn-primary {
-            background: var(--gradient);
-            color: #000;
+            background: var(--accent-1);
+            color: #fff;
             border: none;
         }
 
         .btn-primary:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(108, 99, 255, 0.4);
+            box-shadow: 0 10px 20px rgba(17, 16, 164, 0.2);
+            background: var(--accent-2);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--text);
-            border: 1px solid var(--accent-2);
+            color: var(--accent-1);
+            border: 1.5px solid var(--accent-1);
         }
 
         .btn-outline:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: var(--accent-1);
+            background: var(--accent-light);
+            border-color: var(--accent-2);
         }
 
         .project-grid {
@@ -250,7 +258,7 @@
 
         .project-desc {
             font-size: 0.95rem;
-            color: rgba(232, 234, 246, 0.8);
+            color: var(--text-muted);
             margin-bottom: 25px;
             flex-grow: 1;
         }
@@ -265,8 +273,8 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             padding: 6px 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--accent-light);
+            border: 1px solid var(--glass-border);
             border-radius: 50px;
             color: var(--accent-1);
             font-weight: 600;
@@ -281,20 +289,20 @@
 
         .skill-chip {
             padding: 8px 18px;
-            background: var(--card-bg);
+            background: #fff;
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
             font-weight: 600;
+            color: var(--accent-1);
             transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .skill-chip:hover {
-            border-color: var(--accent-2);
-            color: var(--accent-2);
-            background: rgba(0, 212, 255, 0.05);
+            border-color: var(--accent-1);
+            background: var(--accent-light);
             transform: translateY(-3px);
         }
 
@@ -307,20 +315,23 @@
         .skill-item {
             text-align: center;
             padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .skill-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-1);
         }
 
         .skill-name {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
             font-size: 0.9rem;
+            color: var(--text);
         }
 
         .contact-form {
@@ -340,27 +351,33 @@
             grid-column: span 2;
         }
 
+        textarea.form-input {
+            resize: none;
+        }
+
         .form-input {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
+            background: var(--secondary-bg);
+            border: 1.5px solid transparent;
             border-radius: 12px;
             padding: 15px;
-            color: #fff;
+            color: var(--text);
             font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--accent-1);
+            box-shadow: 0 0 0 4px var(--accent-light);
         }
 
         label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            color: var(--accent-2);
+            color: var(--accent-1);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 700;
         }
 
         .edu-timeline {
@@ -391,13 +408,13 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background: var(--primary-bg);
+            background: #fff;
             border: 4px solid var(--accent-1);
         }
 
         .edu-date {
             font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-2);
+            color: var(--accent-1);
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -406,10 +423,11 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 5px;
+            color: var(--text);
         }
 
         .edu-degree {
-            color: rgba(232, 234, 246, 0.6);
+            color: var(--text-muted);
         }
 
         /* Navigation Dots */
@@ -428,16 +446,16 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(17, 16, 164, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .nav-dot.active {
-            background: var(--accent-2);
-            border-color: var(--accent-2);
+            background: var(--accent-1);
+            border-color: var(--accent-1);
             transform: scale(1.4);
-            box-shadow: 0 0 15px var(--accent-2);
+            box-shadow: 0 0 15px rgba(17, 16, 164, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -473,7 +491,7 @@
         footer {
             padding: 40px 0;
             text-align: center;
-            color: rgba(232, 234, 246, 0.4);
+            color: var(--text-muted);
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
         }
@@ -485,9 +503,9 @@
     <div class="bg-mesh"></div>
     <div class="grid-overlay"></div>
     <div class="particles">
-        <div class="particle" style="width: 300px; height: 300px; top: 10%; left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="width: 400px; height: 400px; bottom: 10%; right: 10%; animation-delay: -5s; background: var(--accent-2);"></div>
-        <div class="particle" style="width: 250px; height: 250px; top: 50%; left: 40%; animation-delay: -10s; background: var(--highlight);"></div>
+        <div class="particle" style="width: 500px; height: 500px; top: -10%; left: -10%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 600px; height: 600px; bottom: -10%; right: -10%; animation-delay: -5s; background: var(--accent-2);"></div>
+        <div class="particle" style="width: 400px; height: 400px; top: 40%; left: 30%; animation-delay: -10s; background: var(--highlight);"></div>
     </div>
 
     <nav class="side-nav">
@@ -502,11 +520,14 @@
     <main>
         <section id="hero">
             <div class="container">
-                <p style="font-family: 'JetBrains Mono'; color: var(--accent-1); margin-bottom: 10px; font-weight: 700;">GUTEN TAG, I AM</p>
+                <p style="font-family: 'JetBrains Mono'; color: var(--accent-1); margin-bottom: 10px; font-weight: 700; letter-spacing: 2px;">GUTEN TAG, I AM</p>
                 <h1>Vishva Gandhi</h1>
                 <div class="subtitle-container">
                     <span id="typewriter"></span>
                 </div>
+                <p style="max-width: 600px; margin-bottom: 40px; color: var(--text-muted); font-size: 1.1rem;">
+                    Building the future of intelligent systems through Software Engineering and AI. Based in Germany, focused on data-driven excellence.
+                </p>
                 <div class="hero-btns">
                     <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
@@ -519,14 +540,14 @@
                 <h2>About Me</h2>
                 <div class="glass-card">
                     <p style="font-size: 1.1rem; margin-bottom: 25px;">
-                        I am a <span style="color: var(--accent-2); font-weight: 600;">Software Engineering Master's Student</span> at Hochschule Heilbronn with a deep passion for AI, Machine Learning, and Data Analytics.
+                        I am a <span style="color: var(--accent-1); font-weight: 600;">Software Engineering Master's Student</span> at Hochschule Heilbronn with a deep passion for AI, Machine Learning, and Data Analytics.
                     </p>
-                    <p style="color: rgba(232, 234, 246, 0.7);">
-                        Based in <span style="color: #fff; font-weight: 500;">Stuttgart, Germany</span>, I focus on building scalable, intelligent solutions that bridge the gap between complex data and actionable insights. I specialize in developing Python-driven AI tools and high-performance data architectures.
+                    <p style="color: var(--text-muted);">
+                        Based in <span style="color: var(--text); font-weight: 500;">Stuttgart, Germany</span>, I focus on building scalable, intelligent solutions that bridge the gap between complex data and actionable insights. I specialize in developing Python-driven AI tools and high-performance data architectures.
                     </p>
-                    <p style="margin-top: 25px; font-weight: 600; color: var(--highlight);">
+                    <div style="margin-top: 30px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: var(--accent-light); border-radius: 50px; color: var(--accent-1); font-weight: 700; font-size: 0.9rem;">
                         <i class="fas fa-check-circle"></i> Work-authorised in Germany
-                    </p>
+                    </div>
 
                     <div class="skills-container">
                         <span class="skill-chip">Python</span>
@@ -650,9 +671,9 @@
                     </form>
 
                     <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--glass-border); display: flex; justify-content: center; gap: 30px;">
-                        <a href="https://github.com/Vicky-HHN" target="_blank" style="color: var(--text); font-size: 1.5rem; transition: color 0.3s;"><i class="fab fa-github"></i></a>
-                        <a href="mailto:contact@vishvagandhi.dev" style="color: var(--text); font-size: 1.5rem; transition: color 0.3s;"><i class="fas fa-envelope"></i></a>
-                        <a href="#" style="color: var(--text); font-size: 1.5rem; transition: color 0.3s;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Vicky-HHN" target="_blank" style="color: var(--accent-1); font-size: 1.5rem; transition: all 0.3s;"><i class="fab fa-github"></i></a>
+                        <a href="mailto:contact@vishvagandhi.dev" style="color: var(--accent-1); font-size: 1.5rem; transition: all 0.3s;"><i class="fas fa-envelope"></i></a>
+                        <a href="#" style="color: var(--accent-1); font-size: 1.5rem; transition: all 0.3s;"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
