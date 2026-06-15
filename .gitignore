@@ -1,7 +1,13 @@
 node_modules/
-test-results/
-server.log
+dist/
+build/
+.env
+.DS_Store
+
+# Verification artifacts
 *.png
 *.jpg
 *.jpeg
-.DS_Store
+*.log
+verify_*.py
+python_scripts/
