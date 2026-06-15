@@ -3,9 +3,11 @@ dist/
 build/
 .env
 .DS_Store
-# Only ignore verification artifacts
-verification/*.png
-verification/*.jpg
-verification/*.jpeg
-verification/*.json
-verification/*.py
+
+# Verification artifacts
+*.png
+*.jpg
+*.jpeg
+*.log
+verify_*.py
+python_scripts/
