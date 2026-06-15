@@ -448,6 +448,116 @@
             border-radius: 50%;
             opacity: 0.6;
         }
+
+        /* Contact Form */
+        .contact-section {
+            margin-bottom: 20px;
+            opacity: 0;
+        }
+
+        .contact-container {
+            background: white;
+            border: 1.5px solid #000;
+            border-radius: var(--radius);
+            padding: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 60px;
+            line-height: 1;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 20px;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 20px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #F9FAFB;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--vibrant-orange);
+            background: white;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.05);
+        }
+
+        .submit-btn {
+            background: #1A1A1A;
+            color: white;
+            border: none;
+            padding: 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--forest-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(6, 78, 59, 0.2);
+        }
+
+        .form-status {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 20px;
+            display: none;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(6, 78, 59, 0.1);
+            color: var(--forest-green);
+        }
+
+        .form-status.error {
+            display: block;
+            background: rgba(220, 38, 38, 0.1);
+            color: #DC2626;
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 40px;
+                gap: 40px;
+            }
+            .contact-info h2 { font-size: 45px; }
+        }
         </style>
 </head>
 <body>
@@ -585,12 +695,45 @@
             </div>
         </section>
 
-        <footer id="contact">
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get in touch</h2>
+                    <p style="font-size: 18px; color: #555; margin-bottom: 40px;">
+                        Have a project in mind or just want to say hi? Feel free to reach out using the form or through my social channels.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <p><strong>Email:</strong> vishwa.gandhi@example.com</p>
+                        <p><strong>Location:</strong> Stuttgart, Germany</p>
+                    </div>
+                </div>
+                <div>
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xvgowqbr" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
             <div class="footer-cta">
                 <h2>Let's build<br>something together.</h2>
                 <div class="hero-btns" style="justify-content: center; margin-top:60px;">
-                    <a href="mailto:vishwa.gandhi@example.com" class="btn btn-dark">Email Me</a>
-                    <a href="https://github.com/Vicky-HHN" class="btn btn-outline">GitHub</a>
+                    <a href="https://github.com/Vicky-HHN" class="btn btn-dark">GitHub Profile</a>
+                    <a href="mailto:vishwa.gandhi@example.com" class="btn btn-outline">Direct Email</a>
                 </div>
                 <div style="margin-top:40px; font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:2px; opacity:0.5;">
                     &copy; 2026 Vishva Gandhi · Stuttgart, Germany
@@ -666,9 +809,56 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.welcome-block, .section-header, .project-card, .about-text-block, .about-image-block, .block, .footer-cta').forEach(el => {
+            document.querySelectorAll('.welcome-block, .section-header, .project-card, .about-text-block, .about-image-block, .block, .contact-section, .footer-cta').forEach(el => {
                 observer.observe(el);
             });
+
+            // Form Submission Handling
+            const form = document.getElementById('contact-form');
+            const status = document.getElementById('form-status');
+
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const data = new FormData(form);
+                    const submitBtn = form.querySelector('.submit-btn');
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = 'Sending...';
+
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: data,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            status.innerText = 'Thank you! Your message has been sent.';
+                            status.className = 'form-status success';
+                            form.reset();
+
+                            anime({
+                                targets: status,
+                                scale: [0.9, 1],
+                                opacity: [0, 1],
+                                duration: 800,
+                                easing: 'easeOutElastic(1, .8)'
+                            });
+                        } else {
+                            throw new Error();
+                        }
+                    } catch (error) {
+                        status.innerText = 'Oops! There was a problem submitting your form.';
+                        status.className = 'form-status error';
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = 'Send Message';
+                    }
+                });
+            }
         });
 
         // Zen Flow Blobs Animation
