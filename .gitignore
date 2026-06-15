@@ -1,7 +1,11 @@
 node_modules/
-test-results/
-server.log
-*.png
-*.jpg
-*.jpeg
+dist/
+build/
+.env
 .DS_Store
+# Only ignore verification artifacts
+verification/*.png
+verification/*.jpg
+verification/*.jpeg
+verification/*.json
+verification/*.py
