@@ -558,6 +558,85 @@
             }
             .contact-info h2 { font-size: 45px; }
         }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 100px 5%;
+            background: #FFFBF2;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exp-item {
+            border-left: 2px solid #F59E0B;
+            padding-left: 30px;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #F59E0B;
+            border-radius: 50%;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 24px;
+            color: #064E3B;
+            margin-bottom: 5px;
+            font-family: 'Fraunces', serif;
+        }
+
+        .exp-company {
+            font-weight: 600;
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .exp-time {
+            font-size: 14px;
+            opacity: 0.6;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .exp-desc {
+            line-height: 1.6;
+            opacity: 0.8;
+            font-size: 16px;
+        }
+
+        .exp-desc ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .exp-desc li {
+            margin-bottom: 10px;
+        }
         </style>
 </head>
 <body>
@@ -569,6 +648,7 @@
                 <a href="#projects">Projects</a>
                 <a href="#about">About</a>
                 <a href="#skills">Expertise</a>
+                <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -630,14 +710,15 @@
                 <h2>Professional<br>Profile</h2>
                 <div>
                     <div style="margin-bottom: 30px;">
-                        <p style="font-weight: 700; font-size: 24px; margin-bottom:5px;">Master of Science in Software Engineering</p>
-                        <p style="font-weight: 500; font-size: 18px; opacity: 0.8;">Hochschule Heilbronn · 2025 - Present · Grade: 1,9</p>
+                        <p style="font-weight: 700; font-size: 24px; margin-bottom:2px;">Master of Science in Software Engineering</p>
+                        <p style="font-weight: 500; font-size: 18px; opacity: 0.9; margin-bottom:2px;">Hochschule Heilbronn</p>
+                        <p style="font-weight: 400; font-size: 16px; opacity: 0.7;">2025 - Present · Grade: 1,9</p>
                     </div>
 
                     <div style="margin-bottom: 30px;">
-                        <p style="font-weight: 700; font-size: 24px; margin-bottom:5px;">B.Eng. Information Technology</p>
-                        <p style="font-weight: 500; font-size: 18px; opacity: 0.8;">A.D. Patel Institute of Technology, India · Jul 2020 - Jan 2024</p>
-                        <p style="font-size: 16px; opacity: 0.7; font-weight: 500;">GPA: 1.8 (German scale)</p>
+                        <p style="font-weight: 700; font-size: 24px; margin-bottom:2px;">B.Eng. Information Technology</p>
+                        <p style="font-weight: 500; font-size: 18px; opacity: 0.9; margin-bottom:2px;">A.D. Patel Institute of Technology, India</p>
+                        <p style="font-weight: 400; font-size: 16px; opacity: 0.7;">Jul 2020 - Jan 2024 · GPA: 1.8 (German scale)</p>
                     </div>
 
                     <p style="margin-top:10px; font-weight: 500; line-height: 1.6;">
@@ -701,6 +782,35 @@
             <div class="block">
                 <h4>Software Eng</h4>
                 <p>M.Sc. focus & Best Practices</p>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section">
+            <div class="section-header">
+                <h2>Experience</h2>
+            </div>
+            <div class="experience-grid">
+                <div class="exp-item">
+                    <p class="exp-role">Data Analyst & BI Developer</p>
+                    <p class="exp-company">Oscar IT Solutions</p>
+                    <p class="exp-time">Jan 2024 – Feb 2025</p>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Analysed 500K+ records using Python & SQL; built 4 real-time Power BI dashboards and automated ETL pipelines — reducing reporting cycles by 40%.</li>
+                            <li>Evaluated 3 LLM solutions (GPT-4 & open-source); conducted A/B testing on 3 product features and delivered statistical decision framework adopted by the AI working group.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <p class="exp-role">React Developer Intern</p>
+                    <p class="exp-company">TatvaSoft</p>
+                    <p class="exp-time">May 2023 – Jun 2023</p>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Built a full-stack e-commerce application using React.js, Material UI & REST APIs — implementing product browsing, cart, authentication and CRUD operations end-to-end.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -812,13 +922,23 @@
                                 duration: 1200,
                                 easing: 'easeOutQuad'
                             });
+
+                            if (target.classList.contains('experience-section')) {
+                                anime({
+                                    targets: '.exp-item',
+                                    opacity: [0, 1],
+                                    translateX: [-20, 0],
+                                    delay: anime.stagger(200),
+                                    easing: 'easeOutQuad'
+                                });
+                            }
                         }
                         observer.unobserve(target);
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.welcome-block, .section-header, .project-card, .about-text-block, .about-image-block, .block, .contact-section, .footer-cta').forEach(el => {
+            document.querySelectorAll('.welcome-block, .section-header, .project-card, .about-text-block, .about-image-block, .block, .experience-section, .contact-section, .footer-cta').forEach(el => {
                 observer.observe(el);
             });
 
