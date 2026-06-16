@@ -11,8 +11,8 @@
     <style>
         :root {
             --bg-cream: #FFFBF2;
-            --forest-green: #064E3B;
-            --vibrant-orange: #F59E0B;
+            --british-green: #004225;
+            --royal-blue: #4169E1;
             --text-dark: #1A1A1A;
             --radius: 40px;
         }
@@ -82,7 +82,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--vibrant-orange);
+            background: var(--royal-blue);
             transition: width 0.3s ease;
         }
 
@@ -143,8 +143,8 @@
         }
 
         .btn-dark:hover {
-            background: var(--forest-green);
-            border-color: var(--forest-green);
+            background: var(--british-green);
+            border-color: var(--british-green);
             transform: scale(1.05);
         }
 
@@ -166,25 +166,25 @@
             opacity: 0;
         }
 
-        .orange-shape {
+        .royal-shape {
             position: absolute;
             top: 50px;
             right: 0;
             width: 420px;
             height: 480px;
-            background-color: var(--vibrant-orange);
+            background-color: var(--royal-blue);
             border-bottom-left-radius: 210px;
             border-bottom-right-radius: 210px;
             border-top-left-radius: 210px;
         }
 
-        .green-circle {
+        .british-circle {
             position: absolute;
             top: 70px;
             left: 0;
             width: 360px;
             height: 360px;
-            background-color: var(--forest-green);
+            background-color: var(--british-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -198,7 +198,7 @@
 
         /* Welcome Section */
         .welcome-block {
-            background-color: var(--vibrant-orange);
+            background-color: var(--royal-blue);
             border-radius: var(--radius);
             padding: 120px 80px;
             display: flex;
@@ -206,6 +206,8 @@
             align-items: center;
             margin-bottom: 20px;
             opacity: 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .welcome-block h2 {
@@ -236,7 +238,7 @@
         }
 
         .section-header span {
-            color: var(--vibrant-orange);
+            color: var(--royal-blue);
         }
 
         .project-grid {
@@ -263,7 +265,7 @@
             background: white;
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-            border-color: var(--vibrant-orange);
+            border-color: var(--royal-blue);
         }
 
         .project-tag {
@@ -299,20 +301,87 @@
         }
 
         .about-text-block {
-            background: var(--vibrant-orange);
+            background: var(--royal-blue);
             border-radius: var(--radius);
-            padding: 80px;
+            padding: 60px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
             opacity: 0;
+            color: white;
         }
 
         .about-text-block h2 {
-            font-size: 80px;
-            line-height: 0.9;
-            margin-bottom: 50px;
-            letter-spacing: -2px;
+            font-size: 60px;
+            line-height: 1;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+            color: white;
+        }
+
+        .experience-block {
+            background: var(--british-green);
+            border-radius: var(--radius);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            opacity: 0;
+            color: white;
+        }
+
+        .experience-block h2 {
+            font-size: 60px;
+            line-height: 1;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+            color: white;
+        }
+
+        .exp-item-white {
+            border-left: 2px solid rgba(255,255,255,0.3);
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .exp-item-white::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .exp-role-white {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 5px;
+            font-family: 'Fraunces', serif;
+        }
+
+        .exp-company-white {
+            font-weight: 600;
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .exp-time-white {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .exp-desc-white {
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.8;
         }
 
         .about-image-block {
@@ -353,8 +422,8 @@
             transform: scale(0.98);
         }
 
-        .block-green { background-color: var(--forest-green); color: white; border: none; }
-        .block-orange { background-color: var(--vibrant-orange); border: none; }
+        .block-british { background-color: var(--british-green); color: white; border: none; }
+        .block-royal { background-color: var(--royal-blue); border: none; }
         .block-image { padding: 0; overflow: hidden; }
         .block-image img { width: 100%; height: 100%; object-fit: cover; }
         .block-large { grid-row: span 2; }
@@ -401,8 +470,8 @@
             .hero h1 { font-size: 60px; margin-bottom: 20px; }
             .hero p { font-size: 14px; margin-bottom: 30px; }
             .hero-visual { width: 280px; height: 320px; margin: 40px auto 0; }
-            .orange-shape { width: 220px; height: 280px; top: 20px; }
-            .green-circle { width: 180px; height: 180px; font-size: 40px; top: 40px; }
+            .royal-shape { width: 220px; height: 280px; top: 20px; }
+            .british-circle { width: 180px; height: 180px; font-size: 40px; top: 40px; }
 
             .hero-btns { justify-content: center; width: 100%; }
             .btn { width: 100%; text-align: center; padding: 18px 30px; }
@@ -416,8 +485,8 @@
             .project-card h3 { font-size: 28px; }
 
             .about-split { grid-template-columns: 1fr; }
-            .about-text-block { padding: 40px; }
-            .about-text-block h2 { font-size: 45px; }
+            .about-text-block, .experience-block { padding: 40px; }
+            .about-text-block h2, .experience-block h2 { font-size: 45px; }
             .about-image-block { height: 450px; }
 
             .blocks-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 15px; margin-bottom: 60px; }
@@ -504,7 +573,7 @@
 
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--vibrant-orange);
+            border-color: var(--royal-blue);
             background: white;
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.05);
         }
@@ -524,7 +593,7 @@
         }
 
         .submit-btn:hover {
-            background: var(--forest-green);
+            background: var(--british-green);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(6, 78, 59, 0.2);
         }
@@ -541,7 +610,7 @@
         .form-status.success {
             display: block;
             background: rgba(6, 78, 59, 0.1);
-            color: var(--forest-green);
+            color: var(--british-green);
         }
 
         .form-status.error {
@@ -559,84 +628,6 @@
             .contact-info h2 { font-size: 45px; }
         }
 
-        /* Experience Section */
-        .experience-section {
-            padding: 100px 5%;
-            background: #FFFBF2;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 768px) {
-            .experience-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .exp-item {
-            border-left: 2px solid #F59E0B;
-            padding-left: 30px;
-            position: relative;
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-
-        .exp-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            background: #F59E0B;
-            border-radius: 50%;
-        }
-
-        .exp-role {
-            font-weight: 700;
-            font-size: 24px;
-            color: #064E3B;
-            margin-bottom: 5px;
-            font-family: 'Fraunces', serif;
-        }
-
-        .exp-company {
-            font-weight: 600;
-            font-size: 18px;
-            color: #000;
-            margin-bottom: 5px;
-        }
-
-        .exp-time {
-            font-size: 14px;
-            opacity: 0.6;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .exp-desc {
-            line-height: 1.6;
-            opacity: 0.8;
-            font-size: 16px;
-        }
-
-        .exp-desc ul {
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        .exp-desc li {
-            margin-bottom: 10px;
-        }
         </style>
 </head>
 <body>
@@ -646,9 +637,8 @@
             <a href="#" class="logo">VG.</a>
             <div class="nav-links">
                 <a href="#projects">Projects</a>
-                <a href="#about">About</a>
+                <a href="#about">Profile</a>
                 <a href="#skills">Expertise</a>
-                <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -663,14 +653,15 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="orange-shape"></div>
-                <div class="green-circle">&lt;/&gt;</div>
+                <div class="royal-shape"></div>
+                <div class="british-circle">&lt;/&gt;</div>
             </div>
         </section>
 
         <section class="welcome-block">
-            <h2>Welcome to my Zen space</h2>
-            <div class="white-text">AI + Data<br>Solutions</div>
+            <div id="zen-blobs" class="zen-blobs-container" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; filter:blur(60px); opacity:0.4;"></div>
+            <h2 style="position:relative; z-index:1;">Welcome to my Zen space</h2>
+            <div class="white-text" style="position:relative; z-index:1;">AI + Data<br>Solutions</div>
         </section>
 
         <section id="projects">
@@ -707,30 +698,47 @@
 
         <section id="about" class="about-split">
             <div class="about-text-block">
-                <h2>Professional<br>Profile</h2>
+                <h2>Professional Profile</h2>
                 <div>
-                    <div style="margin-bottom: 30px;">
-                        <p style="font-weight: 700; font-size: 24px; margin-bottom:2px;">Master of Science in Software Engineering</p>
-                        <p style="font-weight: 500; font-size: 18px; opacity: 0.9; margin-bottom:2px;">Hochschule Heilbronn</p>
-                        <p style="font-weight: 400; font-size: 16px; opacity: 0.7;">2025 - Present · Grade: 1,9</p>
+                    <div class="edu-item">
+                        <p class="edu-degree">M.Sc. Software Engineering</p>
+                        <p class="edu-detail">Hochschule Heilbronn</p>
+                        <p class="edu-detail">2025 - Present</p>
+                        <p class="edu-detail">Grade: 1,9</p>
                     </div>
 
-                    <div style="margin-bottom: 30px;">
-                        <p style="font-weight: 700; font-size: 24px; margin-bottom:2px;">B.Eng. Information Technology</p>
-                        <p style="font-weight: 500; font-size: 18px; opacity: 0.9; margin-bottom:2px;">A.D. Patel Institute of Technology, India</p>
-                        <p style="font-weight: 400; font-size: 16px; opacity: 0.7;">Jul 2020 - Jan 2024 · GPA: 1.8 (German scale)</p>
+                    <div class="edu-item">
+                        <p class="edu-degree">B.Eng. IT</p>
+                        <p class="edu-detail">A.D. Patel Institute, India</p>
+                        <p class="edu-detail">2020 - 2024</p>
+                        <p class="edu-detail">GPA: 1.8</p>
                     </div>
 
-                    <p style="margin-top:10px; font-weight: 500; line-height: 1.6;">
-                        Specializing in AI-driven systems and scalable data architectures. Based in Stuttgart, Germany, I focus on bridging the gap between complex machine learning models and practical, high-performance software solutions.
+                    <p style="margin-top:20px; font-weight: 500; line-height: 1.5; font-size: 15px;">
+                        Specializing in AI-driven systems and scalable data architectures. Based in Stuttgart, Germany.
                     </p>
-                    <p style="margin-top:20px; font-weight: 700; color: #064E3B; background: rgba(255,255,255,0.3); display: inline-block; padding: 5px 15px; border-radius: 20px;">
+                    <p style="margin-top:15px; font-weight: 700; color: white; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px;">
                         Work-authorised in Germany
                     </p>
                 </div>
             </div>
-            <div class="about-image-block">
-                <div class="zen-blobs-container" id="zen-blobs"></div>
+
+            <div id="experience" class="experience-block">
+                <h2>Experience</h2>
+                <div class="experience-list">
+                    <div class="exp-item-white">
+                        <p class="exp-role-white">Data Analyst & BI Developer</p>
+                        <p class="exp-company-white">Oscar IT Solutions</p>
+                        <p class="exp-time-white">Jan 2024 – Feb 2025</p>
+                        <p class="exp-desc-white">Analysed 500K+ records using Python & SQL; built dashboards and automated ETL pipelines.</p>
+                    </div>
+                    <div class="exp-item-white">
+                        <p class="exp-role-white">React Developer Intern</p>
+                        <p class="exp-company-white">TatvaSoft</p>
+                        <p class="exp-time-white">May 2023 – Jun 2023</p>
+                        <p class="exp-desc-white">Built full-stack e-commerce application using React.js & Material UI.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -739,11 +747,11 @@
                 <h2>Tech <span>Stack</span></h2>
             </div>
             <div class="blocks-grid">
-                <div class="block block-green">
+                <div class="block block-british">
                 <h4>Python</h4>
                 <p>Advanced development</p>
             </div>
-            <div class="block block-orange">
+            <div class="block block-royal">
                 <h4>AI / ML</h4>
                 <p>Neural Networks & NLP</p>
             </div>
@@ -755,7 +763,7 @@
                 <h4>Data Analytics</h4>
                 <p>PostgreSQL & Star Schema</p>
             </div>
-            <div class="block block-orange">
+            <div class="block block-royal">
                 <h4>Deep Learning</h4>
                 <p>PyTorch & Computer Vision</p>
             </div>
@@ -763,7 +771,7 @@
                 <h4>Web Scraping</h4>
                 <p>Playwright & Selenium</p>
             </div>
-            <div class="block block-green">
+            <div class="block block-british">
                 <h4>Architecture</h4>
                 <p>ETL & Scalable Systems</p>
             </div>
@@ -771,7 +779,7 @@
                 <h4>AI Models</h4>
                 <p>SwinIR, ESRGAN & Ollama</p>
             </div>
-            <div class="block block-orange">
+            <div class="block block-royal">
                 <h4>Toolkit</h4>
                 <p>Python, Docker & SQL</p>
             </div>
@@ -779,7 +787,7 @@
                 <h4>Philosophy</h4>
                 <p>Minimalist & Human-Centric AI</p>
             </div>
-            <div class="block block-green">
+            <div class="block block-british">
                 <h4>Location</h4>
                 <p>Stuttgart, Germany</p>
             </div>
@@ -787,35 +795,6 @@
                 <h4>Software Eng</h4>
                 <p>M.Sc. focus & Best Practices</p>
             </div>
-            </div>
-        </section>
-
-        <section id="experience" class="experience-section">
-            <div class="section-header">
-                <h2>Experience</h2>
-            </div>
-            <div class="experience-grid">
-                <div class="exp-item">
-                    <p class="exp-role">Data Analyst & BI Developer</p>
-                    <p class="exp-company">Oscar IT Solutions</p>
-                    <p class="exp-time">Jan 2024 – Feb 2025</p>
-                    <div class="exp-desc">
-                        <ul>
-                            <li>Analysed 500K+ records using Python & SQL; built 4 real-time Power BI dashboards and automated ETL pipelines — reducing reporting cycles by 40%.</li>
-                            <li>Evaluated 3 LLM solutions (GPT-4 & open-source); conducted A/B testing on 3 product features and delivered statistical decision framework adopted by the AI working group.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp-item">
-                    <p class="exp-role">React Developer Intern</p>
-                    <p class="exp-company">TatvaSoft</p>
-                    <p class="exp-time">May 2023 – Jun 2023</p>
-                    <div class="exp-desc">
-                        <ul>
-                            <li>Built a full-stack e-commerce application using React.js, Material UI & REST APIs — implementing product browsing, cart, authentication and CRUD operations end-to-end.</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -887,7 +866,7 @@
                 rotate: [5, 0]
             }, '-=1000')
             .add({
-                targets: '.green-circle',
+                targets: '.british-circle',
                 translateY: [30, 0],
                 rotate: [15, 0],
                 duration: 2000
@@ -928,9 +907,9 @@
                                 easing: 'easeOutQuad'
                             });
 
-                            if (target.classList.contains('experience-section')) {
+                            if (target.classList.contains('about-split')) {
                                 anime({
-                                    targets: '.exp-item',
+                                    targets: '.exp-item-white',
                                     opacity: [0, 1],
                                     translateX: [-20, 0],
                                     delay: anime.stagger(200),
@@ -943,7 +922,7 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.welcome-block, .section-header, .project-card, .about-text-block, .about-image-block, .block, .experience-section, .contact-section, .footer-cta').forEach(el => {
+            document.querySelectorAll('.welcome-block, .section-header, .project-card, .about-split, .about-text-block, .experience-block, .about-image-block, .block, .contact-section, .footer-cta').forEach(el => {
                 observer.observe(el);
             });
 
@@ -997,7 +976,7 @@
 
         // Zen Flow Blobs Animation
         const container = document.getElementById('zen-blobs');
-        const colors = ['#F59E0B', '#064E3B', '#FFFBF2'];
+        const colors = ['var(--royal-blue)', 'var(--british-green)', '#FFFBF2'];
         for (let i = 0; i < 6; i++) {
             const blob = document.createElement('div');
             blob.className = 'blob';
