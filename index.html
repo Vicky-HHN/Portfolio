@@ -10,11 +10,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
         :root {
-            --bg-cream: #FFFBF2;
-            --british-green: #004225;
-            --royal-blue: #4169E1;
-            --text-dark: #1A1A1A;
-            --radius: 40px;
+            --bg-white: #FFFFFF;
+            --accent-blue: #1E3A8A;
+            --text-slate: #1E293B;
+            --card-grey: #F1F5F9;
+            --hover-blue: #DBEAFE;
+            --radius: 24px;
         }
 
         * {
@@ -25,8 +26,8 @@
         }
 
         body {
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
+            background-color: var(--bg-white);
+            color: var(--text-slate);
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
@@ -56,7 +57,7 @@
             font-size: 32px;
             font-weight: 700;
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--accent-blue);
             letter-spacing: -1px;
         }
 
@@ -67,7 +68,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-slate);
             font-weight: 700;
             font-size: 13px;
             text-transform: uppercase;
@@ -82,7 +83,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--royal-blue);
+            background: var(--accent-blue);
             transition: width 0.3s ease;
         }
 
@@ -137,26 +138,26 @@
         }
 
         .btn-dark {
-            background: #1A1A1A;
+            background: var(--accent-blue);
             color: white;
-            border: 1px solid #1A1A1A;
+            border: 1px solid var(--accent-blue);
         }
 
         .btn-dark:hover {
-            background: var(--british-green);
-            border-color: var(--british-green);
-            transform: scale(1.05);
+            background: #1E293B;
+            border-color: #1E293B;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
         }
 
         .btn-outline {
-            border: 1.5px solid #1A1A1A;
-            color: #1A1A1A;
+            border: 1.5px solid var(--accent-blue);
+            color: var(--accent-blue);
         }
 
         .btn-outline:hover {
-            background: #1A1A1A;
-            color: white;
-            transform: scale(1.05);
+            background: var(--hover-blue);
+            transform: translateY(-2px);
         }
 
         .hero-visual {
@@ -172,10 +173,11 @@
             right: 0;
             width: 420px;
             height: 480px;
-            background-color: var(--royal-blue);
+            background-color: var(--accent-blue);
             border-bottom-left-radius: 210px;
             border-bottom-right-radius: 210px;
             border-top-left-radius: 210px;
+            opacity: 0.1;
         }
 
         .british-circle {
@@ -184,7 +186,7 @@
             left: 0;
             width: 360px;
             height: 360px;
-            background-color: var(--british-green);
+            background-color: var(--accent-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -193,12 +195,12 @@
             font-size: 80px;
             font-family: 'Fraunces', serif;
             z-index: 2;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15);
         }
 
         /* Welcome Section */
         .welcome-block {
-            background-color: var(--royal-blue);
+            background-color: var(--accent-blue);
             border-radius: var(--radius);
             padding: 120px 80px;
             display: flex;
@@ -238,7 +240,7 @@
         }
 
         .section-header span {
-            color: var(--royal-blue);
+            color: var(--accent-blue);
         }
 
         .project-grid {
@@ -249,23 +251,21 @@
         }
 
         .project-card {
-            border: 1.5px solid #000;
+            background-color: var(--card-grey);
             border-radius: var(--radius);
             padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 400px;
-            background: transparent;
             transition: all 0.4s ease;
             opacity: 0;
         }
 
         .project-card:hover {
-            background: white;
+            background: var(--hover-blue);
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-            border-color: var(--royal-blue);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.1);
         }
 
         .project-tag {
@@ -301,7 +301,7 @@
         }
 
         .about-text-block {
-            background: var(--royal-blue);
+            background: var(--accent-blue);
             border-radius: var(--radius);
             padding: 60px;
             display: flex;
@@ -320,7 +320,7 @@
         }
 
         .experience-block {
-            background: var(--british-green);
+            background: #1E293B;
             border-radius: var(--radius);
             padding: 60px;
             display: flex;
@@ -409,7 +409,7 @@
 
         .block {
             border-radius: var(--radius);
-            border: 1.5px solid #000;
+            background-color: var(--card-grey);
             padding: 40px;
             display: flex;
             flex-direction: column;
@@ -419,11 +419,12 @@
         }
 
         .block:hover {
-            transform: scale(0.98);
+            background-color: var(--hover-blue);
+            transform: translateY(-5px);
         }
 
-        .block-british { background-color: var(--british-green); color: white; border: none; }
-        .block-royal { background-color: var(--royal-blue); border: none; }
+        .block-british { background-color: #1E293B; color: white; border: none; }
+        .block-royal { background-color: var(--accent-blue); color: white; border: none; }
         .block-image { padding: 0; overflow: hidden; }
         .block-image img { width: 100%; height: 100%; object-fit: cover; }
         .block-large { grid-row: span 2; }
@@ -437,8 +438,7 @@
         }
 
         .footer-cta {
-            background: white;
-            border: 1.5px solid #000;
+            background: var(--card-grey);
             border-radius: var(--radius);
             padding: 120px 80px;
             text-align: center;
@@ -497,14 +497,14 @@
             .footer-cta h2 { font-size: 45px; }
         }
 
-        /* Zen Blobs Animation */
+        /* Abstract Blobs Animation */
         .about-image-block {
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            background: rgba(6, 78, 59, 0.03);
-            border: 1px solid rgba(6, 78, 59, 0.1);
+            background: rgba(30, 58, 138, 0.03);
+            border: 1px solid rgba(30, 58, 138, 0.1);
         }
         .zen-blobs-container {
             position: relative;
@@ -525,8 +525,7 @@
         }
 
         .contact-container {
-            background: white;
-            border: 1.5px solid #000;
+            background: var(--card-grey);
             border-radius: var(--radius);
             padding: 80px;
             display: grid;
@@ -573,13 +572,12 @@
 
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--royal-blue);
+            border-color: var(--accent-blue);
             background: white;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.05);
         }
 
         .submit-btn {
-            background: #1A1A1A;
+            background: var(--accent-blue);
             color: white;
             border: none;
             padding: 22px;
@@ -593,9 +591,9 @@
         }
 
         .submit-btn:hover {
-            background: var(--british-green);
+            background: #1E293B;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(6, 78, 59, 0.2);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
         }
 
         .form-status {
@@ -609,8 +607,8 @@
 
         .form-status.success {
             display: block;
-            background: rgba(6, 78, 59, 0.1);
-            color: var(--british-green);
+            background: rgba(30, 58, 138, 0.1);
+            color: var(--accent-blue);
         }
 
         .form-status.error {
@@ -660,13 +658,13 @@
 
         <section class="welcome-block">
             <div id="zen-blobs" class="zen-blobs-container" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; filter:blur(60px); opacity:0.4;"></div>
-            <h2 style="position:relative; z-index:1;">Welcome to my Zen space</h2>
-            <div class="white-text" style="position:relative; z-index:1;">AI + Data<br>Solutions</div>
+            <h2 style="position:relative; z-index:1;">Innovating with Data</h2>
+            <div class="white-text" style="position:relative; z-index:1;">AI + ML<br>Solutions</div>
         </section>
 
         <section id="projects">
             <div class="section-header">
-                <h2>Selected <span>Work</span></h2>
+                <h2>Strategic <span>Projects</span></h2>
             </div>
             <div class="project-grid">
                 <div class="project-card">
@@ -729,14 +727,14 @@
                     <div class="exp-item-white">
                         <p class="exp-role-white">Data Analyst & BI Developer</p>
                         <p class="exp-company-white">Oscar IT Solutions</p>
-                        <p class="exp-time-white">Jan 2024 – Feb 2025</p>
-                        <p class="exp-desc-white">Analysed 500K+ records using Python & SQL; built dashboards and automated ETL pipelines.</p>
+                        <p class="exp-time-white">JAN 2024 – FEB 2025</p>
+                        <p class="exp-desc-white">Optimized ETL pipelines for 500K+ records, built interactive Tableau dashboards, and integrated LLM evaluation frameworks for sentiment analysis.</p>
                     </div>
                     <div class="exp-item-white">
                         <p class="exp-role-white">React Developer Intern</p>
                         <p class="exp-company-white">TatvaSoft</p>
-                        <p class="exp-time-white">May 2023 – Jun 2023</p>
-                        <p class="exp-desc-white">Built full-stack e-commerce application using React.js & Material UI.</p>
+                        <p class="exp-time-white">MAY 2023 – JUN 2023</p>
+                        <p class="exp-desc-white">Developed a scalable e-commerce frontend with React.js and Material UI, implementing REST API integrations, cart logic, and JWT authentication.</p>
                     </div>
                 </div>
             </div>
@@ -801,7 +799,7 @@
         <section id="contact" class="contact-section">
             <div class="contact-container">
                 <div class="contact-info">
-                    <h2>Get in touch</h2>
+                    <h2>Contact Information</h2>
                     <p style="font-size: 18px; color: #555; margin-bottom: 40px;">
                         Have a project in mind or just want to say hi? Feel free to reach out using the form or through my social channels.
                     </p>
@@ -974,9 +972,9 @@
             }
         });
 
-        // Zen Flow Blobs Animation
+        // Flow Blobs Animation
         const container = document.getElementById('zen-blobs');
-        const colors = ['var(--royal-blue)', 'var(--british-green)', '#FFFBF2'];
+        const colors = ['var(--accent-blue)', '#1E293B', '#FFFFFF'];
         for (let i = 0; i < 6; i++) {
             const blob = document.createElement('div');
             blob.className = 'blob';
