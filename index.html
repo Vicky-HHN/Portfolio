@@ -519,8 +519,7 @@
             background-color: var(--bg-light);
             border-radius: var(--radius);
             padding: 60px;
-            max-width: 800px;
-            margin: 0 auto 120px;
+            width: 100%;
             opacity: 0;
             border: 1px solid rgba(30, 58, 138, 0.1);
         }
@@ -817,29 +816,46 @@
             </div>
         </section>
 
-        <section id="contact">
-            <div class="section-header">
-                <h2>Get in <span>Touch</span></h2>
+        <section id="contact" class="about-split">
+            <div class="about-text-block">
+                <h2>Get in Touch</h2>
+                <p style="margin-bottom: 40px; font-size: 18px; opacity: 0.9;">I'm open to collaborations and new opportunities in Data Analysis, BI Development, and AI Engineering. Let's build something impactful together.</p>
+
+                <div class="exp-item-white">
+                    <p class="exp-role-white">Location</p>
+                    <p class="exp-desc-white">Heilbronn, Germany</p>
+                </div>
+                <div class="exp-item-white">
+                    <p class="exp-role-white">Availability</p>
+                    <p class="exp-desc-white">Full-time / Work-authorised</p>
+                </div>
+                <div class="exp-item-white">
+                    <p class="exp-role-white">Communication</p>
+                    <p class="exp-desc-white">English (Fluent), German (B1)</p>
+                </div>
             </div>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-dark" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
-            </form>
+
+            <div class="contact-form-wrapper" style="opacity:0;">
+                <form class="contact-form" style="opacity: 1; margin-bottom: 0;">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+                </form>
+            </div>
         </section>
 
         <footer>
@@ -935,10 +951,10 @@
                             });
                         } else if (target.id === 'contact') {
                             anime({
-                                targets: '#contact .section-header, #contact .contact-form',
+                                targets: '#contact .about-text-block, #contact .contact-form-wrapper',
                                 opacity: [0, 1],
-                                translateY: [50, 0],
-                                delay: anime.stagger(150),
+                                translateX: (el, i) => i === 0 ? [-50, 0] : [50, 0],
+                                duration: 1200,
                                 easing: 'easeOutExpo'
                             });
                         }
