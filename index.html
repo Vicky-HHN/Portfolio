@@ -229,8 +229,6 @@
             position: relative;
             overflow: hidden;
             color: white;
-            min-height: 100vh;
-            scroll-snap-align: start;
         }
 
         .welcome-block h2 {
@@ -430,7 +428,7 @@
             border-radius: var(--radius);
             overflow: hidden;
             height: 650px;
-            border: 1px solid var(--accent-teal);
+            border: 1px solid var(--accent-blue);
             opacity: 0;
         }
 
@@ -481,11 +479,11 @@
             background-color: var(--bg-light);
         }
 
-        #skills .block-british:hover { background-color: var(--accent-blue); }
-        #skills .block-royal:hover { background-color: var(--accent-slate); }
+        #skills .block-primary:hover { background-color: var(--accent-blue); }
+        #skills .block-secondary:hover { background-color: var(--accent-slate); }
 
-        .block-british { background-color: var(--accent-blue); color: white; border: none; }
-        .block-royal { background-color: var(--accent-slate); color: white; border: none; }
+        .block-primary { background-color: var(--accent-blue); color: white; border: none; }
+        .block-secondary { background-color: var(--accent-slate); color: white; border: none; }
         .block-image { padding: 0; overflow: hidden; }
         .block-image img { width: 100%; height: 100%; object-fit: cover; }
         .block-large { grid-row: span 2; }
@@ -495,29 +493,18 @@
 
         /* Footer */
         footer {
-            padding-bottom: 120px;
-            min-height: 100vh;
-            scroll-snap-align: start;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-cta {
-            opacity: 0;
-            background: var(--accent-blue);
-            border-radius: var(--radius);
-            padding: 120px 80px;
+            padding: 60px 0;
             text-align: center;
-            opacity: 0;
-            color: white;
+            border-top: 1px solid rgba(30, 41, 59, 0.1);
         }
 
-        .footer-cta h2 {
-            font-size: 90px;
-            margin-bottom: 50px;
-            letter-spacing: -3px;
-            line-height: 0.9;
-            color: white;
+        .footer-content {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            color: var(--text-dark);
         }
 
         @media (max-width: 1024px) {
@@ -589,119 +576,6 @@
             opacity: 0.6;
         }
 
-        /* Contact Form */
-        .contact-section {
-            margin-bottom: 20px;
-            min-height: 100vh;
-            scroll-snap-align: start;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-container {
-            opacity: 0;
-            background: var(--bg-light);
-            border-radius: var(--radius);
-            padding: 80px;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 60px;
-            border: 1px solid rgba(30, 58, 138, 0.1);
-        }
-
-        .contact-info h2 {
-            font-size: 60px;
-            line-height: 1;
-            margin-bottom: 30px;
-            letter-spacing: -2px;
-            color: var(--accent-blue);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .form-group label {
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-blue);
-        }
-
-        .form-group input, .form-group textarea {
-            padding: 20px;
-            border: 1.5px solid rgba(30, 58, 138, 0.2);
-            border-radius: 20px;
-            font-family: inherit;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            background: white;
-        }
-
-        .submit-btn {
-            background: var(--accent-blue);
-            color: white;
-            border: none;
-            padding: 22px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background: var(--accent-slate);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
-        }
-
-        .form-status {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 20px;
-            display: none;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .form-status.success {
-            display: block;
-            background: var(--accent-highlight);
-            color: var(--accent-blue);
-        }
-
-        .form-status.error {
-            display: block;
-            background: rgba(220, 38, 38, 0.1);
-            color: #DC2626;
-        }
-
-        @media (max-width: 992px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                padding: 40px;
-                gap: 40px;
-            }
-            .contact-info h2 { font-size: 45px; }
-        }
 
         </style>
 </head>
@@ -714,7 +588,6 @@
                 <a href="#projects">Projects</a>
                 <a href="#about">Profile</a>
                 <a href="#skills">Expertise</a>
-                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -727,7 +600,6 @@
                 <h1>Vishva Gandhi</h1>
                 <div class="hero-btns">
                     <a href="#projects" class="btn btn-dark">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -753,7 +625,7 @@
                         <h3>AI Web Scraper</h3>
                     </div>
                     <p>Intelligent data extraction from dynamic websites using local LLMs and natural language queries.</p>
-                    <a href="https://github.com/Vicky-HHN/SmartScraper" aria-label="View AI Web Scraper on GitHub" style="color:var(--accent-teal); font-weight:700; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px;">GitHub Link →</a>
+                    <a href="https://github.com/Vicky-HHN/SmartScraper" aria-label="View AI Web Scraper on GitHub" style="color:var(--accent-blue); font-weight:700; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px;">GitHub Link →</a>
                 </div>
                 <div class="project-card">
                     <div>
@@ -761,7 +633,7 @@
                         <h3>Video Upscaling</h3>
                     </div>
                     <p>Desktop application built with Python leveraging advanced neural networks for high-quality video enhancement.</p>
-                    <a href="https://github.com/Vicky-HHN/Helix-Ultimate" aria-label="View Video Upscaling project on GitHub" style="color:var(--accent-teal); font-weight:700; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px;">GitHub Link →</a>
+                    <a href="https://github.com/Vicky-HHN/Helix-Ultimate" aria-label="View Video Upscaling project on GitHub" style="color:var(--accent-blue); font-weight:700; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px;">GitHub Link →</a>
                 </div>
                 <div class="project-card">
                     <div>
@@ -769,7 +641,7 @@
                         <h3>Sales Dashboard</h3>
                     </div>
                     <p>Strategic analytics dashboard with a Star Schema architecture and multi-stage ETL processing.</p>
-                    <a href="https://github.com/Vicky-HHN/Strategic-Sales-Performance-Dashboard" aria-label="View Sales Dashboard project on GitHub" style="color:var(--accent-teal); font-weight:700; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px;">GitHub Link →</a>
+                    <a href="https://github.com/Vicky-HHN/Strategic-Sales-Performance-Dashboard" aria-label="View Sales Dashboard project on GitHub" style="color:var(--accent-blue); font-weight:700; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px;">GitHub Link →</a>
                 </div>
             </div>
         </section>
@@ -821,11 +693,11 @@
                 <h2>Technical <span>Expertise</span></h2>
             </div>
             <div class="blocks-grid">
-                <div class="block block-british">
+                <div class="block block-primary">
                 <h4>Python</h4>
                 <p>Advanced development</p>
             </div>
-            <div class="block block-royal">
+            <div class="block block-secondary">
                 <h4>AI / ML</h4>
                 <p>Neural Networks & NLP</p>
             </div>
@@ -837,7 +709,7 @@
                 <h4>Data Analytics</h4>
                 <p>PostgreSQL & Star Schema</p>
             </div>
-            <div class="block block-royal">
+            <div class="block block-secondary">
                 <h4>Deep Learning</h4>
                 <p>PyTorch & Computer Vision</p>
             </div>
@@ -845,7 +717,7 @@
                 <h4>Web Scraping</h4>
                 <p>Playwright & Selenium</p>
             </div>
-            <div class="block block-british">
+            <div class="block block-primary">
                 <h4>Architecture</h4>
                 <p>ETL & Scalable Systems</p>
             </div>
@@ -853,56 +725,16 @@
                 <h4>AI Models</h4>
                 <p>SwinIR, ESRGAN & Ollama</p>
             </div>
-            <div class="block block-royal" style="grid-column: span 4;">
+            <div class="block block-secondary" style="grid-column: span 4;">
                 <h4>Toolkit</h4>
                 <p>Python, PyTorch, Docker, SQL, Git & Cloud Integration (AWS/Azure)</p>
             </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Let's Connect</h2>
-                    <p style="font-size: 18px; color: var(--text-dark); opacity: 0.8; margin-bottom: 40px;">
-                        Have a project in mind or just want to say hi? Feel free to reach out using the form or through my social channels.
-                    </p>
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <p><strong>Email:</strong> vishvagandhi027@gmail.com</p>
-                        <p><strong>Location:</strong> Heilbronn, Germany</p>
-                    </div>
-                </div>
-                <div>
-                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xvgowqbr" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                        <div id="form-status" class="form-status"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
         <footer>
-            <div class="footer-cta">
-                <h2>Let's build<br>something together.</h2>
-                <div class="hero-btns" style="justify-content: center; margin-top:60px;">
-                    <a href="https://github.com/Vicky-HHN" class="btn btn-dark">GitHub Profile</a>
-                    <a href="mailto:vishvagandhi027@gmail.com" class="btn btn-outline">Direct Email</a>
-                </div>
-                <div style="margin-top:40px; font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:2px; opacity:0.5;">
-                    &copy; 2026 Vishva Gandhi · Heilbronn, Germany
-                </div>
+            <div class="footer-content">
+                &copy; 2026 Vishva Gandhi · Heilbronn, Germany
             </div>
         </footer>
     </div>
@@ -983,78 +815,15 @@
                                 delay: anime.stagger(100),
                                 easing: 'easeOutExpo'
                             });
-                        } else if (target.classList.contains('contact-section')) {
-                            anime({
-                                targets: '.contact-container',
-                                opacity: [0, 1],
-                                translateY: [50, 0],
-                                duration: 1200,
-                                easing: 'easeOutExpo'
-                            });
-                        } else if (target.tagName === 'FOOTER') {
-                            anime({
-                                targets: '.footer-cta',
-                                opacity: [0, 1],
-                                scale: [0.9, 1],
-                                duration: 1200,
-                                easing: 'easeOutExpo'
-                            });
                         }
                         observer.unobserve(target);
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.welcome-block, #projects, #about, #skills, .contact-section, footer').forEach(el => {
+            document.querySelectorAll('.welcome-block, #projects, #about, #skills').forEach(el => {
                 observer.observe(el);
             });
-
-            // Form Submission Handling
-            const form = document.getElementById('contact-form');
-            const status = document.getElementById('form-status');
-
-            if (form) {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const data = new FormData(form);
-                    const submitBtn = form.querySelector('.submit-btn');
-
-                    submitBtn.disabled = true;
-                    submitBtn.innerText = 'Sending...';
-
-                    try {
-                        const response = await fetch(form.action, {
-                            method: 'POST',
-                            body: data,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        });
-
-                        if (response.ok) {
-                            status.innerText = 'Thank you! Your message has been sent.';
-                            status.className = 'form-status success';
-                            form.reset();
-
-                            anime({
-                                targets: status,
-                                scale: [0.9, 1],
-                                opacity: [0, 1],
-                                duration: 800,
-                                easing: 'easeOutElastic(1, .8)'
-                            });
-                        } else {
-                            throw new Error();
-                        }
-                    } catch (error) {
-                        status.innerText = 'Oops! There was a problem submitting your form.';
-                        status.className = 'form-status error';
-                    } finally {
-                        submitBtn.disabled = false;
-                        submitBtn.innerText = 'Send Message';
-                    }
-                });
-            }
         });
 
         // Flow Blobs Animation
