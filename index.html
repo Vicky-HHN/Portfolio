@@ -280,6 +280,11 @@
             margin-bottom: 20px;
         }
 
+        .lang-grid {
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 120px;
+        }
+
         .project-card {
             background-color: var(--bg-light);
             border-radius: var(--radius);
@@ -517,6 +522,8 @@
             .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
             .nav-links a { font-size: 11px; }
 
+            .lang-grid { grid-template-columns: 1fr; margin-bottom: 60px; }
+
             .hero, .welcome-block, #projects, .about-split, #skills, footer { min-height: auto; padding-top: 100px; padding-bottom: 100px; }
             .hero { flex-direction: column; text-align: center; padding-top: 20px; }
             .hero h1 { font-size: 60px; margin-bottom: 20px; }
@@ -690,9 +697,31 @@
             </div>
         </section>
 
+        <section id="languages">
+            <div class="section-header">
+                <h2>Global <span>Communication</span></h2>
+            </div>
+            <div class="project-grid lang-grid">
+                <div class="project-card" style="min-height: auto; padding: 40px; opacity: 0;">
+                    <div>
+                        <div class="project-tag">Fluent</div>
+                        <h3 style="font-size: 32px;">🇬🇧 English</h3>
+                    </div>
+                    <p style="margin-bottom: 0;">Professional Working Proficiency</p>
+                </div>
+                <div class="project-card" style="min-height: auto; padding: 40px; opacity: 0;">
+                    <div>
+                        <div class="project-tag">B1 Level</div>
+                        <h3 style="font-size: 32px;">🇩🇪 German</h3>
+                    </div>
+                    <p style="margin-bottom: 0;">B1 · Actively improving</p>
+                </div>
+            </div>
+        </section>
+
         <section id="skills">
             <div class="section-header">
-                <h2>Technical <span>Expertise</span></h2>
+                <h2>Tech <span>Stack</span></h2>
             </div>
             <div class="blocks-grid">
                 <div class="block block-primary">
@@ -809,6 +838,14 @@
                                 delay: anime.stagger(150),
                                 easing: 'easeOutExpo'
                             });
+                        } else if (target.id === 'languages') {
+                            anime({
+                                targets: '#languages .section-header, #languages .project-card',
+                                opacity: [0, 1],
+                                translateY: [50, 0],
+                                delay: anime.stagger(150),
+                                easing: 'easeOutExpo'
+                            });
                         } else if (target.id === 'skills') {
                             anime({
                                 targets: '#skills .section-header, #skills .block',
@@ -823,7 +860,7 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.welcome-block, #projects, #about, #skills').forEach(el => {
+            document.querySelectorAll('.welcome-block, #projects, #about, #languages, #skills').forEach(el => {
                 observer.observe(el);
             });
         });
