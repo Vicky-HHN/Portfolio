@@ -507,6 +507,59 @@
             color: var(--text-dark);
         }
 
+        /* Contact Form */
+        #contact {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background-color: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 60px;
+            max-width: 800px;
+            margin: 0 auto 120px;
+            opacity: 0;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1.5px solid rgba(30, 58, 138, 0.1);
+            background: var(--bg-white);
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
         @media (max-width: 1024px) {
             .hero h1 { font-size: 80px; }
             .project-grid { grid-template-columns: 1fr 1fr; }
@@ -596,7 +649,8 @@
             <div class="nav-links">
                 <a href="#projects">Projects</a>
                 <a href="#about">Profile</a>
-                <a href="#skills">Expertise</a>
+                <a href="#skills">Tech Stack</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -763,6 +817,31 @@
             </div>
         </section>
 
+        <section id="contact">
+            <div class="section-header">
+                <h2>Get in <span>Touch</span></h2>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+            </form>
+        </section>
+
         <footer>
             <div class="footer-content">
                 &copy; 2026 Vishva Gandhi · Heilbronn, Germany
@@ -854,13 +933,21 @@
                                 delay: anime.stagger(100),
                                 easing: 'easeOutExpo'
                             });
+                        } else if (target.id === 'contact') {
+                            anime({
+                                targets: '#contact .section-header, #contact .contact-form',
+                                opacity: [0, 1],
+                                translateY: [50, 0],
+                                delay: anime.stagger(150),
+                                easing: 'easeOutExpo'
+                            });
                         }
                         observer.unobserve(target);
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.welcome-block, #projects, #about, #languages, #skills').forEach(el => {
+            document.querySelectorAll('.welcome-block, #projects, #about, #languages, #skills, #contact').forEach(el => {
                 observer.observe(el);
             });
         });
