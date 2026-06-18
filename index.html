@@ -18,6 +18,7 @@
             --text-dark: #1E293B;
             --text-muted: #64748B;
             --radius: 24px;
+
         }
 
         * {
@@ -507,56 +508,159 @@
             color: var(--text-dark);
         }
 
-        /* Contact Form */
+        /* Contact Section Redesign */
         #contact {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 120px 0;
+            margin: 100px 0;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact-form {
-            background-color: var(--bg-light);
-            border-radius: var(--radius);
-            padding: 60px;
-            width: 100%;
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+            padding: 0 60px;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
             opacity: 0;
+        }
+
+        .contact-method-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--accent-blue);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             border: 1px solid rgba(30, 58, 138, 0.1);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .contact-method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.1);
+            border-color: var(--accent-blue);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            font-family: 'Fraunces', serif;
+            font-size: 18px;
+            font-weight: 700;
+            word-break: break-all;
+        }
+
+        .contact-form-wrapper {
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(30, 58, 138, 0.08);
+            opacity: 0;
+        }
+
+        .contact-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
         .form-group {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
             color: var(--accent-blue);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .form-group:focus-within label {
+            opacity: 1;
+            color: var(--accent-blue);
+            transform: translateX(5px);
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 15px 20px;
-            border-radius: 12px;
-            border: 1.5px solid rgba(30, 58, 138, 0.1);
-            background: var(--bg-white);
-            font-family: inherit;
+            padding: 18px 25px;
+            border-radius: 15px;
+            border: 2px solid #F1F5F9;
+            background: #F8FAFC;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 15px;
-            transition: border-color 0.3s ease;
+            color: var(--accent-blue);
+            transition: all 0.3s ease;
         }
 
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-blue);
+            background: var(--bg-white);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.05);
         }
 
         .form-group textarea {
             height: 150px;
-            resize: vertical;
+            resize: none;
+        }
+
+        .btn-premium {
+            background: var(--accent-blue);
+            color: white;
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
+        }
+
+        .btn-premium:hover {
+            background: var(--accent-slate);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.3);
         }
 
         @media (max-width: 1024px) {
@@ -606,6 +710,16 @@
 
             .footer-cta { padding: 60px 30px; }
             .footer-cta h2 { font-size: 45px; }
+
+            #contact { padding: 80px 0; margin: 60px 0; }
+            .contact-container { grid-template-columns: 1fr; gap: 40px; padding: 0 25px; }
+            .contact-info-grid { grid-template-columns: 1fr 1fr; }
+            .contact-form-wrapper { padding: 30px; }
+            .contact-form .form-row { grid-template-columns: 1fr; gap: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info-grid { grid-template-columns: 1fr; }
         }
 
         /* Abstract Blobs Animation */
@@ -816,45 +930,73 @@
             </div>
         </section>
 
-        <section id="contact" class="about-split">
-            <div class="about-text-block">
-                <h2>Get in Touch</h2>
-                <p style="margin-bottom: 40px; font-size: 18px; opacity: 0.9;">I'm open to collaborations and new opportunities in Data Analysis, BI Development, and AI Engineering. Let's build something impactful together.</p>
-
-                <div class="exp-item-white">
-                    <p class="exp-role-white">Location</p>
-                    <p class="exp-desc-white">Heilbronn, Germany</p>
-                </div>
-                <div class="exp-item-white">
-                    <p class="exp-role-white">Availability</p>
-                    <p class="exp-desc-white">Full-time / Work-authorised</p>
-                </div>
-                <div class="exp-item-white">
-                    <p class="exp-role-white">Communication</p>
-                    <p class="exp-desc-white">English (Fluent), German (B1)</p>
-                </div>
+        <section id="contact">
+            <div class="section-header">
+                <h2>Get <span>in Touch</span></h2>
             </div>
+            <div class="contact-container">
+                <div class="contact-info-grid">
+                    <a href="mailto:vishvagandhi027@gmail.com" class="contact-method-card" aria-label="Email Vishva">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">vishvagandhi027@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vishva-gandhi/" target="_blank" class="contact-method-card" aria-label="LinkedIn Profile">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">vishva gandhi</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Vicky-HHN" target="_blank" class="contact-method-card" aria-label="GitHub Profile">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">Vicky-HHN</span>
+                        </div>
+                    </a>
+                    <a href="tel:+4915563612921" class="contact-method-card" aria-label="Call Vishva">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Phone</span>
+                            <span class="contact-value">+4915563612921</span>
+                        </div>
+                    </a>
+                </div>
 
-            <div class="contact-form-wrapper" style="opacity:0;">
-                <form class="contact-form" style="opacity: 1; margin-bottom: 0;">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
-                </form>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="What is this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-premium">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -951,10 +1093,32 @@
                             });
                         } else if (target.id === 'contact') {
                             anime({
-                                targets: '#contact .about-text-block, #contact .contact-form-wrapper',
+                                targets: '#contact .section-header',
                                 opacity: [0, 1],
-                                translateX: (el, i) => i === 0 ? [-50, 0] : [50, 0],
+                                translateY: [30, 0],
+                                duration: 1000,
+                                easing: 'easeOutExpo'
+                            });
+                            anime({
+                                targets: '.contact-method-card',
+                                opacity: [0, 1],
+                                translateY: [30, 0],
+                                delay: anime.stagger(150),
                                 duration: 1200,
+                                easing: 'easeOutExpo'
+                            });
+                            anime({
+                                targets: '.contact-info-grid',
+                                opacity: [0, 1],
+                                duration: 500,
+                                easing: 'linear'
+                            });
+                            anime({
+                                targets: '.contact-form-wrapper',
+                                opacity: [0, 1],
+                                translateX: [50, 0],
+                                duration: 1500,
+                                delay: 300,
                                 easing: 'easeOutExpo'
                             });
                         }
