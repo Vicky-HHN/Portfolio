@@ -522,10 +522,9 @@
 
         /* Contact Section Redesign */
         #contact {
-            padding: 120px 0;
+            padding: 100px 0;
             border-radius: var(--radius);
             position: relative;
-            overflow: hidden;
             background: radial-gradient(circle at top right, rgba(30, 58, 138, 0.06), transparent),
                         radial-gradient(circle at bottom left, rgba(30, 58, 138, 0.06), transparent);
             scroll-margin-top: 100px;
@@ -535,8 +534,9 @@
         .contact-container {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
-            gap: 80px;
-            align-items: start;
+            gap: 60px;
+            align-items: center;
+            padding: 20px;
         }
 
         .contact-info-grid {
@@ -647,9 +647,10 @@
             backdrop-filter: blur(20px);
             padding: 60px;
             border-radius: 40px;
-            box-shadow: 0 40px 100px rgba(30, 58, 138, 0.06);
+            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.4);
             opacity: 0;
+            width: 100%;
         }
 
         .contact-form .form-row {
