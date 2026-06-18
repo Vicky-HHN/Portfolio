@@ -19,11 +19,6 @@
             --text-muted: #64748B;
             --radius: 24px;
 
-            /* Light and Calm Palette */
-            --lc-vanilla: #F3E9D2;
-            --lc-dark-teal: #114B5F;
-            --lc-sea-green: #1A936F;
-            --lc-glass: rgba(255, 255, 255, 0.7);
         }
 
         * {
@@ -515,20 +510,12 @@
 
         /* Contact Section Redesign */
         #contact {
-            background-color: var(--lc-vanilla);
             padding: 120px 0;
             margin: 100px 0;
             border-radius: var(--radius);
             position: relative;
             overflow: hidden;
-        }
-
-        #contact .section-header h2 {
-            color: var(--lc-dark-teal);
-        }
-
-        #contact .section-header span {
-            color: var(--lc-sea-green);
+            background-color: var(--bg-light);
         }
 
         .contact-container {
@@ -547,30 +534,28 @@
         }
 
         .contact-method-card {
-            background: var(--lc-glass);
-            backdrop-filter: blur(10px);
+            background: var(--bg-white);
             padding: 30px;
             border-radius: 20px;
             text-decoration: none;
-            color: var(--lc-dark-teal);
+            color: var(--accent-blue);
             display: flex;
             flex-direction: column;
             gap: 20px;
-            border: 1px solid rgba(26, 147, 111, 0.1);
+            border: 1px solid rgba(30, 58, 138, 0.1);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .contact-method-card:hover {
-            background: var(--bg-white);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(17, 75, 95, 0.1);
-            border-color: var(--lc-sea-green);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.1);
+            border-color: var(--accent-blue);
         }
 
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: var(--lc-sea-green);
+            background: var(--accent-blue);
             color: white;
             border-radius: 15px;
             display: flex;
@@ -604,7 +589,7 @@
             background: var(--bg-white);
             padding: 50px;
             border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(17, 75, 95, 0.08);
+            box-shadow: 0 30px 60px rgba(30, 58, 138, 0.08);
             opacity: 0;
         }
 
@@ -625,14 +610,14 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 12px;
-            color: var(--lc-dark-teal);
+            color: var(--accent-blue);
             opacity: 0.8;
             transition: all 0.3s ease;
         }
 
         .form-group:focus-within label {
             opacity: 1;
-            color: var(--lc-sea-green);
+            color: var(--accent-blue);
             transform: translateX(5px);
         }
 
@@ -644,15 +629,15 @@
             background: #F8FAFC;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 15px;
-            color: var(--lc-dark-teal);
+            color: var(--accent-blue);
             transition: all 0.3s ease;
         }
 
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--lc-sea-green);
+            border-color: var(--accent-blue);
             background: var(--bg-white);
-            box-shadow: 0 10px 20px rgba(26, 147, 111, 0.05);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.05);
         }
 
         .form-group textarea {
@@ -661,7 +646,7 @@
         }
 
         .btn-premium {
-            background: var(--lc-dark-teal);
+            background: var(--accent-blue);
             color: white;
             width: 100%;
             padding: 20px;
@@ -670,13 +655,13 @@
             font-size: 14px;
             letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(17, 75, 95, 0.2);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
         }
 
         .btn-premium:hover {
-            background: var(--lc-sea-green);
+            background: var(--accent-slate);
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(26, 147, 111, 0.3);
+            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.3);
         }
 
         @media (max-width: 1024px) {
@@ -952,22 +937,22 @@
             </div>
             <div class="contact-container">
                 <div class="contact-info-grid">
-                    <a href="mailto:vishwavg14@gmail.com" class="contact-method-card" aria-label="Email Vishva">
+                    <a href="mailto:vishvagandhi027@gmail.com" class="contact-method-card" aria-label="Email Vishva">
                         <div class="contact-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </div>
                         <div class="contact-details">
                             <span class="contact-label">Email</span>
-                            <span class="contact-value">vishwavg14@gmail.com</span>
+                            <span class="contact-value">vishvagandhi027@gmail.com</span>
                         </div>
                     </a>
-                    <a href="https://linkedin.com/in/vishwavg" target="_blank" class="contact-method-card" aria-label="LinkedIn Profile">
+                    <a href="https://www.linkedin.com/in/vishva-gandhi/" target="_blank" class="contact-method-card" aria-label="LinkedIn Profile">
                         <div class="contact-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </div>
                         <div class="contact-details">
                             <span class="contact-label">LinkedIn</span>
-                            <span class="contact-value">vishwavg</span>
+                            <span class="contact-value">vishva gandhi</span>
                         </div>
                     </a>
                     <a href="https://github.com/Vicky-HHN" target="_blank" class="contact-method-card" aria-label="GitHub Profile">
@@ -985,7 +970,7 @@
                         </div>
                         <div class="contact-details">
                             <span class="contact-label">Phone</span>
-                            <span class="contact-value">015563612921</span>
+                            <span class="contact-value">+4915563612921</span>
                         </div>
                     </a>
                 </div>
