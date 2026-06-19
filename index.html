@@ -441,138 +441,78 @@
         }
 
         /* About / Portrait Section */
-        .about-split {
-            display: flex;
-            flex-direction: column;
-            gap: 80px;
-            margin-bottom: 100px;
+        #about {
             scroll-margin-top: 100px;
+            margin-bottom: 100px;
         }
 
-        .background-section {
-            opacity: 0;
-        }
-
-        .subheader-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .subheader-bullet {
-            width: 12px;
-            height: 12px;
-            background: #1E293B;
-            border-radius: 50%;
-        }
-
-        .subheader-icon-box {
-            width: 44px;
-            height: 44px;
-            background: #F1F5F9;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1E293B;
-        }
-
-        .luxury-title {
-            font-size: 48px;
-            font-weight: 800;
-            color: #1E293B;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            letter-spacing: -1.5px;
-        }
-
-        .luxury-grid {
+        .about-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+            margin-bottom: 100px;
+            scroll-margin-top: 100px;
+            align-items: stretch;
         }
 
-        .luxury-card {
+        .background-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,0,0,0.02);
-            position: relative;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            gap: 24px;
+            opacity: 0;
+            text-align: left;
         }
 
-        .luxury-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-        }
-
-        .card-badge {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            background: #1E293B;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .card-title {
-            font-size: 28px;
+        .background-card h3 {
+            font-size: 32px;
             font-weight: 800;
             color: #1E293B;
-            line-height: 1.2;
-            max-width: 80%;
+            margin-bottom: 8px;
         }
 
-        .card-subtitle {
-            font-size: 18px;
+        .entry-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: left;
+        }
+
+        .entry-title {
             font-weight: 700;
+            font-size: 20px;
             color: #1E293B;
         }
 
-        .card-timeline {
-            font-size: 14px;
-            color: #64748B;
+        .entry-subtitle {
             font-weight: 500;
+            font-size: 18px;
+            color: var(--text-muted);
         }
 
-        .relevant-modules {
-            margin-top: 10px;
-            border-top: 1px solid #F1F5F9;
-            padding-top: 20px;
-        }
-
-        .modules-label {
-            font-size: 10px;
-            font-weight: 800;
+        .entry-meta {
+            font-size: 11px;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #94A3B8;
-            margin-bottom: 15px;
-            display: block;
+            font-weight: 700;
+            opacity: 0.8;
         }
 
-        .module-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .entry-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
         }
 
-        .module-tag {
-            background: #F8FAFC;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #1E293B;
-            border: 1px solid #F1F5F9;
+        .entry-divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.08);
+            width: 100%;
         }
 
         .auth-pill {
@@ -586,50 +526,6 @@
             letter-spacing: 1px;
             box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
             white-space: nowrap;
-        }
-
-        .exp-item-white {
-            position: relative;
-            text-align: left;
-        }
-
-        .exp-role-white {
-            font-weight: 700;
-            font-size: 17px;
-            margin-bottom: 4px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.2;
-            color: var(--accent-blue);
-        }
-
-        .exp-company-white {
-            font-weight: 500;
-            font-size: 15px;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }
-
-        .exp-time-white {
-            font-size: 10px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            font-weight: 700;
-            opacity: 0.8;
-        }
-
-        .exp-desc-white {
-            font-size: 13px;
-            line-height: 1.5;
-            color: var(--text-muted);
-        }
-
-        .exp-divider {
-            height: 1px;
-            background: rgba(0, 0, 0, 0.08);
-            margin: 24px 0;
-            width: 100%;
         }
 
         .about-image-block {
@@ -1094,109 +990,53 @@
         </section>
 
         <section id="about">
-            <div class="section-header" style="margin-bottom: 50px; text-align: center;">
-                <div class="auth-pill" style="display: inline-block; margin-bottom: 20px;">WORK-AUTHORISED IN GERMANY</div>
-                <h2 style="font-weight: 800; font-size: 52px; color: var(--accent-slate);">Academic & Professional Background</h2>
+            <div class="section-header" style="margin-bottom: 60px; text-align: center;">
+                <h2 style="font-weight: 800; font-size: 56px; color: var(--accent-slate); letter-spacing: -2px;">Academic & Professional Background</h2>
             </div>
 
             <div class="about-split">
-                <!-- Academic Section -->
-                <div class="background-section">
-                    <div class="subheader-wrapper">
-                        <div class="subheader-bullet"></div>
-                        <div class="subheader-icon-box">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                        </div>
-                        <h3 class="luxury-title">Academic Foundations</h3>
+                <!-- Academic Background Card -->
+                <div class="background-card">
+                    <div style="text-align: center; margin-bottom: 10px;">
+                        <div class="auth-pill">WORK-AUTHORISED IN GERMANY</div>
+                    </div>
+                    <h3>Academic Background</h3>
+
+                    <div class="entry-item">
+                        <div class="entry-title">M.Sc. Software Engineering & Management</div>
+                        <div class="entry-subtitle">Hochschule Heilbronn, Germany</div>
+                        <div class="entry-meta">MAR 2025 – PRESENT · GPA: 1,9 (DE SCALE)</div>
+                        <div class="entry-desc">Specialising in AI-driven Data Engineering & Analytics</div>
                     </div>
 
-                    <div class="luxury-grid">
-                        <div class="luxury-card">
-                            <div class="card-badge">GPA: 1,9 (DE SCALE)</div>
-                            <h4 class="card-title">M.Sc. Software Engineering & Management</h4>
-                            <div>
-                                <p class="card-subtitle">Hochschule Heilbronn, Germany</p>
-                                <p class="card-timeline">MAR 2025 – PRESENT</p>
-                            </div>
-                            <div class="relevant-modules">
-                                <span class="modules-label">RELEVANT MODULES</span>
-                                <div class="module-tags">
-                                    <span class="module-tag">Advanced ML</span>
-                                    <span class="module-tag">Software Architecture</span>
-                                    <span class="module-tag">Cloud Computing</span>
-                                    <span class="module-tag">Distributed Systems</span>
-                                    <span class="module-tag">Data Engineering</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="entry-divider"></div>
 
-                        <div class="luxury-card">
-                            <div class="card-badge">GPA: 1,8 (DE SCALE)</div>
-                            <h4 class="card-title">B.Tech. Information Technology</h4>
-                            <div>
-                                <p class="card-subtitle">A.D. Patel Institute of Technology, India</p>
-                                <p class="card-timeline">JUL 2020 – JAN 2024</p>
-                            </div>
-                            <div class="relevant-modules">
-                                <span class="modules-label">CORE FOCUS</span>
-                                <div class="module-tags">
-                                    <span class="module-tag">Deep Learning</span>
-                                    <span class="module-tag">Computer Vision</span>
-                                    <span class="module-tag">Advanced Data Structures</span>
-                                    <span class="module-tag">Database Systems</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="entry-item">
+                        <div class="entry-title">B.Tech. Information Technology</div>
+                        <div class="entry-subtitle">A.D. Patel Institute of Technology, India</div>
+                        <div class="entry-meta">JUL 2020 – JAN 2024 · GPA: 1,8 (DE SCALE)</div>
+                        <div class="entry-desc">Foundation in software development, databases & data systems</div>
                     </div>
                 </div>
 
-                <!-- Experience Section -->
-                <div class="background-section">
-                    <div class="subheader-wrapper">
-                        <div class="subheader-bullet"></div>
-                        <div class="subheader-icon-box">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                        </div>
-                        <h3 class="luxury-title">Professional Experience</h3>
+                <!-- Work Experience Card -->
+                <div class="background-card">
+                    <h3>Work Experience</h3>
+
+                    <div class="entry-item">
+                        <div class="entry-title">Data Analyst & BI Developer</div>
+                        <div class="entry-subtitle">Oscar IT Solutions</div>
+                        <div class="entry-meta">JAN 2024 – FEB 2025 · FULL-TIME</div>
+                        <div class="entry-desc">Analysed 500K+ records using Python & SQL; built 4 real-time Power BI dashboards and automated ETL pipelines — reduced reporting cycles by 40%. Evaluated 3 LLM solutions and delivered technical decision framework to AI working group.</div>
                     </div>
 
-                    <div class="luxury-grid">
-                        <div class="luxury-card">
-                            <div class="card-badge">Full-time</div>
-                            <h4 class="card-title">Data Analyst & BI Developer</h4>
-                            <div>
-                                <p class="card-subtitle">Oscar IT Solutions</p>
-                                <p class="card-timeline">JAN 2024 – FEB 2025</p>
-                            </div>
-                            <p class="exp-desc-white">Analysed 500K+ records using Python & SQL; built 4 real-time Power BI dashboards and automated ETL pipelines — reduced reporting cycles by 40%. A/B testing on marketing campaigns leading to a 12% improvement in conversion rates.</p>
-                            <div class="relevant-modules">
-                                <span class="modules-label">IMPACT</span>
-                                <div class="module-tags">
-                                    <span class="module-tag">Python</span>
-                                    <span class="module-tag">SQL</span>
-                                    <span class="module-tag">Power BI</span>
-                                    <span class="module-tag">ETL Automation</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="entry-divider"></div>
 
-                        <div class="luxury-card">
-                            <div class="card-badge">Internship</div>
-                            <h4 class="card-title">React Developer Intern</h4>
-                            <div>
-                                <p class="card-subtitle">TatvaSoft</p>
-                                <p class="card-timeline">MAY 2023 – JUN 2023</p>
-                            </div>
-                            <p class="exp-desc-white">Built a full-stack e-commerce app using React.js & REST APIs — implementing cart, authentication and CRUD operations end-to-end.</p>
-                            <div class="relevant-modules">
-                                <span class="modules-label">TECH STACK</span>
-                                <div class="module-tags">
-                                    <span class="module-tag">React.js</span>
-                                    <span class="module-tag">REST APIs</span>
-                                    <span class="module-tag">State Management</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="entry-item">
+                        <div class="entry-title">React Developer Intern</div>
+                        <div class="entry-subtitle">TatvaSoft</div>
+                        <div class="entry-meta">MAY 2023 – JUN 2023 · INTERNSHIP</div>
+                        <div class="entry-desc">Built a full-stack e-commerce app using React.js & REST APIs — implementing cart, authentication and CRUD operations end-to-end.</div>
                     </div>
                 </div>
             </div>
@@ -1389,18 +1229,11 @@
                             });
                         } else if (target.id === 'about') {
                             anime({
-                                targets: '#about .background-section',
+                                targets: '#about .section-header, #about .background-card',
                                 opacity: [0, 1],
                                 translateY: [40, 0],
                                 duration: 1200,
                                 delay: anime.stagger(300),
-                                easing: 'easeOutExpo'
-                            });
-                            anime({
-                                targets: '#about .luxury-card',
-                                opacity: [0, 1],
-                                scale: [0.95, 1],
-                                delay: anime.stagger(150, {start: 400}),
                                 easing: 'easeOutExpo'
                             });
                         } else if (target.id === 'languages') {
