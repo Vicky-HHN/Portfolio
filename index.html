@@ -617,225 +617,164 @@
             color: var(--text-dark);
         }
 
-        /* Contact Section "Million Euro" Redesign */
+        /* Contact Section Luxury Redesign */
         #contact {
-            padding: 160px 0;
+            padding: 120px 0;
+            background: var(--bg-white);
             scroll-margin-top: 100px;
-            position: relative;
-            overflow: hidden;
-            background: #FAFAFB;
         }
 
-        .contact-container-grid {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 100px;
-            align-items: start;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-info-panel {
-            opacity: 0;
-        }
-
-        .contact-sub {
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-blue);
-            display: block;
-            margin-bottom: 25px;
-        }
-
-        .contact-info-panel h2 {
-            font-size: 64px;
-            line-height: 1;
-            color: var(--accent-slate);
-            margin-bottom: 35px;
-            letter-spacing: -2px;
-        }
-
-        .contact-info-panel .highlight-text {
-            color: var(--accent-blue);
-            font-style: italic;
-        }
-
-        .contact-info-panel p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 60px;
-            line-height: 1.7;
-        }
-
-        .contact-details-list {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .detail-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .detail-label {
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-        }
-
-        .detail-value {
-            font-size: 22px;
-            font-family: 'Fraunces', serif;
-            color: var(--accent-slate);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-
-        .detail-value:hover {
-            color: var(--accent-blue);
-        }
-
-        .contact-socials-minimal {
-            display: flex;
-            gap: 25px;
-        }
-
-        .social-icon-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-slate);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-        }
-
-        .social-icon-btn:hover {
-            background: var(--accent-blue);
-            color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.2);
-        }
-
-        .contact-form-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 40px;
-            padding: 60px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.04);
-            opacity: 0;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .form-row-desktop {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .form-group label {
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-slate);
-            padding-left: 5px;
-        }
-
-        .form-group input, .form-group textarea {
-            background: #F8FAFC;
-            border: 1px solid #EEF2F6;
-            border-radius: 18px;
-            padding: 20px 25px;
-            font-family: inherit;
-            font-size: 15px;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            background: white;
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.05);
-        }
-
-        .btn-send {
-            background: var(--accent-blue);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 22px;
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s ease;
+        .contact-header-centered {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            margin-top: 10px;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 50px;
+            opacity: 0;
         }
 
-        .btn-send::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
+        .contact-icon-box {
+            width: 44px;
+            height: 44px;
+            background: #F1F5F9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E293B;
         }
 
-        .btn-send:hover::after {
-            left: 100%;
+        .contact-header-centered h2 {
+            font-size: 48px;
+            color: #1E293B;
+            letter-spacing: -1.5px;
+            margin: 0;
         }
 
-        .btn-send:hover {
-            background: var(--accent-slate);
+        .contact-card-luxury {
+            background: #F1F5F9;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            opacity: 0;
+        }
+
+        .contact-form-luxury {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row-luxury {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group-luxury {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group-luxury label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #64748B;
+            margin-left: 2px;
+        }
+
+        .form-group-luxury input,
+        .form-group-luxury textarea {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 18px 24px;
+            font-family: inherit;
+            font-size: 15px;
+            color: #1E293B;
+            transition: all 0.3s ease;
+        }
+
+        .form-group-luxury input:focus,
+        .form-group-luxury textarea:focus {
+            outline: none;
+            border-color: #1E293B;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .form-group-luxury textarea {
+            height: 160px;
+            resize: none;
+        }
+
+        .form-bottom-row-luxury {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .form-disclaimer {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #94A3B8;
+            max-width: 380px;
+            line-height: 1.5;
+        }
+
+        .btn-luxury-send {
+            background: #1E293B;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 45px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-luxury-send:hover {
+            background: #0F172A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.2);
+        }
+
+        .contact-social-footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+        }
+
+        .social-link-luxury {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E293B;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link-luxury:hover {
+            background: #1E293B;
+            color: white;
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(30, 41, 59, 0.2);
-        }
-
-        #contact-blobs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            filter: blur(80px);
-            opacity: 0.3;
-            pointer-events: none;
         }
 
         @media (max-width: 1024px) {
@@ -893,12 +832,13 @@
             .footer-cta { padding: 60px 30px; }
             .footer-cta h2 { font-size: 45px; }
 
-            #contact { padding: 100px 0; }
-            .contact-container-grid { grid-template-columns: 1fr; gap: 60px; }
-            .contact-info-panel h2 { font-size: 45px; }
-            .contact-form-panel { padding: 40px 30px; border-radius: 30px; }
-            .form-row-desktop { grid-template-columns: 1fr; gap: 30px; }
-            .btn-send { width: 100%; }
+            #contact { padding: 80px 0; }
+            .contact-header-centered h2 { font-size: 32px; }
+            .contact-card-luxury { padding: 40px 25px; border-radius: 20px; }
+            .form-row-luxury { grid-template-columns: 1fr; gap: 25px; }
+            .form-bottom-row-luxury { flex-direction: column; gap: 25px; text-align: center; }
+            .form-disclaimer { max-width: none; order: 2; }
+            .btn-luxury-send { width: 100%; justify-content: center; order: 1; }
         }
 
         /* Abstract Blobs Animation */
@@ -1132,65 +1072,54 @@
         </section>
 
         <section id="contact">
-            <div id="contact-blobs"></div>
             <div class="container">
-                <div class="contact-container-grid">
-                    <div class="contact-info-panel" id="contact-info">
-                        <span class="contact-sub">Available for Hire</span>
-                        <h2>Let's build something <span class="highlight-text">extraordinary</span>.</h2>
-                        <p>I'm currently seeking Werkstudent and Internship positions in Germany. If you have a project in mind or just want to say hi, feel free to reach out.</p>
-
-                        <div class="contact-details-list">
-                            <div class="detail-item">
-                                <span class="detail-label">Email me at</span>
-                                <a href="mailto:vishvagandhi027@gmail.com" class="detail-value">vishvagandhi027@gmail.com</a>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Call me</span>
-                                <a href="tel:+4915563612921" class="detail-value">+49 1556 3612921</a>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Location</span>
-                                <span class="detail-value">Heilbronn, Germany</span>
-                            </div>
-                        </div>
-
-                        <div class="contact-socials-minimal">
-                            <a href="https://linkedin.com/in/vishva-gandhi" target="_blank" class="social-icon-btn" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </a>
-                            <a href="https://github.com/Vicky-HHN" target="_blank" class="social-icon-btn" aria-label="GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            </a>
-                        </div>
+                <div class="contact-header-centered">
+                    <div class="contact-icon-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     </div>
+                    <h2>Get in Touch</h2>
+                </div>
 
-                    <div class="contact-form-panel" id="contact-form">
-                        <form action="https://formspree.io/f/mqaeajob" method="POST" class="contact-form">
-                            <div class="form-row-desktop">
-                                <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name" name="name" placeholder="John Doe" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                                </div>
+                <div class="contact-card-luxury">
+                    <div id="contact-blobs" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; filter:blur(60px); opacity:0.1; pointer-events:none;"></div>
+                    <form action="https://formspree.io/f/mqaeajob" method="POST" class="contact-form-luxury" style="position:relative; z-index:1;">
+                        <div class="form-row-luxury">
+                            <div class="form-group-luxury">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your full name" required>
                             </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                            <div class="form-group-luxury">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Your email address" required>
                             </div>
-                            <div class="form-group">
-                                <label for="message">Your Message</label>
-                                <textarea id="message" name="message" placeholder="Hello, I'd like to talk about..." rows="5" required></textarea>
+                        </div>
+                        <div class="form-group-luxury">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                        </div>
+                        <div class="form-group-luxury">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Describe your message..." required></textarea>
+                        </div>
+                        <div class="form-bottom-row-luxury">
+                            <div class="form-disclaimer">
+                                YOUR MESSAGE WILL BE SENT DIRECTLY TO MY INBOX. I WILL GET BACK TO YOU AS SOON AS POSSIBLE.
                             </div>
-                            <button type="submit" class="btn-send">
+                            <button type="submit" class="btn-luxury-send">
                                 Send Message
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                             </button>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-social-footer">
+                    <a href="https://linkedin.com/in/vishva-gandhi" target="_blank" class="social-link-luxury" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/Vicky-HHN" target="_blank" class="social-link-luxury" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1288,19 +1217,12 @@
                             });
                         } else if (target.id === 'contact') {
                             anime({
-                                targets: '.contact-info-panel',
+                                targets: '.contact-header-centered, .contact-card-luxury, .contact-social-footer',
                                 opacity: [0, 1],
-                                translateX: [-50, 0],
-                                duration: 1500,
-                                easing: 'easeOutExpo'
-                            });
-                            anime({
-                                targets: '.contact-form-panel',
-                                opacity: [0, 1],
-                                translateX: [50, 0],
-                                duration: 1500,
+                                translateY: [30, 0],
+                                delay: anime.stagger(200),
                                 easing: 'easeOutExpo',
-                                delay: 200
+                                duration: 1500
                             });
                         }
                         observer.unobserve(target);
