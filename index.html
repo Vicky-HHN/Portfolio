@@ -451,23 +451,24 @@
         }
 
         .about-text-block {
-            background: var(--bg-light);
-            border-radius: var(--radius);
-            padding: 70px 60px 60px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            text-align: center;
+            text-align: left;
             opacity: 0;
             color: var(--text-dark);
-            box-shadow: 0 20px 50px rgba(30, 41, 59, 0.05);
-            border: 1px solid rgba(30, 58, 138, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: none;
         }
 
         .auth-pill {
             position: absolute;
-            top: 30px;
-            right: 30px;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background: #10B981;
             color: white;
             padding: 6px 14px;
@@ -477,70 +478,75 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+            white-space: nowrap;
         }
 
         .about-text-block h3, .experience-block h3 {
-            font-size: 34px;
-            margin-bottom: 50px;
+            font-size: 24px;
+            margin-bottom: 30px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             color: var(--accent-blue);
+            text-align: left;
         }
 
         .experience-block {
-            background: var(--bg-light);
-            border-radius: var(--radius);
-            padding: 70px 60px 60px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            text-align: center;
+            text-align: left;
             opacity: 0;
             color: var(--text-dark);
-            box-shadow: 0 20px 50px rgba(30, 41, 59, 0.05);
-            border: 1px solid rgba(30, 58, 138, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: none;
         }
 
         .exp-item-white {
             position: relative;
-            margin-bottom: 45px;
-        }
-
-        .exp-item-white:last-child {
-            margin-bottom: 0;
+            text-align: left;
         }
 
         .exp-role-white {
             font-weight: 700;
-            font-size: 19px;
-            margin-bottom: 8px;
+            font-size: 17px;
+            margin-bottom: 4px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.2;
             color: var(--accent-blue);
         }
 
         .exp-company-white {
-            font-weight: 600;
-            font-size: 17px;
-            color: var(--accent-slate);
-            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
         }
 
         .exp-time-white {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             font-weight: 700;
+            opacity: 0.8;
         }
 
         .exp-desc-white {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            opacity: 0.9;
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .exp-divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.08);
+            margin: 24px 0;
+            width: 100%;
         }
 
         .about-image-block {
@@ -975,44 +981,49 @@
         </section>
 
         <section id="about">
-            <div class="section-header">
-                <h2 style="font-weight: 800;">My <span>Background</span></h2>
+            <div class="section-header" style="margin-bottom: 60px;">
+                <h2 style="font-weight: 800; font-size: 52px; color: var(--accent-slate);">Academic & <span style="opacity: 1; color: var(--accent-blue);">Professional Background</span></h2>
             </div>
             <div class="about-split">
                 <div class="about-text-block" style="position: relative;">
-                    <div class="auth-pill">Work-authorised in Germany</div>
-                    <h3>Academic Background</h3>
+                    <div class="auth-pill">WORK-AUTHORISED IN GERMANY</div>
+                    <h3 style="margin-top: 15px;">Academic Background</h3>
                     <div class="education-list">
                         <div class="exp-item-white">
                             <p class="exp-role-white">M.Sc. Software Engineering & Management</p>
                             <p class="exp-company-white">Hochschule Heilbronn, Germany</p>
                             <p class="exp-time-white">MAR 2025 – PRESENT · GPA: 1,9</p>
-                            <p class="exp-desc-white">Focusing on AI-driven Data Engineering & Analytics and Intelligent Systems.</p>
+                            <p class="exp-desc-white">Specialising in AI-driven Data Engineering & Analytics</p>
                         </div>
+
+                        <div class="exp-divider"></div>
 
                         <div class="exp-item-white">
                             <p class="exp-role-white">B.Tech. Information Technology</p>
                             <p class="exp-company-white">A.D. Patel Institute of Technology, India</p>
                             <p class="exp-time-white">JUL 2020 – JAN 2024 · GPA: 1,8 (GERMAN SCALE)</p>
-                            <p class="exp-desc-white">Comprehensive curriculum in software development, databases, and data structures.</p>
+                            <p class="exp-desc-white">Foundation in software development, databases & data systems</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="experience" class="experience-block">
-                    <h3>Work Experience</h3>
+                    <h3 style="margin-top: 15px;">Work Experience</h3>
                     <div class="experience-list">
                         <div class="exp-item-white">
                             <p class="exp-role-white">Data Analyst & BI Developer</p>
                             <p class="exp-company-white">Oscar IT Solutions</p>
                             <p class="exp-time-white">JAN 2024 – FEB 2025</p>
-                            <p class="exp-desc-white">Analysed 500K+ records using Python and SQL to identify key sales trends, resulting in a 40% increase in operational efficiency. Developed interactive Power BI dashboards for real-time performance monitoring. Integrated LLM evaluation frameworks for automated sentiment analysis. Performed A/B testing on marketing campaigns leading to a 12% improvement in conversion rates.</p>
+                            <p class="exp-desc-white">Analysed 500K+ records using Python & SQL; built 4 real-time Power BI dashboards and automated ETL pipelines — reduced reporting cycles by 40%. Evaluated 3 LLM solutions and delivered technical decision framework to AI working group.</p>
                         </div>
+
+                        <div class="exp-divider"></div>
+
                         <div class="exp-item-white">
-                            <p class="exp-role-white">React Developer Internship</p>
+                            <p class="exp-role-white">React Developer Intern</p>
                             <p class="exp-company-white">TatvaSoft</p>
                             <p class="exp-time-white">MAY 2023 – JUN 2023</p>
-                            <p class="exp-desc-white">Developed a scalable e-commerce frontend with React.js and Material UI, implementing REST API integrations, cart logic, and JWT authentication.</p>
+                            <p class="exp-desc-white">Built a full-stack e-commerce app using React.js & REST APIs — implementing cart, authentication and CRUD operations end-to-end.</p>
                         </div>
                     </div>
                 </div>
