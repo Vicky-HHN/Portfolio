@@ -181,33 +181,6 @@
             align-items: center;
         }
 
-        .info-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            border-radius: 50px;
-            border: 1px solid #E2E8F0;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent-slate);
-            background: white;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .info-badge:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.05);
-        }
-
-        .info-badge svg {
-            width: 14px;
-            height: 14px;
-            stroke-width: 2.5;
-            color: #64748B;
-        }
 
         .nav-links {
             display: flex;
@@ -1099,7 +1072,6 @@
         <section id="contact">
             <div class="section-header">
                 <div class="header-title-wrapper">
-                    <span class="header-icon">✉️</span>
                     <h2>Get in Touch</h2>
                 </div>
             </div>
@@ -1124,7 +1096,7 @@
                         <textarea id="message" name="message" placeholder="Describe your message..." rows="6" required></textarea>
                     </div>
                     <div class="form-bottom-row">
-                        <p class="form-info-text">YOUR MESSAGE WILL BE SENT DIRECTLY TO MY INBOX.</p>
+                        <p class="form-info-text">Open to opportunities · Work-authorised in Germany</p>
                         <button type="submit" class="btn-send">Send Message <span class="btn-icon">➤</span></button>
                     </div>
                 </form>
@@ -1301,7 +1273,6 @@
         }
 
         createBlobs('zen-blobs', 6);
-        createBlobs('contact-zen', 4);
         </script>
 </body>
 </html>
