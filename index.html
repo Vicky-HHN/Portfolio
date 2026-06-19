@@ -451,68 +451,96 @@
         }
 
         .about-text-block {
-            background: #94A3B8; /* Grayish like in image */
+            background: var(--bg-light);
             border-radius: var(--radius);
-            padding: 60px;
+            padding: 70px 60px 60px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             text-align: center;
             opacity: 0;
+            color: var(--text-dark);
+            box-shadow: 0 20px 50px rgba(30, 41, 59, 0.05);
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .auth-pill {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #10B981;
             color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
         }
 
         .about-text-block h3, .experience-block h3 {
-            font-size: 32px;
-            margin-bottom: 40px;
+            font-size: 34px;
+            margin-bottom: 50px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 500;
-            opacity: 0.9;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--accent-blue);
         }
 
         .experience-block {
-            background: #94A3B8; /* Matching the image's gray tone */
+            background: var(--bg-light);
             border-radius: var(--radius);
-            padding: 60px;
+            padding: 70px 60px 60px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             text-align: center;
             opacity: 0;
-            color: white;
+            color: var(--text-dark);
+            box-shadow: 0 20px 50px rgba(30, 41, 59, 0.05);
+            border: 1px solid rgba(30, 58, 138, 0.1);
         }
 
         .exp-item-white {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 45px;
+        }
+
+        .exp-item-white:last-child {
+            margin-bottom: 0;
         }
 
         .exp-role-white {
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 5px;
+            font-weight: 700;
+            font-size: 19px;
+            margin-bottom: 8px;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.2;
+            color: var(--accent-blue);
         }
 
         .exp-company-white {
             font-weight: 600;
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 5px;
+            font-size: 17px;
+            color: var(--accent-slate);
+            margin-bottom: 6px;
         }
 
         .exp-time-white {
-            font-size: 12px;
-            opacity: 0.7;
-            margin-bottom: 10px;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
         .exp-desc-white {
             font-size: 14px;
-            line-height: 1.5;
-            opacity: 0.8;
+            line-height: 1.6;
+            color: var(--text-dark);
+            opacity: 0.9;
         }
 
         .about-image-block {
@@ -948,29 +976,27 @@
 
         <section id="about">
             <div class="section-header">
-                <h2>Academic & <span>Professional Background</span></h2>
+                <h2 style="font-weight: 800;">My <span>Background</span></h2>
             </div>
             <div class="about-split">
-                <div class="about-text-block">
+                <div class="about-text-block" style="position: relative;">
+                    <div class="auth-pill">Work-authorised in Germany</div>
                     <h3>Academic Background</h3>
                     <div class="education-list">
                         <div class="exp-item-white">
                             <p class="exp-role-white">M.Sc. Software Engineering & Management</p>
                             <p class="exp-company-white">Hochschule Heilbronn, Germany</p>
                             <p class="exp-time-white">MAR 2025 – PRESENT · GPA: 1,9</p>
-                            <p class="exp-desc-white">Focusing on AI-driven Data Engineering & Analytics. Relevant coursework includes Intelligent Systems, Scalable Data Pipelines, and Applied Machine Learning.</p>
+                            <p class="exp-desc-white">Focusing on AI-driven Data Engineering & Analytics and Intelligent Systems.</p>
                         </div>
 
                         <div class="exp-item-white">
                             <p class="exp-role-white">B.Tech. Information Technology</p>
                             <p class="exp-company-white">A.D. Patel Institute of Technology, India</p>
                             <p class="exp-time-white">JUL 2020 – JAN 2024 · GPA: 1,8 (GERMAN SCALE)</p>
-                            <p class="exp-desc-white">Completed a comprehensive curriculum in software development, databases, and data structures. Hands-on experience in full-stack development and data systems.</p>
+                            <p class="exp-desc-white">Comprehensive curriculum in software development, databases, and data structures.</p>
                         </div>
                     </div>
-                    <p style="margin-top:15px; font-weight: 700; color: white; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px;">
-                        Work-authorised in Germany
-                    </p>
                 </div>
 
                 <div id="experience" class="experience-block">
@@ -980,10 +1006,10 @@
                             <p class="exp-role-white">Data Analyst & BI Developer</p>
                             <p class="exp-company-white">Oscar IT Solutions</p>
                             <p class="exp-time-white">JAN 2024 – FEB 2025</p>
-                            <p class="exp-desc-white">Analysed 500K+ records using Python and SQL to identify key sales trends, resulting in a 40% increase in operational efficiency. Developed interactive Power BI dashboards for real-time performance monitoring. Integrated LLM evaluation frameworks for automated sentiment analysis.</p>
+                            <p class="exp-desc-white">Analysed 500K+ records using Python and SQL to identify key sales trends, resulting in a 40% increase in operational efficiency. Developed interactive Power BI dashboards for real-time performance monitoring. Integrated LLM evaluation frameworks for automated sentiment analysis. Performed A/B testing on marketing campaigns leading to a 12% improvement in conversion rates.</p>
                         </div>
                         <div class="exp-item-white">
-                            <p class="exp-role-white">React Developer Intern</p>
+                            <p class="exp-role-white">React Developer Internship</p>
                             <p class="exp-company-white">TatvaSoft</p>
                             <p class="exp-time-white">MAY 2023 – JUN 2023</p>
                             <p class="exp-desc-white">Developed a scalable e-commerce frontend with React.js and Material UI, implementing REST API integrations, cart logic, and JWT authentication.</p>
