@@ -17,7 +17,7 @@
             --accent-highlight: #DBEAFE;
             --text-dark: #1E293B;
             --text-muted: #64748B;
-            --radius: 24px;
+            --radius: 20px;
         }
 
         * {
@@ -241,8 +241,8 @@
         }
 
         .btn {
-            padding: 22px 45px;
-            border-radius: 50px;
+            padding: 18px 36px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
             font-size: 13px;
@@ -316,7 +316,7 @@
         .welcome-block {
             background-color: var(--accent-blue);
             border-radius: var(--radius);
-            padding: 120px 80px;
+            padding: 80px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -441,97 +441,91 @@
         }
 
         /* About / Portrait Section */
+        #about {
+            scroll-margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
         .about-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 30px;
             margin-bottom: 100px;
             scroll-margin-top: 100px;
             align-items: stretch;
         }
 
-        .about-text-block {
-            background: var(--accent-blue);
-            border-radius: var(--radius);
-            padding: 60px;
+        .background-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.02);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            gap: 24px;
             opacity: 0;
-            color: white;
+            text-align: left;
         }
 
-        .about-text-block h2 {
-            font-size: 60px;
-            line-height: 1;
-            margin-bottom: 40px;
-            letter-spacing: -1px;
-            color: white;
+        .background-card h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1E293B;
+            margin-bottom: 8px;
         }
 
-        .experience-block {
-            background: var(--accent-slate);
-            border-radius: var(--radius);
-            padding: 60px;
+        .entry-item {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            opacity: 0;
-            color: white;
+            gap: 4px;
+            text-align: left;
         }
 
-        .experience-block h2 {
-            font-size: 60px;
-            line-height: 1;
-            margin-bottom: 40px;
-            letter-spacing: -1px;
-            color: white;
-        }
-
-        .exp-item-white {
-            border-left: 2px solid rgba(255,255,255,0.3);
-            padding-left: 25px;
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .exp-item-white::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            background: var(--accent-highlight);
-            border-radius: 50%;
-        }
-
-        .exp-role-white {
+        .entry-title {
             font-weight: 700;
             font-size: 20px;
-            margin-bottom: 5px;
-            font-family: 'Fraunces', serif;
+            color: #1E293B;
         }
 
-        .exp-company-white {
-            font-weight: 600;
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 5px;
+        .entry-subtitle {
+            font-weight: 500;
+            font-size: 18px;
+            color: var(--text-muted);
         }
 
-        .exp-time-white {
-            font-size: 12px;
-            opacity: 0.7;
-            margin-bottom: 10px;
+        .entry-meta {
+            font-size: 11px;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 700;
+            opacity: 0.8;
         }
 
-        .exp-desc-white {
-            font-size: 14px;
+        .entry-desc {
+            font-size: 13px;
             line-height: 1.5;
-            opacity: 0.8;
+            color: var(--text-muted);
+        }
+
+        .entry-divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+
+        .auth-pill {
+            background: #10B981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+            white-space: nowrap;
         }
 
         .about-image-block {
@@ -628,38 +622,56 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 50px;
+            gap: 20px;
+            margin-bottom: 60px;
             opacity: 0;
         }
 
         .contact-icon-box {
-            width: 44px;
-            height: 44px;
-            background: #F1F5F9;
-            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1E293B;
+            color: var(--accent-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
         .contact-header-centered h2 {
-            font-size: 48px;
-            color: #1E293B;
-            letter-spacing: -1.5px;
+            font-size: 56px;
+            color: var(--accent-slate);
+            letter-spacing: -2px;
             margin: 0;
+            font-family: 'Fraunces', serif;
         }
 
         .contact-card-luxury {
-            background: #F1F5F9;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
             border-radius: 20px;
             padding: 50px;
-            max-width: 900px;
-            margin: 0 auto 50px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
             opacity: 0;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 40px 100px rgba(30, 41, 59, 0.05);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .contact-card-luxury::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(30, 58, 138, 0.02) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .contact-form-luxury {
@@ -681,35 +693,43 @@
         }
 
         .form-group-luxury label {
-            font-size: 10px;
-            font-weight: 700;
+            font-size: 11px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #64748B;
-            margin-left: 2px;
+            letter-spacing: 2px;
+            color: #94A3B8;
+            margin-left: 4px;
         }
 
         .form-group-luxury input,
         .form-group-luxury textarea {
-            background: white;
-            border: 1px solid #E2E8F0;
-            border-radius: 10px;
-            padding: 18px 24px;
+            background: #F8FAFC;
+            border: 1.5px solid rgba(226, 232, 240, 0.8);
+            border-radius: 20px;
+            padding: 24px 32px;
             font-family: inherit;
-            font-size: 15px;
-            color: #1E293B;
-            transition: all 0.3s ease;
+            font-size: 16px;
+            color: var(--text-dark);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .form-group-luxury input::placeholder,
+        .form-group-luxury textarea::placeholder {
+            color: #94A3B8;
+            opacity: 0.6;
         }
 
         .form-group-luxury input:focus,
         .form-group-luxury textarea:focus {
             outline: none;
-            border-color: #1E293B;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            background: white;
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 24px rgba(30, 58, 138, 0.04);
+            transform: translateY(-2px);
         }
 
         .form-group-luxury textarea {
-            height: 160px;
+            height: 180px;
             resize: none;
         }
 
@@ -731,52 +751,56 @@
         }
 
         .btn-luxury-send {
-            background: #1E293B;
+            background: var(--accent-blue);
             color: white;
             border: none;
             border-radius: 12px;
-            padding: 18px 45px;
+            padding: 20px 40px;
             font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            gap: 15px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
         }
 
         .btn-luxury-send:hover {
-            background: #0F172A;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.2);
+            background: var(--accent-slate);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(30, 41, 59, 0.25);
         }
 
         .contact-social-footer {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 24px;
             opacity: 0;
         }
 
         .social-link-luxury {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: #F1F5F9;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1E293B;
-            transition: all 0.3s ease;
+            color: var(--accent-slate);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
         .social-link-luxury:hover {
-            background: #1E293B;
+            background: var(--accent-blue);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2);
         }
 
         @media (max-width: 1024px) {
@@ -903,8 +927,8 @@
             <div class="nav-right">
                 <div class="nav-links">
                     <a href="#projects">Projects</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Tech Stack</a>
+                    <a href="#about">Background</a>
+                    <a href="#skills">Expertise</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
@@ -965,43 +989,54 @@
             </div>
         </section>
 
-        <section id="about" class="about-split">
-            <div class="about-text-block">
-                <h2>Academic Background</h2>
-                <div class="education-list">
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">M.Sc. Software Engineering & Management</p>
-                        <p class="exp-company-white">Hochschule Heilbronn, Germany</p>
-                        <p class="exp-time-white">MAR 2025 – PRESENT · GPA: 1,9</p>
-                        <p class="exp-desc-white">Focusing on AI-driven Data Engineering & Analytics. Relevant coursework includes Intelligent Systems, Scalable Data Pipelines, and Applied Machine Learning.</p>
-                    </div>
-
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">B.Tech. Information Technology</p>
-                        <p class="exp-company-white">A.D. Patel Institute of Technology, India</p>
-                        <p class="exp-time-white">JUL 2020 – JAN 2024 · GPA: 1,8 (GERMAN SCALE)</p>
-                        <p class="exp-desc-white">Completed a comprehensive curriculum in software development, databases, and data structures. Hands-on experience in full-stack development and data systems.</p>
-                    </div>
-                </div>
-                <p style="margin-top:15px; font-weight: 700; color: white; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px;">
-                    Work-authorised in Germany
-                </p>
+        <section id="about">
+            <div class="section-header" style="margin-bottom: 60px; text-align: center;">
+                <h2 style="font-weight: 800; font-size: 56px; color: var(--accent-slate); letter-spacing: -2px;">Academic & Professional Background</h2>
             </div>
 
-            <div id="experience" class="experience-block">
-                <h2>Work Experience</h2>
-                <div class="experience-list">
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">Data Analyst & BI Developer</p>
-                        <p class="exp-company-white">Oscar IT Solutions</p>
-                        <p class="exp-time-white">JAN 2024 – FEB 2025</p>
-                        <p class="exp-desc-white">Analysed 500K+ records using Python and SQL to identify key sales trends, resulting in a 40% increase in operational efficiency. Developed interactive Power BI dashboards for real-time performance monitoring. Integrated LLM evaluation frameworks for automated sentiment analysis.</p>
+            <div class="about-split">
+                <!-- Academic Background Card -->
+                <div class="background-card">
+                    <div style="text-align: center; margin-bottom: 10px;">
+                        <div class="auth-pill">WORK-AUTHORISED IN GERMANY</div>
                     </div>
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">React Developer Intern</p>
-                        <p class="exp-company-white">TatvaSoft</p>
-                        <p class="exp-time-white">MAY 2023 – JUN 2023</p>
-                        <p class="exp-desc-white">Developed a scalable e-commerce frontend with React.js and Material UI, implementing REST API integrations, cart logic, and JWT authentication.</p>
+                    <h3>Academic Background</h3>
+
+                    <div class="entry-item">
+                        <div class="entry-title">M.Sc. Software Engineering & Management</div>
+                        <div class="entry-subtitle">Hochschule Heilbronn, Germany</div>
+                        <div class="entry-meta">MAR 2025 – PRESENT · GPA: 1,9 (DE SCALE)</div>
+                        <div class="entry-desc">Specialising in AI-driven Data Engineering & Analytics</div>
+                    </div>
+
+                    <div class="entry-divider"></div>
+
+                    <div class="entry-item">
+                        <div class="entry-title">B.Tech. Information Technology</div>
+                        <div class="entry-subtitle">A.D. Patel Institute of Technology, India</div>
+                        <div class="entry-meta">JUL 2020 – JAN 2024 · GPA: 1,8 (DE SCALE)</div>
+                        <div class="entry-desc">Foundation in software development, databases & data systems</div>
+                    </div>
+                </div>
+
+                <!-- Work Experience Card -->
+                <div class="background-card">
+                    <h3>Work Experience</h3>
+
+                    <div class="entry-item">
+                        <div class="entry-title">Data Analyst & BI Developer</div>
+                        <div class="entry-subtitle">Oscar IT Solutions</div>
+                        <div class="entry-meta">JAN 2024 – FEB 2025 · FULL-TIME</div>
+                        <div class="entry-desc">Analysed 500K+ records using Python & SQL; built 4 real-time Power BI dashboards and automated ETL pipelines — reduced reporting cycles by 40%. Evaluated 3 LLM solutions and delivered technical decision framework to AI working group.</div>
+                    </div>
+
+                    <div class="entry-divider"></div>
+
+                    <div class="entry-item">
+                        <div class="entry-title">React Developer Intern</div>
+                        <div class="entry-subtitle">TatvaSoft</div>
+                        <div class="entry-meta">MAY 2023 – JUN 2023 · INTERNSHIP</div>
+                        <div class="entry-desc">Built a full-stack e-commerce app using React.js & REST APIs — implementing cart, authentication and CRUD operations end-to-end.</div>
                     </div>
                 </div>
             </div>
@@ -1009,7 +1044,7 @@
 
         <section id="languages">
             <div class="section-header">
-                <h2>Communication <span>Skills</span></h2>
+                <h2><span>Languages</span></h2>
             </div>
             <div class="project-grid lang-grid">
                 <div class="project-card" style="min-height: auto; padding: 50px; opacity: 0;">
@@ -1031,7 +1066,7 @@
 
         <section id="skills">
             <div class="section-header">
-                <h2>Tech <span>Stack</span></h2>
+                <h2>Technical <span>Expertise</span></h2>
             </div>
             <div class="blocks-grid">
                 <div class="block block-primary">
@@ -1194,17 +1229,11 @@
                             });
                         } else if (target.id === 'about') {
                             anime({
-                                targets: '#about .about-text-block, #about .experience-block',
+                                targets: '#about .section-header, #about .background-card',
                                 opacity: [0, 1],
-                                translateX: (el, i) => i === 0 ? [-50, 0] : [50, 0],
+                                translateY: [40, 0],
                                 duration: 1200,
-                                easing: 'easeOutExpo'
-                            });
-                            anime({
-                                targets: '.exp-item-white',
-                                opacity: [0, 1],
-                                translateY: [20, 0],
-                                delay: anime.stagger(150),
+                                delay: anime.stagger(300),
                                 easing: 'easeOutExpo'
                             });
                         } else if (target.id === 'languages') {
@@ -1225,12 +1254,34 @@
                             });
                         } else if (target.id === 'contact') {
                             anime({
-                                targets: '.contact-header-centered, .contact-card-luxury, .contact-social-footer',
+                                targets: '.contact-header-centered',
                                 opacity: [0, 1],
                                 translateY: [30, 0],
-                                delay: anime.stagger(200),
                                 easing: 'easeOutExpo',
                                 duration: 1500
+                            });
+                            anime({
+                                targets: '.contact-card-luxury',
+                                opacity: [0, 1],
+                                scale: [0.98, 1],
+                                translateY: [30, 0],
+                                delay: 200,
+                                easing: 'easeOutExpo',
+                                duration: 1500
+                            });
+                            anime({
+                                targets: '.form-group-luxury, .form-bottom-row-luxury',
+                                opacity: [0, 1],
+                                translateY: [20, 0],
+                                delay: anime.stagger(100, {start: 500}),
+                                easing: 'easeOutExpo'
+                            });
+                            anime({
+                                targets: '.contact-social-footer',
+                                opacity: [0, 1],
+                                translateY: [20, 0],
+                                delay: 1000,
+                                easing: 'easeOutExpo'
                             });
                         }
                         observer.unobserve(target);
