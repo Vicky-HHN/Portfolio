@@ -451,66 +451,47 @@
         }
 
         .about-text-block {
-            background: var(--accent-blue);
+            background: #94A3B8; /* Grayish like in image */
             border-radius: var(--radius);
             padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            text-align: center;
             opacity: 0;
             color: white;
         }
 
-        .about-text-block h2 {
-            font-size: 60px;
-            line-height: 1;
+        .about-text-block h3, .experience-block h3 {
+            font-size: 32px;
             margin-bottom: 40px;
-            letter-spacing: -1px;
-            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            opacity: 0.9;
         }
 
         .experience-block {
-            background: var(--accent-slate);
+            background: #94A3B8; /* Matching the image's gray tone */
             border-radius: var(--radius);
             padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            text-align: center;
             opacity: 0;
-            color: white;
-        }
-
-        .experience-block h2 {
-            font-size: 60px;
-            line-height: 1;
-            margin-bottom: 40px;
-            letter-spacing: -1px;
             color: white;
         }
 
         .exp-item-white {
-            border-left: 2px solid rgba(255,255,255,0.3);
-            padding-left: 25px;
             position: relative;
             margin-bottom: 30px;
         }
 
-        .exp-item-white::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            background: var(--accent-highlight);
-            border-radius: 50%;
-        }
-
         .exp-role-white {
-            font-weight: 700;
-            font-size: 20px;
+            font-weight: 600;
+            font-size: 16px;
             margin-bottom: 5px;
-            font-family: 'Fraunces', serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .exp-company-white {
@@ -971,39 +952,42 @@
             </div>
             <div class="about-split">
                 <div class="about-text-block">
+                    <h3>Academic Background</h3>
                     <div class="education-list">
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">M.Sc. Software Engineering & Management</p>
-                        <p class="exp-company-white">Hochschule Heilbronn, Germany</p>
-                        <p class="exp-time-white">MAR 2025 – PRESENT · GPA: 1,9</p>
-                        <p class="exp-desc-white">Focusing on AI-driven Data Engineering & Analytics. Relevant coursework includes Intelligent Systems, Scalable Data Pipelines, and Applied Machine Learning.</p>
-                    </div>
+                        <div class="exp-item-white">
+                            <p class="exp-role-white">M.Sc. Software Engineering & Management</p>
+                            <p class="exp-company-white">Hochschule Heilbronn, Germany</p>
+                            <p class="exp-time-white">MAR 2025 – PRESENT · GPA: 1,9</p>
+                            <p class="exp-desc-white">Focusing on AI-driven Data Engineering & Analytics. Relevant coursework includes Intelligent Systems, Scalable Data Pipelines, and Applied Machine Learning.</p>
+                        </div>
 
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">B.Tech. Information Technology</p>
-                        <p class="exp-company-white">A.D. Patel Institute of Technology, India</p>
-                        <p class="exp-time-white">JUL 2020 – JAN 2024 · GPA: 1,8 (GERMAN SCALE)</p>
-                        <p class="exp-desc-white">Completed a comprehensive curriculum in software development, databases, and data structures. Hands-on experience in full-stack development and data systems.</p>
+                        <div class="exp-item-white">
+                            <p class="exp-role-white">B.Tech. Information Technology</p>
+                            <p class="exp-company-white">A.D. Patel Institute of Technology, India</p>
+                            <p class="exp-time-white">JUL 2020 – JAN 2024 · GPA: 1,8 (GERMAN SCALE)</p>
+                            <p class="exp-desc-white">Completed a comprehensive curriculum in software development, databases, and data structures. Hands-on experience in full-stack development and data systems.</p>
+                        </div>
                     </div>
+                    <p style="margin-top:15px; font-weight: 700; color: white; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px;">
+                        Work-authorised in Germany
+                    </p>
                 </div>
-                <p style="margin-top:15px; font-weight: 700; color: white; background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px;">
-                    Work-authorised in Germany
-                </p>
-            </div>
 
                 <div id="experience" class="experience-block">
+                    <h3>Work Experience</h3>
                     <div class="experience-list">
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">Data Analyst & BI Developer</p>
-                        <p class="exp-company-white">Oscar IT Solutions</p>
-                        <p class="exp-time-white">JAN 2024 – FEB 2025</p>
-                        <p class="exp-desc-white">Analysed 500K+ records using Python and SQL to identify key sales trends, resulting in a 40% increase in operational efficiency. Developed interactive Power BI dashboards for real-time performance monitoring. Integrated LLM evaluation frameworks for automated sentiment analysis.</p>
-                    </div>
-                    <div class="exp-item-white">
-                        <p class="exp-role-white">React Developer Intern</p>
-                        <p class="exp-company-white">TatvaSoft</p>
-                        <p class="exp-time-white">MAY 2023 – JUN 2023</p>
-                        <p class="exp-desc-white">Developed a scalable e-commerce frontend with React.js and Material UI, implementing REST API integrations, cart logic, and JWT authentication.</p>
+                        <div class="exp-item-white">
+                            <p class="exp-role-white">Data Analyst & BI Developer</p>
+                            <p class="exp-company-white">Oscar IT Solutions</p>
+                            <p class="exp-time-white">JAN 2024 – FEB 2025</p>
+                            <p class="exp-desc-white">Analysed 500K+ records using Python and SQL to identify key sales trends, resulting in a 40% increase in operational efficiency. Developed interactive Power BI dashboards for real-time performance monitoring. Integrated LLM evaluation frameworks for automated sentiment analysis.</p>
+                        </div>
+                        <div class="exp-item-white">
+                            <p class="exp-role-white">React Developer Intern</p>
+                            <p class="exp-company-white">TatvaSoft</p>
+                            <p class="exp-time-white">MAY 2023 – JUN 2023</p>
+                            <p class="exp-desc-white">Developed a scalable e-commerce frontend with React.js and Material UI, implementing REST API integrations, cart logic, and JWT authentication.</p>
+                        </div>
                     </div>
                 </div>
             </div>
