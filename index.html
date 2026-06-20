@@ -1605,10 +1605,12 @@
                     if (response.ok) {
                         formStatus.innerHTML = "✅ Message sent! I'll reply within 24 hours.";
                         formStatus.className = "form-status success";
+                        formStatus.style.display = 'block';
                         this.reset();
 
                         // Hide message after 8 seconds
                         setTimeout(() => {
+                            formStatus.style.display = 'none';
                             formStatus.className = "form-status";
                         }, 8000);
                     } else {
@@ -1617,6 +1619,7 @@
                 } catch (error) {
                     formStatus.innerHTML = "❌ Something went wrong. Please try again.";
                     formStatus.className = "form-status error";
+                    formStatus.style.display = 'block';
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalBtnText;
