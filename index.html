@@ -946,6 +946,37 @@
             box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2);
         }
 
+        /* Form Status Messages */
+        .form-status {
+            display: none;
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            animation: slideDown 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .form-status.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            color: #DC2626;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 1024px) {
             .hero h1 { font-size: 80px; }
             .project-grid { grid-template-columns: 1fr 1fr; }
@@ -1284,7 +1315,10 @@
 
                 <div class="contact-card-luxury">
                     <div id="contact-blobs" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; filter:blur(60px); opacity:0.1; pointer-events:none;"></div>
-                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="contact-form-luxury" style="position:relative; z-index:1;">
+
+                    <div id="form-status" class="form-status"></div>
+
+                    <form id="contact-form" action="https://formspree.io/f/xvgoverz" method="POST" class="contact-form-luxury" style="position:relative; z-index:1;">
                         <div class="form-row-luxury">
                             <div class="form-group-luxury">
                                 <label for="name">Full Name</label>
@@ -1542,6 +1576,53 @@
 
         createBlobs('zen-blobs', 6);
         createBlobs('contact-blobs', 5);
+
+        // Contact Form AJAX Submission
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+
+                // Disable button and show sending state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Sending...';
+
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        formStatus.innerHTML = "✅ Message sent! I'll reply within 24 hours.";
+                        formStatus.className = "form-status success";
+                        this.reset();
+
+                        // Hide message after 8 seconds
+                        setTimeout(() => {
+                            formStatus.className = "form-status";
+                        }, 8000);
+                    } else {
+                        throw new Error('Server returned an error');
+                    }
+                } catch (error) {
+                    formStatus.innerHTML = "❌ Something went wrong. Please try again.";
+                    formStatus.className = "form-status error";
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            });
+        }
         </script>
 </body>
 </html>
