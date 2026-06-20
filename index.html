@@ -1318,7 +1318,13 @@
 
                     <div id="form-status" class="form-status"></div>
 
-                    <form id="contact-form" action="https://formspree.io/vishvagandhi027@gmail.com" method="POST" class="contact-form-luxury" style="position:relative; z-index:1;">
+                    <!--
+                        Final Setup Step:
+                        1. Create a form at https://formspree.io/
+                        2. Replace 'xvgoverz' below with your unique Form ID
+                        3. You will receive inquiries directly at vishvagandhi027@gmail.com
+                    -->
+                    <form id="contact-form" action="https://formspree.io/f/xvgoverz" method="POST" class="contact-form-luxury" style="position:relative; z-index:1;">
                         <div class="form-row-luxury">
                             <div class="form-group-luxury">
                                 <label for="name">Full Name</label>
@@ -1587,6 +1593,21 @@
                 e.preventDefault();
 
                 const formData = new FormData(this);
+                const nameValue = formData.get('name') || '';
+
+                // Demo Mode: Trigger success UI without sending email
+                if (nameValue.toLowerCase().includes('demo-success')) {
+                    formStatus.innerHTML = "✨ [Demo Mode] Message sent! I'll reply within 24 hours.";
+                    formStatus.className = "form-status success";
+                    formStatus.style.display = 'block';
+                    this.reset();
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                        formStatus.className = "form-status";
+                    }, 8000);
+                    return;
+                }
+
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalBtnText = submitBtn.innerHTML;
 
@@ -1604,10 +1625,9 @@
                     });
 
                     if (response.status === 404) {
-                        // Fallback: If AJAX fails with 404, the form might need legacy activation.
-                        // We trigger a standard form submission which allows Formspree to redirect for confirmation.
-                        console.warn("AJAX submission returned 404. Falling back to standard browser submission for Formspree activation.");
-                        this.submit();
+                        formStatus.innerHTML = "🛠️ <strong>Setup Required:</strong> Please <a href='https://formspree.io/' target='_blank' style='color:inherit; text-decoration:underline;'>create a form</a> at Formspree and update your Form ID in index.html.";
+                        formStatus.className = "form-status error";
+                        formStatus.style.display = 'block';
                         return;
                     }
 
@@ -1626,11 +1646,7 @@
                         throw new Error('Server returned an error');
                     }
                 } catch (error) {
-                    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                        formStatus.innerHTML = "❌ Submission failed. On localhost, Formspree often requires a real email action URL or a verified Hash ID. Check console for details.";
-                    } else {
-                        formStatus.innerHTML = "❌ Something went wrong. Please try again.";
-                    }
+                    formStatus.innerHTML = "❌ Something went wrong. Please try again.";
                     formStatus.className = "form-status error";
                     formStatus.style.display = 'block';
                 } finally {
