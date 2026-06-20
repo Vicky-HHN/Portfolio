@@ -1318,7 +1318,7 @@
 
                     <div id="form-status" class="form-status"></div>
 
-                    <form id="contact-form" action="https://formspree.io/f/xvgoverz" method="POST" class="contact-form-luxury" style="position:relative; z-index:1;">
+                    <form id="contact-form" action="https://formspree.io/f/mjkgpnpn" method="POST" class="contact-form-luxury" style="position:relative; z-index:1;">
                         <div class="form-row-luxury">
                             <div class="form-group-luxury">
                                 <label for="name">Full Name</label>
@@ -1601,6 +1601,11 @@
                             'Accept': 'application/json'
                         }
                     });
+
+                    if (response.status === 404) {
+                        console.error("Formspree ID not found. Please ensure you have created a form at formspree.io and updated the ID in index.html.");
+                        throw new Error('Formspree ID not found');
+                    }
 
                     if (response.ok) {
                         formStatus.innerHTML = "✅ Message sent! I'll reply within 24 hours.";
