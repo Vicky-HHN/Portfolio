@@ -574,208 +574,130 @@
         .block h4 { font-size: 26px; margin-bottom: 10px; letter-spacing: -1px; }
         .toolkit-block { grid-column: 1 / -1; background-color: var(--accent-slate); color: white; border: none; }
 
-        /* Contact Section Redesign - "Million Euro Look" */
+        /* Contact Section Redesign V3 */
         #contact {
-            padding: 180px 0;
-            background: #0F172A;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            border-radius: 40px 40px 0 0;
-            margin-top: 100px;
+            padding: 100px 0;
+            background: #FFFFFF;
+            color: var(--text-dark);
+            margin-top: 50px;
         }
 
-        #contact::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -10%;
-            width: 60%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(30, 58, 138, 0.15) 0%, transparent 70%);
-            z-index: 0;
+        #contact .section-header {
+            text-align: center;
+            padding-bottom: 40px;
         }
 
         #contact .section-header h2 {
-            color: white;
-            font-size: 120px;
-            margin-bottom: 20px;
-            text-align: left;
+            color: var(--accent-blue);
+            font-size: 80px;
+            letter-spacing: -2px;
         }
 
-        #contact .section-header span {
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        .contact-grid-premium {
+        .contact-card-v2 {
+            background: #F1F5F9;
+            padding: 60px;
+            border-radius: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
             display: grid;
-            grid-template-columns: 0.7fr 1.3fr;
-            gap: 80px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-sidebar-luxury {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: 0.6fr 1.4fr;
             gap: 60px;
+            align-items: start;
         }
 
-        .luxury-contact-item {
+        .contact-info-v2 {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            transition: all 0.4s ease;
+            gap: 20px;
         }
 
-        .luxury-contact-item:hover {
-            transform: translateX(10px);
-        }
-
-        .luxury-contact-item .label {
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #38BDF8;
-            opacity: 0.8;
-        }
-
-        .luxury-contact-item .value {
+        .contact-status-v2 {
+            font-size: 24px;
             font-family: 'Fraunces', serif;
-            font-size: 32px;
+            color: var(--accent-blue);
+            line-height: 1.2;
             font-weight: 400;
-            color: white;
-            line-height: 1.1;
+            font-style: italic;
         }
 
-        .luxury-contact-item .sub-value {
-            font-size: 14px;
-            color: #94A3B8;
-            font-weight: 500;
-        }
-
-        .premium-social-stack {
-            display: flex;
-            gap: 30px;
-            margin-top: auto;
-        }
-
-        .premium-social-link {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-        }
-
-        .premium-social-link:hover {
-            background: #38BDF8;
-            border-color: #38BDF8;
-            color: #0F172A;
-            transform: translateY(-8px) rotate(8deg);
-        }
-
-        .premium-form-container {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            padding: 80px;
-            border-radius: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
-        }
-
-        .luxury-form {
+        .form-v2 {
             display: flex;
             flex-direction: column;
-            gap: 40px;
-        }
-
-        .luxury-input-group {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .luxury-input-group label {
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #94A3B8;
-        }
-
-        .luxury-input-group input,
-        .luxury-input-group textarea {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 15px 0;
-            font-family: inherit;
-            font-size: 18px;
-            color: white;
-            transition: all 0.4s ease;
-        }
-
-        .luxury-input-group input:focus,
-        .luxury-input-group textarea:focus {
-            outline: none;
-            border-bottom-color: #38BDF8;
-        }
-
-        .luxury-input-group .focus-border {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #38BDF8;
-            transition: all 0.4s ease;
-        }
-
-        .luxury-input-group input:focus ~ .focus-border,
-        .luxury-input-group textarea:focus ~ .focus-border {
+            gap: 25px;
             width: 100%;
         }
 
-        .btn-luxury-submit {
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .input-group-v2 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .input-group-v2 label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .input-group-v2 input,
+        .input-group-v2 textarea {
             background: #FFFFFF;
-            color: #0F172A;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 10px;
+            padding: 18px 20px;
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--text-dark);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: left;
+        }
+
+        .input-group-v2 textarea {
+            resize: none;
+            padding: 20px;
+        }
+
+        .input-group-v2 input:focus,
+        .input-group-v2 textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.08);
+        }
+
+        .btn-v2 {
+            background: #1E3A8A;
+            color: white;
             border: none;
-            border-radius: 50px;
-            padding: 24px 48px;
-            font-size: 14px;
+            border-radius: 10px;
+            padding: 18px 45px;
+            font-size: 13px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             align-self: flex-start;
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
 
-        .btn-luxury-submit:hover {
-            transform: scale(1.05);
-            background: #38BDF8;
-            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
-        }
-
-        .btn-luxury-submit svg {
-            transition: transform 0.4s ease;
-        }
-
-        .btn-luxury-submit:hover svg {
-            transform: translateX(5px);
+        .btn-v2:hover {
+            background: #1E293B;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
         }
 
         .form-status {
@@ -784,37 +706,33 @@
             border-radius: 12px;
             font-size: 14px;
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
+            width: 100%;
         }
 
-        .form-status.success { display: block; background: rgba(56, 189, 248, 0.1); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.2); }
+        .form-status.success { display: block; background: rgba(56, 189, 248, 0.1); color: #0284C7; border: 1px solid rgba(56, 189, 248, 0.2); }
         .form-status.error { display: block; background: rgba(244, 63, 94, 0.1); color: #F43F5E; border: 1px solid rgba(244, 63, 94, 0.2); }
 
         /* Footer */
         footer {
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
-            background: #0F172A;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #FFFFFF;
+            border-top: 1px solid #F1F5F9;
         }
 
         .footer-content {
             font-weight: 700;
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            color: var(--text-muted);
         }
 
         /* Hide elements for animation */
-        .hero-content, .hero-visual, .welcome-block, .project-card, .background-card, .block, .section-header {
+        .hero-content, .hero-visual, .welcome-block, .project-card, .background-card, .block, .section-header, .contact-card-v2 {
             opacity: 1;
-        }
-
-        @media (max-width: 1024px) {
-            .contact-grid-premium { grid-template-columns: 1fr; gap: 60px; }
-            .premium-form-container { padding: 40px; }
         }
 
         @media (max-width: 768px) {
@@ -824,8 +742,15 @@
             .hero-visual { width: 100%; height: auto; margin-top: 40px; }
             .ai-pulse-core { margin-left: 0; }
             .insight-dashboard { position: static; margin-top: 20px; }
-            #contact .section-header h2 { font-size: 80px; }
-            .luxury-contact-item .value { font-size: 24px; }
+            #contact .section-header h2 { font-size: 60px; }
+            .contact-card-v2 {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+                border-radius: 20px;
+                gap: 40px;
+            }
+            .form-row { grid-template-columns: 1fr; gap: 20px; }
+            .btn-v2 { width: 100%; }
         }
     </style>
 </head>
@@ -1006,72 +931,42 @@
 
         <section id="contact">
             <div class="container">
-                <div class="section-header" style="text-align: left;">
-                    <h2>Let's <span>Collaborate</span></h2>
+                <div class="section-header">
+                    <h2>Get in <span>Touch</span></h2>
                 </div>
 
-                <div class="contact-grid-premium">
-                    <div class="contact-sidebar-luxury">
-                        <div class="luxury-contact-item">
-                            <span class="label">Contact</span>
-                            <span class="value">015563612921</span>
-                            <span class="sub-value">Direct Line · WhatsApp</span>
-                        </div>
-
-                        <div class="luxury-contact-item">
-                            <span class="label">Message</span>
-                            <span class="value">vishvagandhi027<br>@gmail.com</span>
-                            <span class="sub-value">Professional Inquiry</span>
-                        </div>
-
-                        <div class="luxury-contact-item">
-                            <span class="label">Location</span>
-                            <span class="value">Heilbronn, DE</span>
-                            <span class="sub-value">Work-authorised in Germany</span>
-                        </div>
-
-                        <div class="premium-social-stack">
-                            <a href="https://linkedin.com/in/vishva-gandhi" class="premium-social-link" aria-label="LinkedIn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                            </a>
-                            <a href="https://github.com/Vicky-HHN" class="premium-social-link" aria-label="GitHub">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            </a>
-                        </div>
+                <div class="contact-card-v2">
+                    <div class="contact-info-v2">
+                        <p class="contact-status-v2">Open to opportunities · Work-authorised in Germany</p>
                     </div>
 
-                    <div class="premium-form-container">
+                    <div class="contact-form-container">
                         <div id="form-status" class="form-status"></div>
-                        <form id="contact-form" action="https://formsubmit.co/ajax/vishvagandhi027@gmail.com" method="POST" class="luxury-form">
+                        <form id="contact-form" action="https://formsubmit.co/ajax/vishvagandhi027@gmail.com" method="POST" class="form-v2">
                             <input type="hidden" name="_captcha" value="false">
-                            <div class="luxury-input-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" required>
-                                <div class="focus-border"></div>
+
+                            <div class="form-row">
+                                <div class="input-group-v2">
+                                    <label for="name">name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="input-group-v2">
+                                    <label for="email">email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
                             </div>
 
-                            <div class="luxury-input-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                                <div class="focus-border"></div>
-                            </div>
-
-                            <div class="luxury-input-group">
-                                <label for="subject">Subject</label>
+                            <div class="input-group-v2">
+                                <label for="subject">subject</label>
                                 <input type="text" id="subject" name="subject" required>
-                                <div class="focus-border"></div>
                             </div>
 
-                            <div class="luxury-input-group">
-                                <label for="message">Project Details</label>
-                                <textarea id="message" name="message" rows="4" required></textarea>
-                                <div class="focus-border"></div>
+                            <div class="input-group-v2">
+                                <label for="message">message</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
                             </div>
 
-                            <button type="submit" class="btn-luxury-submit">
-                                Initiate Conversation
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </button>
+                            <button type="submit" class="btn-v2">send message</button>
                         </form>
                     </div>
                 </div>
@@ -1086,7 +981,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Prepare elements for animation
-            const animatedEls = document.querySelectorAll('.hero-content, .hero-visual, .welcome-block, .project-card, .background-card, .block, .section-header, .contact-grid-premium, .luxury-contact-item');
+            const animatedEls = document.querySelectorAll('.hero-content, .hero-visual, .welcome-block, .project-card, .background-card, .block, .section-header, .contact-card-v2');
             animatedEls.forEach(el => el.style.opacity = '0');
 
             // Initial Hero Animation
@@ -1099,17 +994,14 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('contact-grid-premium')) {
-                            // Staggered children for contact section
+                        if (entry.target.classList.contains('contact-card-v2')) {
                             anime({
-                                targets: entry.target.querySelectorAll('.luxury-contact-item, .premium-form-container'),
+                                targets: entry.target,
                                 opacity: [0, 1],
-                                translateY: [30, 0],
-                                delay: anime.stagger(200),
+                                translateY: [40, 0],
                                 duration: 1500,
                                 easing: 'easeOutExpo'
                             });
-                            entry.target.style.opacity = '1';
                         } else {
                             anime({
                                 targets: entry.target,
@@ -1124,7 +1016,7 @@
                 });
             }, { threshold: 0.15 });
 
-            document.querySelectorAll('.welcome-block, .project-card, .background-card, .block, .section-header, .contact-grid-premium').forEach(el => observer.observe(el));
+            document.querySelectorAll('.welcome-block, .project-card, .background-card, .block, .section-header, .contact-card-v2').forEach(el => observer.observe(el));
 
             // Counters
             const counterData = { efficiency: 0, records: 0, productivity: 1 };
