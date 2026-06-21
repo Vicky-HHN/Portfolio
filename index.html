@@ -541,17 +541,22 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 20px;
+            display: block;
+            margin: 0 auto 20px auto;
+            width: fit-content;
         }
 
         /* Expertise Blocks */
         .blocks-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 180px);
+            grid-template-rows: auto;
             gap: 20px;
             margin-bottom: 100px;
+        }
+
+        .blocks-grid .block {
+            min-height: 180px;
         }
 
         .block {
@@ -810,6 +815,7 @@
                 <div class="nav-links">
                     <a href="#projects">Projects</a>
                     <a href="#about">Background</a>
+                    <a href="#communication">Languages</a>
                     <a href="#skills">Expertise</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -904,7 +910,7 @@
                         <div class="entry-title">B.Tech. Information Technology</div>
                         <div class="entry-subtitle">A.D. Patel Institute, India</div>
                         <div class="entry-meta">JUL 2020 – JAN 2024 · GPA: 1,8</div>
-                        <p>Foundation in software development & data systems</p>
+                        <p>Foundation in software development, databases & data systems</p>
                     </div>
                 </div>
                 <div class="background-card">
@@ -913,7 +919,7 @@
                         <div class="entry-title">Data Analyst & BI Developer</div>
                         <div class="entry-subtitle">Oscar IT Solutions</div>
                         <div class="entry-meta">JAN 2024 – FEB 2025</div>
-                        <p>Analysed 500K+ records using Python & SQL; reduced reporting cycles by 40%.</p>
+                        <p>Analysed 500K+ records using Python and SQL to identify key sales trends, resulting in a 40% increase in operational efficiency. Developed interactive Power BI dashboards for real-time performance monitoring. Integrated LLM evaluation frameworks for automated sentiment analysis. A/B testing on marketing campaigns leading to a 12% improvement in conversion rates.</p>
                     </div>
                     <div class="entry-divider"></div>
                     <div class="entry-item">
@@ -922,6 +928,24 @@
                         <div class="entry-meta">MAY 2023 – JUN 2023</div>
                         <p>Built a full-stack e-commerce app using React.js & REST APIs.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="communication">
+            <div class="section-header">
+                <h2><span>Languages</span></h2>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-tag">Language</div>
+                    <h3>English</h3>
+                    <p>Working Proficiency</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-tag">Language</div>
+                    <h3>German</h3>
+                    <p>B1 — Actively improving</p>
                 </div>
             </div>
         </section>
@@ -939,7 +963,9 @@
                 <div class="block"><h4>Scraping</h4><p>Playwright</p></div>
                 <div class="block block-primary"><h4>Architecture</h4><p>ETL Systems</p></div>
                 <div class="block"><h4>Models</h4><p>Ollama & SwinIR</p></div>
-                <div class="block toolkit-block"><h4>Toolkit</h4><p>Python, PyTorch, Docker, SQL, Git & Cloud Integration (AWS/Azure)</p></div>
+                <div class="block"><h4>Power BI</h4><p>Visual Analytics</p></div>
+                <div class="block"><h4>Tabula</h4><p>Data Extraction</p></div>
+                <div class="block toolkit-block"><h4>Toolkit</h4><p>Python, PyTorch, Docker, SQL, Power BI, Tabula, Git & Cloud Integration (AWS/Azure)</p></div>
             </div>
         </section>
 
@@ -993,7 +1019,7 @@
                                 <label for="message">Your Message</label>
                                 <textarea id="message" name="message" placeholder="how can I help you?" rows="5" required></textarea>
                             </div>
-                            <button type="submit" class="btn-luxury-send">Send Message</button>
+                            <button type="submit" class="btn-luxury-send">Send Message ➤</button>
                         </form>
                     </div>
                 </div>
