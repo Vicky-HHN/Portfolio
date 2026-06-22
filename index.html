@@ -369,7 +369,7 @@
 
         /* Welcome Section */
         .welcome-block {
-            background-color: var(--accent-blue);
+            background-color: #2D3A8C;
             border-radius: var(--radius);
             padding: 80px 50px;
             display: flex;
@@ -379,6 +379,28 @@
             position: relative;
             overflow: hidden;
             color: white;
+        }
+
+        .glow-spot {
+            position: absolute;
+            bottom: -150px;
+            left: 50%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(56, 189, 248, 0) 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+            pointer-events: none;
+            animation: glow-orbit 8s infinite linear;
+        }
+
+        @keyframes glow-orbit {
+            0%   { transform: translate(-50%, 0); }
+            25%  { transform: translate(0%, -80px); }
+            50%  { transform: translate(-50%, -160px); }
+            75%  { transform: translate(-100%, -80px); }
+            100% { transform: translate(-50%, 0); }
         }
 
         .welcome-block h2 {
@@ -911,7 +933,7 @@
         </section>
 
         <section class="welcome-block">
-            <div id="zen-blobs" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; filter:blur(60px); opacity:0.4;"></div>
+            <div class="glow-spot"></div>
             <h2 style="position:relative; z-index:1;">Turning Data into Decisions</h2>
             <div class="white-text" style="position:relative; z-index:1;">AI + ML<br>Solutions</div>
         </section>
