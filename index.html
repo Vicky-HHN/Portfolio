@@ -628,6 +628,12 @@
         .block h4 { font-size: 26px; margin-bottom: 10px; letter-spacing: -1px; }
         .toolkit-block { grid-column: 1 / -1; background-color: var(--accent-slate); color: white; border: none; }
 
+        #skills .block:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            border-color: rgba(30, 58, 138, 0.1) !important;
+        }
+
         /* Contact Section Refinement - Million Euro Aesthetic */
         #contact {
             padding: 150px 0;
@@ -652,66 +658,81 @@
         .zen-blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.18;
+            filter: blur(120px);
+            opacity: 0.25;
             mix-blend-mode: multiply;
         }
 
         .blob-1 {
-            width: 800px;
-            height: 800px;
-            background: var(--accent-highlight);
-            top: -200px;
-            right: -200px;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(136, 212, 152, 0.5) 0%, transparent 70%);
+            top: -400px;
+            right: -300px;
         }
 
         .blob-2 {
-            width: 700px;
-            height: 700px;
-            background: var(--accent-slate);
-            bottom: -200px;
-            left: -150px;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(26, 147, 111, 0.4) 0%, transparent 70%);
+            bottom: -400px;
+            left: -300px;
         }
 
         .blob-3 {
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(17, 75, 95, 0.3) 0%, transparent 70%);
+            top: 10%;
+            left: -10%;
+        }
+
+        .blob-4 {
+            position: absolute;
             width: 600px;
             height: 600px;
-            background: var(--accent-blue);
-            top: 30%;
-            left: 10%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.4) 0%, transparent 70%);
+            bottom: 10%;
+            right: 5%;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            mix-blend-mode: multiply;
         }
 
         .contact-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 80px;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             position: relative;
             z-index: 1;
-            padding: 40px 0;
+            padding: 80px 0 150px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .contact-info-col {
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 48px;
+            gap: 0;
         }
 
         .editorial-title {
-            font-size: 110px;
+            font-size: clamp(60px, 12vw, 140px);
             letter-spacing: -6px;
-            line-height: 0.85;
+            line-height: 1.1;
             color: var(--accent-blue);
-            margin-bottom: 0;
+            margin-bottom: 80px;
             font-weight: 700;
+            text-align: left;
+            padding: 140px 0 40px;
+            text-transform: lowercase;
         }
 
-        .editorial-title i {
-            font-family: 'Fraunces', serif;
-            font-weight: 400;
-            font-style: italic;
+        .editorial-title::after {
+            content: '.';
             color: var(--accent-slate);
-            margin-left: -5px;
         }
 
         .section-subtitle {
@@ -815,16 +836,37 @@
         }
 
         .contact-glass-card {
-            background: rgba(243, 233, 210, 0.4);
+            background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(40px);
-            padding: 60px;
-            border-radius: 40px;
+            padding: 100px 120px;
+            border-radius: 80px;
             width: 100%;
-            border: 1px solid rgba(17, 75, 95, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow:
-                0 60px 120px rgba(17, 75, 95, 0.1),
+                0 80px 160px rgba(17, 75, 95, 0.1),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.5);
             position: relative;
+        }
+
+        .social-footer {
+            display: flex;
+            justify-content: flex-start;
+            gap: 40px;
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(17, 75, 95, 0.08);
+        }
+
+        .social-footer-link {
+            color: var(--accent-blue);
+            opacity: 0.8;
+            transition: all 0.4s ease;
+        }
+
+        .social-footer-link:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+            color: var(--accent-slate);
         }
 
         .form-v2 {
@@ -847,26 +889,34 @@
         }
 
         .input-group-v2 label {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 800;
             color: var(--accent-blue);
             text-transform: uppercase;
+            text-align: left;
+            margin-bottom: 15px;
+            display: block;
             letter-spacing: 2px;
-            margin-left: 4px;
-            opacity: 0.8;
+            opacity: 0.6;
         }
 
         .input-group-v2 input,
         .input-group-v2 textarea {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(17, 75, 95, 0.1);
-            border-radius: 16px;
-            padding: 18px 22px;
+            border-radius: 12px;
+            padding: 20px 25px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             color: var(--accent-blue);
             width: 100%;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: left;
+        }
+
+        .input-group-v2 textarea {
+            border-radius: 30px;
         }
 
         .input-group-v2 input:focus,
@@ -874,7 +924,7 @@
             outline: none;
             background: #fff;
             border-color: var(--accent-slate);
-            box-shadow: 0 15px 35px rgba(26, 147, 111, 0.08);
+            box-shadow: 0 20px 40px rgba(17, 75, 95, 0.05);
             transform: translateY(-2px);
         }
 
@@ -885,24 +935,25 @@
 
         .btn-v2 {
             background: var(--accent-blue);
-            color: #F3E9D2 !important;
-            border: none;
-            border-radius: 14px;
+            color: #FFFFFF !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             padding: 20px 40px;
-            font-size: 12px;
-            font-weight: 800;
+            font-size: 14px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 1.5px;
             cursor: pointer;
             align-self: flex-start;
             display: flex;
             align-items: center;
             gap: 16px;
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 0 20px 40px rgba(17, 75, 95, 0.15);
+            box-shadow: 0 20px 40px rgba(17, 75, 95, 0.2);
             position: relative;
             overflow: hidden;
-            width: 100%;
+            width: fit-content;
+            margin: 20px 0 0;
             justify-content: center;
         }
 
@@ -1181,61 +1232,17 @@
                 <div class="zen-blob blob-1"></div>
                 <div class="zen-blob blob-2"></div>
                 <div class="zen-blob blob-3"></div>
+                <div class="zen-blob blob-4"></div>
             </div>
             <div class="container">
                 <div class="contact-layout">
                     <div class="contact-info-col">
                         <div class="contact-header-v2">
-                            <h2 class="editorial-title">Get in <i>Touch</i></h2>
-                            <p class="section-subtitle">Have a vision? Let's engineer the data-driven solution to bring it to life.</p>
-                        </div>
-
-                        <div class="contact-info-grid">
-                            <a href="mailto:vishvagandhi027@gmail.com" class="info-card" aria-label="Send an email to Vishva Gandhi">
-                                <div class="info-icon-wrapper">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                                </div>
-                                <div class="info-content">
-                                    <span class="info-label">EMAIL ADDRESS</span>
-                                    <span class="info-value">vishvagandhi027@gmail.com</span>
-                                </div>
-                            </a>
-                            <a href="tel:015563612921" class="info-card" aria-label="Call Vishva Gandhi">
-                                <div class="info-icon-wrapper">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                </div>
-                                <div class="info-content">
-                                    <span class="info-label">PHONE NUMBER</span>
-                                    <span class="info-value">015563612921</span>
-                                </div>
-                            </a>
-                            <a href="https://linkedin.com/in/vishva-gandhi" target="_blank" class="info-card" aria-label="Visit Vishva Gandhi's LinkedIn profile">
-                                <div class="info-icon-wrapper">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                                </div>
-                                <div class="info-content">
-                                    <span class="info-label">LINKEDIN</span>
-                                    <span class="info-value">vishva-gandhi</span>
-                                </div>
-                            </a>
-                            <a href="https://github.com/Vicky-HHN" target="_blank" class="info-card" aria-label="Visit Vishva Gandhi's GitHub profile">
-                                <div class="info-icon-wrapper">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                </div>
-                                <div class="info-content">
-                                    <span class="info-label">GITHUB</span>
-                                    <span class="info-value">Vicky-HHN</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="status-pill-large">
-                            <span class="status-dot"></span>
-                            <span>Open to opportunities · Work-authorised in Germany</span>
+                            <h2 class="editorial-title">Get in Touch</h2>
                         </div>
                     </div>
 
-                    <div class="contact-form-col">
+                    <div class="contact-form-col" style="width:100%;">
                         <div class="contact-glass-card">
                             <div id="form-status" class="form-status"></div>
                             <form id="contact-form" action="https://formsubmit.co/ajax/vishvagandhi027@gmail.com" method="POST" class="form-v2">
@@ -1243,30 +1250,44 @@
 
                                 <div class="form-row">
                                     <div class="input-group-v2">
-                                        <label for="name">FULL NAME</label>
-                                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                        <label for="name">name</label>
+                                        <input type="text" id="name" name="name" required>
                                     </div>
                                     <div class="input-group-v2">
-                                        <label for="email">EMAIL ADDRESS</label>
-                                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                        <label for="email">email</label>
+                                        <input type="email" id="email" name="email" required>
                                     </div>
                                 </div>
 
                                 <div class="input-group-v2">
-                                    <label for="subject">SUBJECT</label>
-                                    <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                                    <label for="subject">subject</label>
+                                    <input type="text" id="subject" name="subject" required>
                                 </div>
 
                                 <div class="input-group-v2">
-                                    <label for="message">MESSAGE</label>
-                                    <textarea id="message" name="message" rows="6" placeholder="Tell me about your project..." required></textarea>
+                                    <label for="message">message</label>
+                                    <textarea id="message" name="message" rows="6" required></textarea>
                                 </div>
 
                                 <button type="submit" class="btn-v2">
                                     <span>send message</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                                 </button>
                             </form>
+
+                            <div class="social-footer">
+                                <a href="https://linkedin.com/in/vishva-gandhi" target="_blank" class="social-footer-link" aria-label="LinkedIn">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                </a>
+                                <a href="https://github.com/Vicky-HHN" target="_blank" class="social-footer-link" aria-label="GitHub">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                </a>
+                                <a href="mailto:vishvagandhi027@gmail.com" class="social-footer-link" aria-label="Email">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                </a>
+                                <a href="tel:015563612921" class="social-footer-link" aria-label="Phone">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1341,35 +1362,49 @@
 
             document.querySelectorAll('.welcome-block, .project-card, .background-card, .block, .section-header, .contact-layout').forEach(el => observer.observe(el));
 
-            // Zen Blobs Animation
+            // Zen Blobs Animation - more organic liquid movement
             anime({
                 targets: '.blob-1',
-                translateX: [0, 100, 0],
-                translateY: [0, 50, 0],
-                scale: [1, 1.2, 1],
+                translateX: () => anime.random(-150, 150),
+                translateY: () => anime.random(-150, 150),
+                scale: [1, 1.5, 1],
+                duration: 18000,
+                loop: true,
+                direction: 'alternate',
+                easing: 'easeInOutSine'
+            });
+
+            anime({
+                targets: '.blob-4',
+                translateX: () => anime.random(-200, 200),
+                translateY: () => anime.random(-200, 200),
+                scale: [1, 1.6, 1],
                 duration: 20000,
                 loop: true,
-                easing: 'easeInOutQuad'
+                direction: 'alternate',
+                easing: 'easeInOutSine'
             });
 
             anime({
                 targets: '.blob-2',
-                translateX: [0, -80, 0],
-                translateY: [0, -100, 0],
-                scale: [1, 1.1, 1],
-                duration: 25000,
+                translateX: () => anime.random(-150, 150),
+                translateY: () => anime.random(-150, 150),
+                scale: [1, 1.3, 1],
+                duration: 22000,
                 loop: true,
-                easing: 'easeInOutQuad'
+                direction: 'alternate',
+                easing: 'easeInOutSine'
             });
 
             anime({
                 targets: '.blob-3',
-                translateX: [0, 50, 0],
-                translateY: [0, 80, 0],
-                scale: [1, 1.3, 1],
-                duration: 18000,
+                translateX: () => anime.random(-100, 100),
+                translateY: () => anime.random(-100, 100),
+                scale: [1, 1.4, 1],
+                duration: 16000,
                 loop: true,
-                easing: 'easeInOutQuad'
+                direction: 'alternate',
+                easing: 'easeInOutSine'
             });
 
             // Banner Animations
