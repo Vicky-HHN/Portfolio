@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
     <noscript>
         <style>
             .hero-content, .welcome-block, .project-card, .background-card, .block, .section-header,
@@ -35,6 +37,26 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
+        }
+
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
         }
 
         html {
@@ -677,6 +699,7 @@
             pointer-events: none;
             z-index: 0;
             mix-blend-mode: multiply;
+            will-change: transform;
         }
         .light-leak-1 {
             top: -300px;
@@ -711,6 +734,7 @@
             filter: blur(160px);
             opacity: 0.03;
             mix-blend-mode: multiply;
+            will-change: transform;
         }
 
         .blob-1 { width: 1000px; height: 1000px; background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%); top: -400px; right: -300px; }
@@ -1331,6 +1355,26 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lenis Smooth Scroll
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
             // Elements are hidden via CSS to prevent FOUC
 
             // Initial Hero Animation
