@@ -315,6 +315,30 @@
             box-shadow: 0 30px 60px rgba(109, 115, 85, 0.25);
         }
 
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+            padding: 22px 48px;
+            border-radius: 20px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: #FFFFFF;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
         /* Banner Visual Integration */
         .banner-visual-wrapper {
             position: relative;
@@ -1097,6 +1121,7 @@
                 <div class="hero-subtitle">Turning Data into Decisions with Precision and Scale.</div>
                 <div class="hero-btns">
                     <a href="#projects" class="btn btn-dark">View Projects</a>
+                    <a href="Vishva_Gandhi_CV_.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Download CV</a>
                 </div>
             </div>
         </section>
@@ -1164,7 +1189,7 @@
 
         <section id="about">
             <div class="section-header">
-                <h2>Academic <span class="thin">&</span> <span class="italic">Professional</span></h2>
+                <h2>Academic <span class="thin">&</span> <span class="italic">Professional Background</span></h2>
             </div>
             <div class="about-split">
                 <div class="background-card">
@@ -1252,7 +1277,7 @@
                 <div class="contact-layout">
                     <div class="contact-info-col">
                         <div class="section-header" style="padding: 0; margin-bottom: 15px;">
-                            <h2 style="margin-bottom: 0;">Get <span class="thin">in</span> <span class="italic">Touch</span> <span style="font-size: 0.6em; text-transform: none;">✉️</span></h2>
+                            <h2 style="margin-bottom: 0;"><span style="font-size: 0.6em; text-transform: none; margin-right: 15px;">✉️</span>Get <span class="thin">in</span> <span class="italic">Touch</span></h2>
                         </div>
                         <p class="section-subtitle">Have a vision? Let's engineer the data-driven solution to bring it to life.</p>
 
