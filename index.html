@@ -315,6 +315,30 @@
             box-shadow: 0 30px 60px rgba(109, 115, 85, 0.25);
         }
 
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+            padding: 22px 48px;
+            border-radius: 20px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: #FFFFFF;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
         /* Banner Visual Integration */
         .banner-visual-wrapper {
             position: relative;
@@ -1097,6 +1121,7 @@
                 <div class="hero-subtitle">Turning Data into Decisions with Precision and Scale.</div>
                 <div class="hero-btns">
                     <a href="#projects" class="btn btn-dark">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
                 </div>
             </div>
         </section>
