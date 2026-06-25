@@ -353,77 +353,94 @@
             margin-left: 40px;
         }
 
-        .data-stream {
+        .neural-network {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 10px rgba(109, 115, 85, 0.3));
+        }
+
+        .flow-path {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.1);
+            stroke-width: 1.5;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+
+        .node {
+            fill: var(--accent-primary);
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 1;
+            filter: url(#glow);
+            transition: all 0.3s ease;
+        }
+
+        .node:hover {
+            fill: #4FD1C5;
+            scale: 1.5;
+        }
+
+        .core-node {
+            fill: #FFFFFF;
+            stroke: var(--accent-secondary);
+            stroke-width: 2;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
+        }
+
+        .flow-path.pulse {
+            stroke: #4FD1C5;
+            stroke-width: 2;
+            opacity: 0.8;
+        }
+
+        .glass-panel {
             position: absolute;
-            left: -40px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 2;
-        }
-
-        .data-node {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 10px 18px;
-            border-radius: 10px;
-            font-family: monospace;
-            font-size: 11px;
-            color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            white-space: nowrap;
-        }
-
-        .ai-pulse-core {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            background: var(--bg-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dark);
-            font-size: 32px;
-            z-index: 3;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-        }
-
-        .insight-dashboard {
-            position: absolute;
-            bottom: 0;
-            right: -20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            z-index: 4;
-        }
-
-        .metric-item {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            z-index: 10;
             display: flex;
             flex-direction: column;
+            gap: 5px;
         }
 
-        .metric-value {
-            font-family: 'Fraunces', serif;
-            font-size: 24px;
-            color: white;
-            font-weight: 700;
-        }
+        .panel-top { top: 20px; left: 0; }
+        .panel-right { top: 150px; right: -20px; }
+        .panel-bottom { bottom: 40px; left: 50px; }
 
-        .metric-label {
+        .panel-label {
             font-size: 9px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 800;
+        }
+
+        .panel-value {
+            font-family: 'Fraunces', serif;
+            font-size: 20px;
+            color: #FFFFFF;
             font-weight: 700;
+        }
+
+        .panel-bar {
+            width: 100px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--accent-secondary);
+            width: 75%;
+            border-radius: 2px;
         }
 
         /* Welcome Section */
@@ -1045,10 +1062,14 @@
             .project-grid, .about-split, .blocks-grid { grid-template-columns: 1fr; }
             .hero { flex-direction: column; text-align: center; padding-top: 120px; }
             .banner-visual-wrapper { width: 100%; height: auto; margin-top: 40px; margin-left: 0; }
+            .neural-network { height: 300px; }
+            .glass-panel { padding: 10px 15px; border-radius: 15px; }
+            .panel-top { top: 0; left: 10%; }
+            .panel-right { top: 100px; right: 5%; }
+            .panel-bottom { bottom: 20px; left: 20%; }
             .welcome-block { flex-direction: column; text-align: center; padding: 60px 20px; gap: 40px; }
             .welcome-block h2 { font-size: 48px; text-align: center; margin: 0 auto; }
             .welcome-block .white-text { font-size: 42px; text-align: center; white-space: normal; }
-            .insight-dashboard { position: static; margin-top: 20px; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; padding: 16px; }
             .metric-value { font-size: 18px; }
             .section-header h2 { font-size: 60px; letter-spacing: -3px; }
             .contact-info-grid { grid-template-columns: 1fr; }
@@ -1131,27 +1152,48 @@
             </div>
 
             <div class="banner-visual-wrapper">
-                <div class="data-stream">
-                    <div class="data-node">{"sales": 500k}</div>
-                    <div class="data-node">raw_data.csv</div>
-                    <div class="data-node">SELECT * FROM...</div>
+                <svg class="neural-network" viewBox="0 0 400 400">
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <g class="network-paths">
+                        <path class="flow-path" d="M100,200 Q200,50 300,200" />
+                        <path class="flow-path" d="M100,200 Q200,350 300,200" />
+                        <path class="flow-path" d="M200,100 L200,300" />
+                        <path class="flow-path" d="M100,200 L300,200" />
+                        <path class="flow-path" d="M150,150 L250,250" />
+                        <path class="flow-path" d="M150,250 L250,150" />
+                    </g>
+                    <g class="network-nodes">
+                        <circle class="node" cx="100" cy="200" r="6" />
+                        <circle class="node" cx="300" cy="200" r="6" />
+                        <circle class="node" cx="200" cy="100" r="6" />
+                        <circle class="node" cx="200" cy="300" r="6" />
+                        <circle class="node" cx="150" cy="150" r="4" />
+                        <circle class="node" cx="250" cy="250" r="4" />
+                        <circle class="node" cx="150" cy="250" r="4" />
+                        <circle class="node" cx="250" cy="150" r="4" />
+                        <circle class="node core-node" cx="200" cy="200" r="14" />
+                    </g>
+                </svg>
+
+                <div class="glass-panel panel-top">
+                    <div class="panel-label">Neural Activity</div>
+                    <div class="panel-bar"><div class="bar-fill"></div></div>
                 </div>
-                <div class="ai-pulse-core">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path></svg>
+                <div class="glass-panel panel-right">
+                    <div class="panel-label">Inference</div>
+                    <div class="panel-value">98.4ms</div>
                 </div>
-                <div class="insight-dashboard">
-                    <div class="metric-item">
-                        <div class="metric-value" id="count-efficiency">0%</div>
-                        <div class="metric-label">Efficiency</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-value" id="count-records">0</div>
-                        <div class="metric-label">Records</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-value" id="count-productivity">1x</div>
-                        <div class="metric-label">Productivity</div>
-                    </div>
+                <div class="glass-panel panel-bottom">
+                    <div class="panel-label">Accuracy</div>
+                    <div class="panel-value">99.2%</div>
                 </div>
             </div>
         </section>
@@ -1572,17 +1614,44 @@
                             duration: 1000
                         }, 2900);
 
-                        // Start Counters when banner is visible
-                        const counterData = { efficiency: 0, records: 0, productivity: 1 };
+                        // Start Counters & Visual Animations when banner is visible
                         anime({
-                            targets: counterData,
-                            efficiency: 40, records: 500, productivity: 3,
-                            round: 1, easing: 'easeOutExpo', duration: 3000, delay: 3500,
-                            update: () => {
-                                document.getElementById('count-efficiency').innerText = counterData.efficiency + '%';
-                                document.getElementById('count-records').innerText = counterData.records + 'K+';
-                                document.getElementById('count-productivity').innerText = counterData.productivity + 'x';
-                            }
+                            targets: '.flow-path',
+                            strokeDashoffset: [anime.setDashoffset, 0],
+                            easing: 'easeInOutSine',
+                            duration: 3000,
+                            delay: (el, i) => i * 250,
+                            loop: true,
+                            direction: 'alternate'
+                        });
+
+                        anime({
+                            targets: '.node',
+                            scale: [1, 1.2, 1],
+                            opacity: [0.6, 1, 0.6],
+                            easing: 'easeInOutQuad',
+                            duration: 2000,
+                            delay: anime.stagger(200),
+                            loop: true
+                        });
+
+                        anime({
+                            targets: '.glass-panel',
+                            translateY: [-10, 10],
+                            duration: 4000,
+                            direction: 'alternate',
+                            loop: true,
+                            easing: 'easeInOutSine',
+                            delay: anime.stagger(500)
+                        });
+
+                        anime({
+                            targets: '.bar-fill',
+                            width: ['0%', '85%'],
+                            duration: 3000,
+                            easing: 'easeInOutQuad',
+                            loop: true,
+                            direction: 'alternate'
                         });
 
                         bannerObserver.unobserve(entry.target);
