@@ -96,20 +96,20 @@
         }
 
         .nav-pill {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            height: 80px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            height: 90px;
             border-radius: 100px;
             display: flex;
             align-items: center;
-            padding: 0 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            padding: 0 15px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
             width: 100%;
-            max-width: 900px;
+            max-width: 1200px;
             justify-content: space-between;
-            border: 0.5px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            border: 0.5px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .pill-left {
@@ -181,11 +181,11 @@
         }
 
         .pill-status {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--text-dark);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
@@ -1179,13 +1179,13 @@
             .logo-square { width: 44px; height: 44px; font-size: 16px; }
 
             /* Mobile Navigation Refinement */
-            .nav-container { top: 15px; padding: 0 15px; }
-            .nav-pill { height: 64px; }
-            .pill-circle { width: 48px; height: 48px; font-size: 12px; }
-            .pill-menu-btn { width: 48px; height: 48px; }
-            .pill-status { font-size: 9px; letter-spacing: 1px; }
-            .status-indicator { padding: 4px 8px; gap: 5px; }
-            .pill-center { padding-right: 15px; }
+            .nav-container { top: 15px; padding: 0 12px; }
+            .nav-pill { height: 80px; padding: 0 12px; }
+            .pill-circle { width: 56px; height: 56px; font-size: 14px; }
+            .pill-menu-btn { width: 56px; height: 56px; }
+            .pill-status { font-size: 8px; letter-spacing: 0.1px; line-height: 1.1; text-align: left; font-weight: 600; }
+            .status-indicator { padding: 8px 12px; gap: 8px; max-width: 230px; }
+            .pill-center { padding: 0; flex: 1; display: flex; justify-content: center; }
 
             .menu-link { font-size: 42px; margin-bottom: 15px; }
             .close-btn { top: 20px; right: 20px; width: 50px; height: 50px; }
@@ -1202,7 +1202,7 @@
             <div class="pill-center">
                 <div class="status-indicator">
                     <div class="status-dot-pulse"></div>
-                    <span class="pill-status">SYSTEM ACTIVE • B-710</span>
+                    <span class="pill-status">status : seeking working student opportunities</span>
                 </div>
             </div>
             <button class="pill-menu-btn" id="menu-toggle" aria-label="Open Menu">
