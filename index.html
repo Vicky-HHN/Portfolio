@@ -13,7 +13,7 @@
     <noscript>
         <style>
             .hero-content, .welcome-block, .project-card, .background-card, .block, .section-header,
-            .banner-visual-wrapper, .editorial-title, .section-subtitle, .info-card,
+            .banner-visual-wrapper, .section-subtitle, .info-card,
             .status-pill-bottom, .contact-glass-card, .form-v2 > * {
                 opacity: 1 !important;
                 transform: none !important;
@@ -288,38 +288,40 @@
             transform: rotate(90deg);
         }
 
-        /* Hero */
+        /* Hero Refinement - Premium Split Layout */
         .hero {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            margin-bottom: 60px;
+            min-height: 90vh;
+            margin-bottom: 100px;
             position: relative;
-            text-align: center;
+            gap: 60px;
         }
 
         .hero-content {
-            max-width: 900px;
             z-index: 10;
+            text-align: left;
         }
 
         .hero h1 {
-            font-size: clamp(80px, 12vw, 150px);
-            line-height: 0.8;
-            margin-bottom: 30px;
-            letter-spacing: -8px;
+            font-size: clamp(60px, 10vw, 130px);
+            line-height: 0.85;
+            margin-bottom: 35px;
+            letter-spacing: -0.06em;
             color: var(--text-dark);
             font-weight: 700;
         }
 
         .hero .hero-subtitle {
-            font-size: 28px;
+            font-size: clamp(20px, 2.5vw, 32px);
             font-family: 'Fraunces', serif;
             color: var(--accent-primary);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             font-weight: 400;
             font-style: italic;
+            max-width: 600px;
+            line-height: 1.2;
         }
 
         .hero p.hero-label {
@@ -385,8 +387,59 @@
 
         .hero-btns {
             display: flex;
-            gap: 20px;
+            gap: 24px;
+            justify-content: flex-start;
+        }
+
+        /* Neural Prism Visual */
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
             justify-content: center;
+        }
+
+        .neural-prism-svg {
+            width: 120%;
+            height: 120%;
+            filter: drop-shadow(0 0 30px rgba(109, 115, 85, 0.1));
+        }
+
+        .prism-path {
+            stroke: var(--accent-primary);
+            stroke-width: 0.8;
+            fill: none;
+            opacity: 0.15;
+        }
+
+        .prism-node {
+            fill: var(--accent-primary);
+        }
+
+        .prism-glow {
+            fill: var(--accent-primary);
+            filter: blur(20px);
+            opacity: 0.15;
+        }
+
+        .data-stream {
+            stroke: var(--accent-secondary);
+            stroke-width: 2;
+            stroke-linecap: round;
+            opacity: 0.5;
+            stroke-dasharray: 10, 5;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(109, 115, 85, 0.08) 0%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+            filter: blur(40px);
         }
 
         /* Banner Visual Integration */
@@ -1090,7 +1143,7 @@
 
         /* Hide elements for animation */
         .hero-content, .welcome-block, .project-card, .background-card, .block, .section-header,
-        .banner-visual-wrapper, .editorial-title, .section-subtitle, .info-card,
+        .banner-visual-wrapper, .section-subtitle, .info-card,
         .status-pill-bottom, .contact-glass-card, .form-v2 > * {
             opacity: 0;
         }
@@ -1190,6 +1243,44 @@
                     <a href="#projects" class="btn btn-dark">View Projects</a>
                     <a href="Vishva_Gandhi_CV_.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Download CV</a>
                 </div>
+            </div>
+            <div class="hero-visual">
+                <svg class="neural-prism-svg" viewBox="0 0 500 500">
+                    <defs>
+                        <linearGradient id="prism-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--accent-primary);stop-opacity:0.2" />
+                            <stop offset="100%" style="stop-color:var(--accent-secondary);stop-opacity:0.2" />
+                        </linearGradient>
+                    </defs>
+                    <g class="prism-structure">
+                        <!-- Generative Hexagonal Mesh -->
+                        <path class="prism-path" d="M250,50 L400,150 L400,350 L250,450 L100,350 L100,150 Z" />
+                        <path class="prism-path" d="M250,50 L250,450" />
+                        <path class="prism-path" d="M100,150 L400,350" />
+                        <path class="prism-path" d="M400,150 L100,350" />
+
+                        <!-- Inner Crystal -->
+                        <path class="prism-path" d="M250,150 L325,250 L250,350 L175,250 Z" style="opacity: 0.4;" />
+
+                        <!-- Glow Points -->
+                        <circle class="prism-glow" cx="250" cy="200" r="40" />
+                        <circle class="prism-glow" cx="250" cy="300" r="40" />
+
+                        <!-- Nodes -->
+                        <circle class="prism-node" cx="250" cy="50" r="4" />
+                        <circle class="prism-node" cx="400" cy="150" r="4" />
+                        <circle class="prism-node" cx="400" cy="350" r="4" />
+                        <circle class="prism-node" cx="250" cy="450" r="4" />
+                        <circle class="prism-node" cx="100" cy="350" r="4" />
+                        <circle class="prism-node" cx="100" cy="150" r="4" />
+                        <circle class="prism-node" cx="250" cy="250" r="6" />
+
+                        <!-- Dynamic Streams -->
+                        <line class="data-stream" x1="250" y1="50" x2="250" y2="150" />
+                        <line class="data-stream" x1="400" y1="150" x2="325" y2="250" />
+                        <line class="data-stream" x1="100" y1="150" x2="175" y2="250" />
+                    </g>
+                </svg>
             </div>
         </section>
 
@@ -1525,7 +1616,47 @@
 
             // Initial Hero Animation
             const tl = anime.timeline({ easing: 'easeOutExpo', duration: 1200 });
-            tl.add({ targets: '.hero-content', opacity: [0, 1], translateY: [40, 0], delay: 400 });
+            tl.add({ targets: '.hero-content', opacity: [0, 1], translateY: [40, 0], delay: 400 })
+              .add({ targets: '.hero-visual', opacity: [0, 1], scale: [0.9, 1], delay: -800 });
+
+            // Neural Prism Animation
+            anime({
+                targets: '.prism-path',
+                strokeDashoffset: [anime.setDashoffset, 0],
+                easing: 'easeInOutSine',
+                duration: 3000,
+                delay: function(el, i) { return i * 250 },
+                direction: 'alternate',
+                loop: true
+            });
+
+            anime({
+                targets: '.prism-node',
+                scale: [1, 1.5, 1],
+                opacity: [0.5, 1, 0.5],
+                easing: 'easeInOutQuad',
+                duration: 2000,
+                delay: anime.stagger(200),
+                loop: true
+            });
+
+            anime({
+                targets: '.data-stream',
+                strokeDashoffset: [500, 0],
+                easing: 'linear',
+                duration: 4000,
+                loop: true
+            });
+
+            anime({
+                targets: '.prism-structure',
+                translateY: [-10, 10],
+                rotate: [-2, 2],
+                easing: 'easeInOutQuad',
+                duration: 5000,
+                direction: 'alternate',
+                loop: true
+            });
 
             // Intersection Observer for scroll animations
             const observer = new IntersectionObserver((entries) => {
