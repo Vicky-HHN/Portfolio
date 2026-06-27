@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
     <noscript>
         <style>
+            #intro-loader { display: none !important; }
             .hero-content, .welcome-block, .project-card, .background-card, .block, .section-header,
             .banner-visual-wrapper, .section-subtitle, .info-card,
             .status-pill-bottom, .contact-glass-card, .form-v2 > * {
@@ -1242,7 +1243,92 @@
             .contact-info-grid { width: 100%; }
         }
 
+        /* Intro Loader Styles */
+        #intro-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0A0A0B; /* Deep Cinematic Black */
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            pointer-events: all;
+        }
+
+        .loader-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-progress-container {
+            width: 300px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            position: relative;
+            margin-top: 30px;
+            overflow: hidden;
+            border-radius: 4px;
+            opacity: 0;
+        }
+
+        .loader-progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--accent-primary);
+            box-shadow: 0 0 15px var(--accent-primary);
+        }
+
+        .loader-status {
+            font-family: monospace;
+            font-size: 10px;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            opacity: 0;
+            height: 14px;
+        }
+
+        .loader-brand {
+            font-family: 'Fraunces', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            opacity: 0;
+            white-space: nowrap;
+        }
+
+        .loader-percentage {
+            font-family: monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 15px;
+            letter-spacing: 1px;
+            opacity: 0;
+        }
+
+        .loader-brand span {
+            display: inline-block;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #intro-loader { display: none !important; }
+        }
+
         @media (max-width: 768px) {
+            .loader-brand { font-size: 14px; letter-spacing: 12px; }
             .hero h1 { font-size: 60px; letter-spacing: -2px; }
             .project-grid, .about-split, .blocks-grid { grid-template-columns: 1fr; }
             .hero { flex-direction: column; text-align: center; padding-top: 120px; }
@@ -1277,7 +1363,18 @@
         }
     </style>
 </head>
-<body>
+<body style="overflow: hidden;">
+
+    <div id="intro-loader" aria-hidden="true">
+        <div class="loader-wrapper">
+            <div class="loader-status" id="loader-status">INITIALIZING SYSTEM...</div>
+            <h1 class="loader-brand">VISHVA GANDHI</h1>
+            <div class="loader-progress-container">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-percentage" id="loader-perc">00%</div>
+        </div>
+    </div>
 
     <nav class="nav-container">
         <div class="nav-pill">
@@ -1664,6 +1761,93 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Intro Loader Controller
+            const loader = document.getElementById('intro-loader');
+            const hasPlayed = sessionStorage.getItem('vvg_intro_played');
+
+            if (hasPlayed || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                loader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                runMainAnimations();
+            } else {
+                playIntro();
+            }
+
+            function playIntro() {
+                const statusEl = document.getElementById('loader-status');
+                const percEl = document.getElementById('loader-perc');
+                const statuses = [
+                    "CONNECTING TO DATA_SERVER...",
+                    "PARSING SCHEMAS...",
+                    "OPTIMIZING QUERY_ENGINE...",
+                    "SYSTEM_READY"
+                ];
+
+                const tl = anime.timeline({
+                    complete: () => {
+                        loader.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        sessionStorage.setItem('vvg_intro_played', 'true');
+                        runMainAnimations();
+                    }
+                });
+
+                tl.add({
+                    targets: '.loader-status',
+                    opacity: [0, 1],
+                    translateY: [10, 0],
+                    duration: 600,
+                    easing: 'easeOutExpo'
+                })
+                .add({
+                    targets: '.loader-brand',
+                    opacity: [0, 1],
+                    letterSpacing: ['25px', '12px'],
+                    duration: 1200,
+                    easing: 'easeOutExpo'
+                }, '-=400')
+                .add({
+                    targets: '.loader-progress-container, .loader-percentage',
+                    opacity: [0, 1],
+                    duration: 600,
+                    easing: 'linear'
+                }, '-=800')
+                .add({
+                    targets: '.loader-progress-bar',
+                    width: '100%',
+                    duration: 2000,
+                    easing: 'easeInOutQuart',
+                    update: (anim) => {
+                        const progress = Math.round(anim.progress);
+                        percEl.innerText = `${progress.toString().padStart(2, '0')}%`;
+
+                        if (progress > 25 && progress < 50) statusEl.innerText = statuses[0];
+                        if (progress > 50 && progress < 75) statusEl.innerText = statuses[1];
+                        if (progress > 75 && progress < 95) statusEl.innerText = statuses[2];
+                        if (progress > 95) statusEl.innerText = statuses[3];
+                    }
+                }, '-=400')
+                .add({
+                    targets: '.loader-wrapper',
+                    opacity: [1, 0],
+                    scale: [1, 1.05],
+                    duration: 800,
+                    easing: 'easeInExpo',
+                    delay: 400
+                })
+                .add({
+                    targets: '#intro-loader',
+                    opacity: [1, 0],
+                    duration: 1000,
+                    easing: 'easeInOutSine'
+                }, '-=400');
+            }
+
+            function runMainAnimations() {
+                // Trigger hero and scroll animations after intro
+                window.dispatchEvent(new Event('introFinished'));
+            }
+
             // Initialize Lenis Smooth Scroll
             const lenis = new Lenis({
                 duration: 1.2,
@@ -1728,10 +1912,18 @@
 
             // Elements are hidden via CSS to prevent FOUC
 
-            // Initial Hero Animation
-            const tl = anime.timeline({ easing: 'easeOutExpo', duration: 1200 });
-            tl.add({ targets: '.hero-content', opacity: [0, 1], translateY: [40, 0], delay: 400 })
-              .add({ targets: '.hero-visual', opacity: [0, 1], scale: [0.9, 1], delay: -800 });
+            // Initial Hero Animation Wrapper
+            function startHeroAnimation() {
+                const tl = anime.timeline({ easing: 'easeOutExpo', duration: 1200 });
+                tl.add({ targets: '.hero-content', opacity: [0, 1], translateY: [40, 0], delay: 400 })
+                  .add({ targets: '.hero-visual', opacity: [0, 1], scale: [0.9, 1], delay: -800 });
+            }
+
+            if (hasPlayed) {
+                startHeroAnimation();
+            } else {
+                window.addEventListener('introFinished', startHeroAnimation);
+            }
 
             // Data Traction Cube Animation
             anime({
