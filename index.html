@@ -1211,20 +1211,95 @@
         .form-status.success { display: block; background: rgba(16, 185, 129, 0.1); color: #059669; border: 1px solid rgba(16, 185, 129, 0.2); }
         .form-status.error { display: block; background: rgba(239, 68, 68, 0.1); color: #B91C1C; border: 1px solid rgba(239, 68, 68, 0.2); }
 
-        /* Footer */
+        /* Footer Redesign - Million Euro Aesthetic */
         footer {
-            padding: 100px 0;
+            padding: 80px 0 120px;
             text-align: center;
             background: var(--bg-white);
-            border-top: 1px solid rgba(0, 0, 0, 0.03);
+            border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+            position: relative;
         }
 
-        .footer-content {
-            font-weight: 700;
-            font-size: 11px;
+        .footer-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .footer-meta {
+            display: flex;
+            gap: 30px;
+            font-size: 9px;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--text-muted);
+            color: var(--accent-primary);
+            opacity: 0.5;
+        }
+
+        .footer-copyright {
+            font-family: 'Fraunces', serif;
+            font-size: 14px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--text-dark);
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            z-index: 900;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-primary);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(109, 115, 85, 0.25);
+        }
+
+        .back-to-top svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 3;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+            }
+            .footer-meta {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
         }
 
         /* Hide elements for animation */
@@ -1760,8 +1835,24 @@
         </section>
 
         <footer>
-            <div class="footer-content">&copy; 2026 Vishva Gandhi · Heilbronn, Germany</div>
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-meta">
+                        <span>EST. 2024</span>
+                        <span>LOC: HEILBRONN_DE</span>
+                        <span>SRV: ANALYTICS_V1</span>
+                    </div>
+                    <div class="footer-copyright">&copy; 2026 Vishva Gandhi. Built for Precision and Scale.</div>
+                    <div style="height: 1px; width: 100px; background: rgba(0,0,0,0.08);"></div>
+                </div>
+            </div>
         </footer>
+
+        <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </button>
     </div>
 
     <script>
@@ -2208,6 +2299,20 @@
                     }
                 });
             }
+
+            // Back to Top Logic
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 800) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                lenis.scrollTo(0, { duration: 2 });
+            });
 
             // Form Submission
             const form = document.getElementById('contact-form');
