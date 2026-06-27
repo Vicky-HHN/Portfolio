@@ -1269,6 +1269,7 @@
 
         .loader-progress-container {
             width: 300px;
+            max-width: 80vw;
             height: 2px;
             background: rgba(255, 255, 255, 0.05);
             position: relative;
@@ -1331,7 +1332,11 @@
             .loader-brand { font-size: 14px; letter-spacing: 12px; }
             .hero h1 { font-size: 60px; letter-spacing: -2px; }
             .project-grid, .about-split, .blocks-grid { grid-template-columns: 1fr; }
-            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+            .hero { display: flex; flex-direction: column; text-align: center; padding-top: 120px; min-height: auto; }
+            .hero-visual { height: 350px; order: -1; }
+            .traction-cube-svg { width: 100%; height: 100%; }
+            .hero-btns { justify-content: center; flex-direction: column; gap: 15px; }
+            .btn { width: 100%; }
             .banner-visual-wrapper { width: 100%; height: auto; margin-top: 40px; margin-left: 0; }
             .neural-network { height: 300px; }
             .glass-panel { padding: 10px 15px; border-radius: 15px; }
