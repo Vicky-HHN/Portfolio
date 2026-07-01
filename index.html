@@ -73,6 +73,59 @@
             line-height: 1.6;
         }
 
+        /* Full Screen Section Refinements */
+        @media (min-width: 1024px) {
+            html {
+                scroll-snap-type: y mandatory;
+            }
+
+            .hero,
+            .welcome-block,
+            #projects,
+            #about,
+            #communication,
+            #skills,
+            #contact {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 0 !important;
+                padding-top: 160px !important; /* Increased for header clearance */
+                padding-bottom: 100px !important;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+
+            .hero {
+                min-height: 100vh;
+            }
+
+            /* Adjust Welcome Block to handle its internal layout when full height */
+            .welcome-block {
+                border-radius: 60px;
+                padding-left: 80px !important;
+                padding-right: 80px !important;
+                margin-bottom: 0 !important;
+                flex-direction: row; /* Ensure row layout is maintained */
+            }
+
+            /* Section headers vertical rhythm */
+            .section-header {
+                margin-bottom: 60px;
+                padding: 0 !important;
+            }
+
+            /* Footer alignment */
+            footer {
+                min-height: 50vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                scroll-snap-align: end;
+            }
+        }
+
         h1, h2, h3, h4 {
             font-family: 'Fraunces', serif;
             font-weight: 700;
@@ -677,7 +730,7 @@
 
         /* Sections */
         section {
-            scroll-margin-top: 80px;
+            scroll-margin-top: 0;
         }
 
         .section-header {
@@ -953,6 +1006,7 @@
         }
 
         .contact-interface-header {
+            margin-top: 20px; /* Added breathing room */
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -1565,7 +1619,7 @@
         /* Hide elements for animation */
         .hero-content, .welcome-block, .project-card, .background-card, .block, .section-header,
         .banner-visual-wrapper, .section-subtitle, .info-card,
-        .status-pill-bottom, .contact-glass-card, .form-v2 > * {
+        .status-pill-bottom, .contact-glass-card, .form-v2 > *, .scroll-indicator {
             opacity: 0;
         }
 
@@ -1764,6 +1818,10 @@
                 <div class="hero-btns">
                     <a href="#projects" class="btn btn-dark">View Projects</a>
                     <a href="Vishva_Gandhi_CV_.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Download CV</a>
+                </div>
+                <div class="scroll-indicator" style="margin-top: 60px; opacity: 0.5; display: flex; align-items: center; gap: 15px; font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">
+                    <div style="width: 1px; height: 40px; background: var(--text-dark);"></div>
+                    <span>Scroll to explore</span>
                 </div>
             </div>
             <div class="hero-visual">
@@ -2357,7 +2415,17 @@
             function startHeroAnimation() {
                 const tl = anime.timeline({ easing: 'easeOutExpo', duration: 1200 });
                 tl.add({ targets: '.hero-content', opacity: [0, 1], translateY: [40, 0], delay: 400 })
-                  .add({ targets: '.hero-visual', opacity: [0, 1], scale: [0.9, 1], delay: -800 });
+                  .add({ targets: '.hero-visual', opacity: [0, 1], scale: [0.9, 1], delay: -800 })
+                  .add({ targets: '.scroll-indicator', opacity: [0, 0.5], translateY: [20, 0] }, '-=400');
+
+                anime({
+                    targets: '.scroll-indicator div',
+                    height: [20, 50],
+                    duration: 1500,
+                    easing: 'easeInOutQuad',
+                    loop: true,
+                    direction: 'alternate'
+                });
             }
 
             if (hasPlayed) {
