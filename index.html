@@ -75,10 +75,6 @@
 
         /* Full Screen Section Refinements */
         @media (min-width: 1024px) {
-            html {
-                scroll-snap-type: y mandatory;
-            }
-
             .hero,
             .welcome-block,
             #projects,
@@ -93,8 +89,6 @@
                 margin-bottom: 0 !important;
                 padding-top: 160px !important; /* Increased for header clearance */
                 padding-bottom: 100px !important;
-                scroll-snap-align: start;
-                scroll-snap-stop: always;
             }
 
             .hero {
@@ -122,7 +116,6 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                scroll-snap-align: end;
             }
         }
 
@@ -466,6 +459,7 @@
         .core-system {
             transform-origin: center;
             transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .orbital-ring {
@@ -1003,6 +997,7 @@
             fill: url(#radar-gradient);
             opacity: 0.1;
             transform-origin: center;
+            will-change: transform;
         }
 
         .contact-interface-header {
@@ -1075,7 +1070,7 @@
             pointer-events: none;
             z-index: 0;
             mix-blend-mode: multiply;
-            will-change: transform;
+            will-change: transform, opacity;
         }
         .light-leak-1 {
             top: -300px;
@@ -1110,7 +1105,7 @@
             filter: blur(160px);
             opacity: 0.03;
             mix-blend-mode: multiply;
-            will-change: transform;
+            will-change: transform, opacity;
         }
 
         .blob-1 { width: 1000px; height: 1000px; background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%); top: -400px; right: -300px; }
@@ -1304,6 +1299,7 @@
             pointer-events: none;
             opacity: 0.3;
             animation: scanline-flicker 10s infinite linear;
+            will-change: background-position;
         }
 
         @keyframes scanline-flicker {
@@ -2349,12 +2345,13 @@
 
             // Initialize Lenis Smooth Scroll
             const lenis = new Lenis({
-                duration: 1.2,
+                lerp: 0.08, // Increased for more responsive but still smooth feel
+                duration: 1.5,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 direction: 'vertical',
                 gestureDirection: 'vertical',
                 smooth: true,
-                mouseMultiplier: 1,
+                mouseMultiplier: 1.1, // Added slight boost for fluidity
                 smoothTouch: false,
                 touchMultiplier: 2,
                 infinite: false,
